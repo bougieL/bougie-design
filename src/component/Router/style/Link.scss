@@ -1,0 +1,22 @@
+@import '@/style';
+
+.bd-menu {
+  @include flex(flex-start);
+  padding: 0 10px;
+  background: palette('background_light');
+  font-weight: bold;
+  box-shadow: $boxShadowPrimary;
+  border-radius: $borderRadiusPrimary;
+  // box-shadow: 0 0 4px rgba(0,0,0,.3);
+  a {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    color: palette('title');
+    &.active{
+      background: palette('primary');
+      color: palette('content_light');
+      // box-shadow: 0 2px 8px rgba(0,0,0,.3) inset;
+    }
+  }
+}
