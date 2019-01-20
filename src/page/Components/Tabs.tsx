@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {Tabs, Title} from '@/component'
-import {appendStyle} from '@/util'
 
 export class TabsD extends React.Component {
   public state = {
@@ -17,12 +16,6 @@ export class TabsD extends React.Component {
       label: 'Tab 4',
       value: 4
     }]
-  }
-  public componentDidMount() {
-    appendStyle('.tabs-wrap .bd-tabpane', {
-      marginTop: '5px',
-      padding: '5px',
-    })
   }
   public render() {
     const {list} = this.state

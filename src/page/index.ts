@@ -1,5 +1,1 @@
 export * from './Components'
-export * from './User'
-export * from './Home'
-export * from './Image'
-export * from './Login'

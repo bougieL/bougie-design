@@ -1,14 +1,7 @@
 import * as React from 'react'
 import {Icon, Title} from '@/component'
-import {appendStyle} from '@/util'
 
 export class IconD extends React.Component {
-  public componentDidMount() {
-    appendStyle('.icon-wrap .bd-icon', {
-      color: '#39f',
-      fontSize: '36px',
-    })
-  }
   public render() {
     return <>
       <Title>Icon</Title>

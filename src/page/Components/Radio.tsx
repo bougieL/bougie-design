@@ -1,9 +1,7 @@
 import * as React from 'react'
 import {Radio, Title} from '@/component'
-import {Binder} from '@/util'
 
 export class RadioD extends React.Component {
-  public bd = new Binder(this)
   public state = {
     check1: false,
     check2: false,

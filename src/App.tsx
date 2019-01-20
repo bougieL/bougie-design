@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
-import { Link, Route } from './component';
-import { links, routes } from './router';
+import * as React from 'react'
+import { BrowserRouter as Router } from "react-router-dom"
+import { Link, Route } from './component'
+import { links, routes } from './router'
 
 class App extends React.Component {
   public render() {
@@ -12,8 +12,8 @@ class App extends React.Component {
           <Route list={routes} />
         </div>
       </Router>
-    );
+    )
   }
 }
 
-export default App;
+export default App
