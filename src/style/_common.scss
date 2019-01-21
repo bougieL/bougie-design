@@ -1,0 +1,46 @@
+@import './index';
+
+// --------------reset--------------
+html, body {
+  margin: 0;
+  padding: 0;
+  
+}
+
+body {
+  @include font('content');
+  color: palette('content');
+  background: palette('background');
+  // font-size: 12px;
+}
+
+div, section, ul, ol, li, p, h1, h2, h3, h4, input{
+  box-sizing: border-box;
+}
+
+ul, ol, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hide {
+  display: none!important;
+}
+
+// --------------class--------------
+.f-s {
+  @include flex(flex-start);
+}
+
+.f-c {
+  @include flex;
+}
+
+.f-e {
+  @include flex(flex-end);
+}
+
+.b-s {
+  width: 15px;
+}

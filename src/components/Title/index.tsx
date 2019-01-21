@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {classNames} from '@/util'
+import {classNames} from '@/utils'
 import './style'
 
 interface IProps{

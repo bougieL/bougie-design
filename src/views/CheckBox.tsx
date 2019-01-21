@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {CheckBox, Title} from '@/components'
-import {Binder} from '@/util'
+import {Binder} from '@/utils'
 
 export class CheckBoxD extends React.Component {
   public bd = new Binder(this)

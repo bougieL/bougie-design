@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Button, Title, Modal, Input} from '@/components'
-import {Binder} from '@/util'
+import {Binder} from '@/utils'
 
 export class ModalD extends React.Component {
   public bd = new Binder(this)
@@ -31,9 +31,9 @@ export class ModalD extends React.Component {
         <span className="b-s" />
         <Button type="warning" onClick={this.handleBtnClick.bind(this, 'custom')}>custom</Button>
       </div>
-      <Modal title="Primary" {...this.bd.modal('custom')}>Primary Modal</Modal>
+      <Modal title="Primary" {...this.bd.modal('primary')}>Primary Modal</Modal>
       <Modal title="Footer" {...this.bd.modal('footer')} footer={this.footer}>Primary Modal</Modal>
-      <Modal title="Custom" {...this.bd.modal('primary')}>
+      <Modal title="Custom" {...this.bd.modal('custom')}>
         <Input />
       </Modal>
     </>

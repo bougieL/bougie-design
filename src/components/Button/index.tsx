@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Icon} from '@/components'
-import { classNames } from '@/util'
+import { classNames } from '@/utils'
 import './style'
 
 interface IProps {

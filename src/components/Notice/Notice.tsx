@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import {classNames} from '@/util'
+import {classNames} from '@/utils'
 import {CSSTransition} from 'react-transition-group'
 
 interface IProps {

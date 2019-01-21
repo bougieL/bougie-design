@@ -2,6 +2,7 @@
 
 .bd-button {
   @include font('sub');
+  @include flex;
   outline: none;
   padding: 6px 15px;
   border-radius: $borderRadiusPrimary;
