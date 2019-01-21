@@ -1,0 +1,30 @@
+@import '@/style';
+
+$margin: 12px;
+
+.bd-notice {
+  padding: 12px;
+  box-shadow: $boxShadowPrimary;
+  border-radius: $borderRadiusPrimary;
+  margin: $margin;
+  background: palette('background_light');
+  width: 200px;
+  border-left: 4px solid palette('primary');
+  transition: $transitionPrimary;
+  &-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+  &-enter {
+    transform: translateX(calc(100% + #{$margin}));
+    &-done {
+      transform: none;
+    }
+  }
+  &-exit {
+    &-done {
+      transform: translateX(calc(100% + #{$margin}));
+    }
+  }
+}

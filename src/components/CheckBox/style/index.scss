@@ -1,0 +1,27 @@
+@import '@/style';
+
+.bd-checkbox {
+  @include flex;
+  cursor: pointer;
+  input {
+    display: none;
+    &:checked {
+      &+.bd-checkbox-icon {
+        background: palette('primary');
+        border-color: palette('primary');
+      }
+    }
+  }
+  &-icon {
+    @include flex;
+    width: 16px;
+    height: 16px;
+    border-radius: $borderRadiusPrimary;
+    transition: $transitionPrimary;
+    border: 1px solid palette('border');
+    background-color: palette('background_light');
+    color: palette('content_light');
+    font-size: 20px;
+    margin-right: 4px;
+  }
+}
