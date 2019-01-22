@@ -1,0 +1,28 @@
+@import '../../_style/index';
+
+.bd-upload {
+  width: 100%;
+  &-file {
+    @include flex(space-between);
+    padding: 5px 10px;
+    width: 100%;
+    border-radius: $borderRadiusPrimary;
+    transition: $transitionPrimary;
+    border: 1px solid transparent;
+    &:hover {
+      background: palette('background');
+      border: 1px solid palette('border');
+      .remove {
+        opacity: 1;
+      }
+    }
+    .remove {
+      cursor: pointer;
+      transition: $transitionPrimary;
+      opacity: 0;
+    }
+  }
+  &-files {
+    margin-top: 5px;
+  }
+}

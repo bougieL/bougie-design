@@ -1,0 +1,60 @@
+/**
+ * Color definitions
+ */
+.bd-button {
+  font-size: 12px;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  outline: none;
+  padding: 6px 15px;
+  border-radius: 4px;
+  transition: 0.3s ease;
+  border: 1px solid transparent;
+  cursor: pointer; }
+  .bd-button i {
+    margin-right: 4px; }
+  .bd-button-default {
+    background: #fff;
+    color: #333;
+    border-color: rgba(51, 51, 51, 0.3); }
+    .bd-button-default:hover {
+      background: #e6e6e6; }
+    .bd-button-default:active {
+      background: #cccccc; }
+  .bd-button-primary {
+    background: #2d8cf0;
+    color: #fff; }
+    .bd-button-primary:hover {
+      background: #5da6f3; }
+    .bd-button-primary:active {
+      background: #8cc0f7; }
+  .bd-button-success {
+    background: #19be6b;
+    color: #fff; }
+    .bd-button-success:hover {
+      background: #27e384; }
+    .bd-button-success:active {
+      background: #54e99e; }
+  .bd-button-warning {
+    background: #ff9900;
+    color: #fff; }
+    .bd-button-warning:hover {
+      background: #ffad33; }
+    .bd-button-warning:active {
+      background: #ffc266; }
+  .bd-button-error {
+    background: #ed4014;
+    color: #fff; }
+    .bd-button-error:hover {
+      background: #f16743; }
+    .bd-button-error:active {
+      background: #f48d73; }
+  .bd-button-disable {
+    background: #ddd;
+    color: #4d4d4d;
+    cursor: not-allowed; }
+  .bd-button:active {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2); }

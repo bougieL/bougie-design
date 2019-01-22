@@ -12,8 +12,8 @@ module.exports = {
   appIndexJs: resolve('src', 'index.tsx'),
   appPackageJson: resolve('package.json'),
   appLibs: resolve('libs'),
-  appComponents: resolve('src', 'components'),
-  appComponentsIndexJs: resolve('src', 'components', 'index.tsx'),
+  appComponents: resolve('components'),
+  appComponentsIndexJs: resolve('components', 'index.tsx'),
   appSrc: resolve('src'),
   appTsConfig: resolve('tsconfig.json'),
   appEsLint: resolve('tslint.json'),
@@ -22,9 +22,18 @@ module.exports = {
     return resolve('libs', ...p)
   },
   resolveComponent(...p) {
-    return resolve('src', 'components', ...p)
+    return resolve('components', ...p)
   },
   resolveComponentIndexJs(...p) {
-    return resolve('src', 'components', ...p, 'index.tsx')
+    return resolve('components', ...p, 'index.tsx')
+  },
+  resolveComponentIndexScss(...p) {
+    return resolve('components', ...p, 'style', 'index.scss')
+  },
+  resolveComponentCssDir(...p) {
+    return resolve('lib', ...p, 'style')
+  },
+  resolveComponentIndexCss(...p) {
+    return resolve('lib', ...p, 'style', 'index.css')
   }
 }

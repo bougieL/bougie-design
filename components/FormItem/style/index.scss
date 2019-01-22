@@ -1,0 +1,16 @@
+@import '../../_style/index';
+
+.bd-formitem {
+  margin-bottom: 10px;
+  &-label {
+    width: 90px;
+    margin-left: 10px;
+    flex-shrink: 0;
+  }
+  &-verticalcenter {
+    @include flex(flex-start);
+  }
+  &-verticaltop {
+    @include flex(center, flex-start);
+  }
+}

@@ -1,0 +1,16 @@
+@import '../../_style/index';
+
+.bd-input {
+  @include font('content');
+  $border: palette('border');
+  border: 1px solid $border;
+  padding: 8px;
+  outline: none;
+  background: palette('background_light');
+  border-radius: $borderRadiusPrimary;
+  width: 100%;
+  transition: $transitionPrimary;
+  &:focus, &:hover{
+    border-color: palette('primary');
+  }
+}
