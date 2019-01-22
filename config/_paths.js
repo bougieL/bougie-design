@@ -24,6 +24,9 @@ module.exports = {
   resolveComponent(...p) {
     return resolve('components', ...p)
   },
+  resolveLib(...p) {
+    return resolve('lib', ...p)
+  },
   resolveComponentIndexJs(...p) {
     return resolve('components', ...p, 'index.tsx')
   },

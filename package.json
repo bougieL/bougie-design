@@ -1,6 +1,6 @@
 {
   "name": "bougie-design",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Bougie",
     "email": "liuqi.hb.xiaogan@gmail.com",
@@ -14,10 +14,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "release": "node scripts/release.js",
-    "tsc": "tsc",
-    "test": "webpack --config config/webpack.config.release.js"
+    "release": "node scripts/release.js"
   },
+  "main": "lib/index.js",
   "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
