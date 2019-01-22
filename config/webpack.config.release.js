@@ -1,15 +1,15 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const paths = require('./_paths')
+const utils = require('./_utils')
 
 const publicPath = '/'
 
 module.exports = {
-  entry: [paths.appIndexJs],
+  entry: utils.genReleaseEntries(),
   output: {
-    filename: 'static/js/bundle.js',
-    chunkFilename: 'static/js/[name].chunk.js',
-    publicPath
+    filename: '[name].js',
+    path: paths.appLibs
   },
   mode: 'development',
   resolve: {
@@ -34,12 +34,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.(js|jsx|mjs)$/,
-        loader: require.resolve('source-map-loader'),
-        enforce: 'pre',
-        include: paths.appSrc,
-      },
       {
         oneOf: [
           {
@@ -76,12 +70,5 @@ module.exports = {
         ]
       }
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      inject: true,
-      template: paths.appHtml
-    }),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  }
 }
