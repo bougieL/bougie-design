@@ -1,4 +1,5 @@
 const fs = require('fs')
+const chalk = require('chalk')
 const execSync = require('child_process').execSync
 
 function replaceFileContent(path, searchValue, replaceValue) {
@@ -7,9 +8,13 @@ function replaceFileContent(path, searchValue, replaceValue) {
 }
 
 function exec(cmd) {
-  execSync(cmd, {
+  console.log(chalk.blue.bold(cmd))
+  const stdout = execSync(cmd, {
     stdio: 'inherit'
   })
+  if (stdout) {
+    console.log(chalk.green.bold(stdout))
+  }
 }
 
 module.exports = {

@@ -1,4 +1,4 @@
-const {resolveComponents, resolveLibComponents, resolveLib} = require('../config/_paths')
+const {resolveComponents, resolveLibComponents} = require('../config/_paths')
 const {exec, replaceFileContent} = require('../config/_utils')
 const fs = require('fs')
 

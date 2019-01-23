@@ -18,9 +18,6 @@ module.exports = {
   resolveComponents(...p) {
     return resolve('src', 'components', ...p)
   },
-  resolveLib(...p) {
-    return resolve('lib', ...p)
-  },
   resolveLibComponents(...p) {
     return resolve('lib', 'components', ...p)
   }
