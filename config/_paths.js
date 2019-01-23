@@ -11,7 +11,7 @@ module.exports = {
   appHtml: resolve('public', 'index.html'),
   appIndexJs: resolve('src', 'index.tsx'),
   appPackageJson: resolve('package.json'),
-  appLibs: resolve('libs'),
+  appLib: resolve('lib'),
   appComponents: resolve('components'),
   appComponentsIndexJs: resolve('components', 'index.tsx'),
   appSrc: resolve('src'),
@@ -29,6 +29,9 @@ module.exports = {
   },
   resolveComponentIndexJs(...p) {
     return resolve('components', ...p, 'index.tsx')
+  },
+  resolveLibIndexJs(...p) {
+    return resolve('lib', ...p, 'index.js')
   },
   resolveComponentIndexScss(...p) {
     return resolve('components', ...p, 'style', 'index.scss')
