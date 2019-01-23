@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDom from 'react-dom'
-import {classNames} from '../_utils'
+import {classNames} from '../../utils'
 import {CSSTransition} from 'react-transition-group'
 import './style'
 

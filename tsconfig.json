@@ -6,10 +6,10 @@
     "target": "es6",
     "lib": ["es7", "dom"],
     "sourceMap": false,
-    "allowJs": true,
+    "allowJs": false,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDir": "./components",
+    "rootDir": "./src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -18,12 +18,13 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
+    "declaration": true,
     "paths": {
       "@/*": ["./src/*"]
     }
   },
   "include": [
-    "./components/**/*"
+    "./src/components/**/*"
   ],
   "exclude": [
     "node_modules",

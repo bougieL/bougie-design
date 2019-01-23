@@ -1,19 +1,18 @@
-const {appComponents, resolveComponentIndexJs, resolveComponent, resolveComponentLib} = require('./_paths')
 const fs = require('fs')
+const execSync = require('child_process').execSync
 
-// 生成 webpack release 入口配置
-function genReleaseEntries() {
-  let componentsList = {}
-  fs.readdirSync(appComponents).forEach(componentDir => {
-    const isDir = fs.statSync(resolveComponent(componentDir)).isDirectory()
-    const isInitialUppercase = componentDir.match(/^[A-Z]/)
-    if (isDir && isInitialUppercase) {
-      componentsList[`${componentDir}/index`] = resolveComponentIndexJs(componentDir)
-    }
+function replaceFileContent(path, searchValue, replaceValue) {
+  let fileContent = fs.readFileSync(path, 'utf8')
+  fs.writeFileSync(path, fileContent.replace(searchValue, replaceValue))
+}
+
+function exec(cmd) {
+  execSync(cmd, {
+    stdio: 'inherit'
   })
-  return componentsList
 }
 
 module.exports = {
-  genReleaseEntries
+  exec,
+  replaceFileContent
 }

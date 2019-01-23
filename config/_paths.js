@@ -11,35 +11,17 @@ module.exports = {
   appHtml: resolve('public', 'index.html'),
   appIndexJs: resolve('src', 'index.tsx'),
   appPackageJson: resolve('package.json'),
-  appLib: resolve('lib'),
-  appComponents: resolve('components'),
-  appComponentsIndexJs: resolve('components', 'index.tsx'),
   appSrc: resolve('src'),
   appTsConfig: resolve('tsconfig.json'),
   appEsLint: resolve('tslint.json'),
   appNodeModules: resolve('node_modules'),
-  resolveComponentLib(...p) {
-    return resolve('libs', ...p)
-  },
-  resolveComponent(...p) {
-    return resolve('components', ...p)
+  resolveComponents(...p) {
+    return resolve('src', 'components', ...p)
   },
   resolveLib(...p) {
     return resolve('lib', ...p)
   },
-  resolveComponentIndexJs(...p) {
-    return resolve('components', ...p, 'index.tsx')
-  },
-  resolveLibIndexJs(...p) {
-    return resolve('lib', ...p, 'index.js')
-  },
-  resolveComponentIndexScss(...p) {
-    return resolve('components', ...p, 'style', 'index.scss')
-  },
-  resolveComponentCssDir(...p) {
-    return resolve('lib', ...p, 'style')
-  },
-  resolveComponentIndexCss(...p) {
-    return resolve('lib', ...p, 'style', 'index.css')
+  resolveLibComponents(...p) {
+    return resolve('lib', 'components', ...p)
   }
 }

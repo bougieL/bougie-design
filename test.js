@@ -1,1 +1,0 @@
-const {Button} = require('./lib/index')

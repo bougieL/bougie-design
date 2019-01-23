@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {classNames} from '../_utils'
+import {classNames} from '../../utils'
 import {TabPane} from '../TabPane'
 import './style'
 

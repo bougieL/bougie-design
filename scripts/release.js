@@ -1,31 +1,25 @@
-const paths = require('../config/_paths')
+const {resolveComponents, resolveLibComponents, resolveLib} = require('../config/_paths')
+const {exec, replaceFileContent} = require('../config/_utils')
 const fs = require('fs')
 
-const exec = require('child_process').execSync
+exec('rm -rf ./lib')
 
-// exec('rm -rf ./lib')
+exec('cp -r ./src ./lib')
 
 exec('./node_modules/.bin/tsc')
 
-exec('cp -r ./components ./lib')
-
-function replaceFileContent(path, searchValue, replaceValue) {
-  let fileContent = fs.readFileSync(path, 'utf8')
-  fs.writeFileSync(path, fileContent.replace(searchValue, replaceValue))
-}
-
-fs.readdirSync(paths.appComponents).forEach(componentDir => {
-  const isDir = fs.statSync(paths.resolveComponent(componentDir)).isDirectory()
+fs.readdirSync(resolveComponents()).forEach(componentDir => {
+  const isDir = fs.statSync(resolveComponents(componentDir)).isDirectory()
   const isInitialUppercase = componentDir.match(/^[A-Z]/)
   if (isDir && isInitialUppercase) {
-    if (fs.existsSync(paths.resolveComponentIndexScss(componentDir))) {
-      let indexJsPath = paths.resolveLibIndexJs(componentDir)
+    if (fs.existsSync(resolveComponents(componentDir, 'style'))) {
+      const indexJsPath = resolveLibComponents(componentDir, 'index.js')
       replaceFileContent(indexJsPath, '"./style"', '"./style/index.css"')
-      exec(`./node_modules/.bin/node-sass ${paths.resolveComponentIndexScss(componentDir)} > ${paths.resolveComponentIndexCss(componentDir)}`)
+      exec(`./node_modules/.bin/node-sass ${resolveComponents(componentDir, 'style', 'index.scss')} > ${resolveLibComponents(componentDir, 'style', 'index.css')}`)
     }
   }
 })
 
-exec(`./node_modules/.bin/node-sass ${paths.resolveComponent('_common.scss')} > ${paths.resolveLib('_common.css')}`)
+exec(`./node_modules/.bin/node-sass ${resolveComponents('_common.scss')} > ${resolveLibComponents('_common.css')}`)
 
-replaceFileContent(paths.resolveLib('index.js'), '"./_common"', '"./_common.css"')
+replaceFileContent(resolveLibComponents('index.js'), '"./_common"', '"./_common.css"')
