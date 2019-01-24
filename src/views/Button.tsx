@@ -1,8 +1,8 @@
-import * as React from 'react'
-import {Button, Title} from '@/components'
+import { Button, Title } from '@/components';
+import * as React from 'react';
 
 export class ButtonD extends React.Component {
-  public render() {
+  public render(): React.ReactNode {
     return <>
       <Title>Button</Title>
       <div className="f-s">
@@ -22,6 +22,6 @@ export class ButtonD extends React.Component {
         <span className="b-s" />
         <Button icon="trash" type="error">Delete</Button>
       </div>
-    </>
+    </>;
   }
 }

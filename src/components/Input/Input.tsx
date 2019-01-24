@@ -10,7 +10,7 @@ export interface IInputProps {
 
 export class Input extends React.Component<IInputProps> {
   public static defaultProps: Partial<IInputProps> = {
-    type: 'text'
+    type: 'text',
   };
   public handleOnChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const { onChange } = this.props;

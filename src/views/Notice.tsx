@@ -1,16 +1,16 @@
-import * as React from 'react'
-import {Button, Title, Notice} from '@/components'
+import { Button, Notice, Title } from '@/components';
+import * as React from 'react';
 
 export class NoticeD extends React.Component {
   public handleNotice = () => {
     Notice.info({
-      message: 'Hello World.'
-    })
+      message: 'Hello World.',
+    });
   }
-  public render() {
+  public render(): React.ReactNode {
     return <>
       <Title>Notice</Title>
       <Button onClick={this.handleNotice}>Notice</Button>
-    </>
+    </>;
   }
 }

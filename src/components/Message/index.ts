@@ -23,12 +23,12 @@ function next({title = '提示', message = '确定'}: IConfirm): Promise<any> {
         reject,
         resolve,
       },
-      title
+      title,
     }, message);
     ReactDOM.render(component, div);
   });
 }
 
 export const Message = {
-  confirm
+  confirm,
 };

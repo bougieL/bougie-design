@@ -1,13 +1,13 @@
-import * as React from 'react'
-import {Radio, Title} from '@/components'
+import { Radio, Title } from '@/components';
+import * as React from 'react';
 
 export class RadioD extends React.Component {
   public state = {
     check1: false,
     check2: false,
-    check3: false
-  }
-  public render() {
+    check3: false,
+  };
+  public render(): React.ReactNode {
     return <>
       <Title>Radio</Title>
       <div className="f-s">
@@ -18,6 +18,6 @@ export class RadioD extends React.Component {
         <Radio value={33}>33</Radio>
         <span className="b-s" />
       </div>
-    </>
+    </>;
   }
 }

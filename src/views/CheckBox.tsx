@@ -1,15 +1,15 @@
-import * as React from 'react'
-import {CheckBox, Title} from '@/components'
-import {Binder} from '@/utils'
+import { CheckBox, Title } from '@/components';
+import { Binder } from '@/utils';
+import * as React from 'react';
 
 export class CheckBoxD extends React.Component {
-  public bd = new Binder(this)
+  public bd = new Binder(this);
   public state = {
     check1: false,
     check2: false,
-    check3: false
-  }
-  public render() {
+    check3: false,
+  };
+  public render(): React.ReactNode {
     return <>
       <Title>CheckBox</Title>
       <div className="f-s">
@@ -20,6 +20,6 @@ export class CheckBoxD extends React.Component {
         <CheckBox {...this.bd.checkBox('check3')}>33</CheckBox>
         <span className="b-s" />
       </div>
-    </>
+    </>;
   }
 }

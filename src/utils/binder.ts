@@ -12,11 +12,14 @@ export class Binder {
   }
   public checkBox(key: string, cb?: Tcb): object {
     const that: IThis = this.that;
+    function setState(prevState: object): object {
+      return { [key]: !prevState[key] };
+    }
 
     return {
       checked: that.state[key],
       onChange: (): void => {
-        that.setState((prevState: object) => { [key]: !prevState[key] }, cb);
+        that.setState(setState , cb);
       },
     };
   }

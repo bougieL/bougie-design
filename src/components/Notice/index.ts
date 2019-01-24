@@ -25,11 +25,11 @@ function next({type = 'info', message = '确定'}: INotice): void {
     wrapper,
     onCancel(): void {
       ReactDOM.unmountComponentAtNode(div);
-    }
+    },
   }, message);
   ReactDOM.render(component, div);
 }
 
 export const Notice = {
-  info
+  info,
 };

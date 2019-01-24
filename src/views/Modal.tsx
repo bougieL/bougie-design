@@ -1,27 +1,27 @@
-import * as React from 'react'
-import {Button, Title, Modal, Input} from '@/components'
-import {Binder} from '@/utils'
+import { Button, Input, Modal, Title } from '@/components';
+import { Binder } from '@/utils';
+import * as React from 'react';
 
 export class ModalD extends React.Component {
-  public bd = new Binder(this)
+  public bd = new Binder(this);
   public state = {
     custom: false,
     footer: false,
     primary: false,
-  }
+  };
   public handleBtnClick(key: string): void {
     this.setState({
-      [key]: true
-    })
+      [key]: true,
+    });
   }
-  public footer(): any {
+  public footer(): React.ReactNode {
     return <>
       <Button>确定</Button>
       <span className="b-s" />
       <Button>取消</Button>
-    </>
+    </>;
   }
-  public render() {
+  public render(): React.ReactNode {
     return <>
       <Title>Modal</Title>
       <div className="f-s">
@@ -36,6 +36,6 @@ export class ModalD extends React.Component {
       <Modal title="Custom" {...this.bd.modal('custom')}>
         <Input />
       </Modal>
-    </>
+    </>;
   }
 }

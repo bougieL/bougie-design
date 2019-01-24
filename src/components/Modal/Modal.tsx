@@ -19,23 +19,23 @@ interface IState {
 export class Modal extends React.Component<IModalProps, IState> {
   public static defaultProps: Partial<IModalProps> = {
     type: 'primary',
-    visible: false
-  }
+    visible: false,
+  };
   public state = {
-    entered: false
-  }
+    entered: false,
+  };
   public componentWillReceiveProps(nextProps: IModalProps): void {
     const {visible} = nextProps;
     if (visible) {
       this.setState({
-        entered: visible
+        entered: visible,
       });
     }
   }
   public handleOnCancel = (): void => {
     const {onCancel} = this.props;
     this.setState({
-      entered: false
+      entered: false,
     }, () => {
       if (onCancel) {
         setTimeout(onCancel, 300);
@@ -49,7 +49,7 @@ export class Modal extends React.Component<IModalProps, IState> {
     return ReactDom.createPortal(
       <CSSTransition classNames="bd-modal-mask" timeout={0} in={entered} exit={!entered}>
         <div className={classNames("bd-modal-mask", {
-          hide: !visible
+          hide: !visible,
         })}>
           <CSSTransition classNames="bd-modal" timeout={0} in={entered} exit={!entered}>
             <div className="bd-modal">
@@ -58,7 +58,7 @@ export class Modal extends React.Component<IModalProps, IState> {
                 <span className="bd-modal-close" onClick={this.handleOnCancel}>&times;</span>
               </div>
               <div className={classNames("bd-modal-content", {
-                "bd-modal-content-bordernone": !footer
+                "bd-modal-content-bordernone": !footer,
               })}>{children}</div>
               {footer ? <div className="bd-modal-footer">{footer()}</div> : null}
             </div>

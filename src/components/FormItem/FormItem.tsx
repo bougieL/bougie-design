@@ -10,7 +10,7 @@ export interface IFormItemProps {
 
 export class FormItem extends React.Component<IFormItemProps> {
   public static defaultProps: Partial<IFormItemProps> = {
-    vertical: 'center'
+    vertical: 'center',
   };
   public render(): React.ReactNode {
     const {label, labelWith, children, vertical} = this.props;
@@ -20,7 +20,7 @@ export class FormItem extends React.Component<IFormItemProps> {
         <div
           className="bd-formitem-label"
           style={{
-            width: labelWith + 'px'
+            width: labelWith + 'px',
           }}
         >{label}</div>
         {children}

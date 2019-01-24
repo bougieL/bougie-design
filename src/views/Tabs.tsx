@@ -1,24 +1,25 @@
-import * as React from 'react'
-import {Tabs, Title} from '@/components'
+import { Tabs, Title } from '@/components';
+import * as React from 'react';
 
 export class TabsD extends React.Component {
   public state = {
     list: [{
       label: 'Tab 1',
-      value: 1
+      value: 1,
     }, {
       label: 'Tab 2',
-      value: 2
+      value: 2,
     }, {
       label: 'Tab 3',
-      value: 3
+      value: 3,
     }, {
       label: 'Tab 4',
-      value: 4
-    }]
-  }
-  public render() {
-    const {list} = this.state
+      value: 4,
+    }],
+  };
+  public render(): React.ReactNode {
+    const {list} = this.state;
+
     return <>
       <Title>Tabs</Title>
       <div className="f-s tabs-wrap">
@@ -29,6 +30,6 @@ export class TabsD extends React.Component {
           <Tabs.TabPane>444</Tabs.TabPane>
         </Tabs>
       </div>
-    </>
+    </>;
   }
 }

@@ -1,8 +1,8 @@
-import * as React from 'react'
-import {Icon, Title} from '@/components'
+import { Icon, Title } from '@/components';
+import * as React from 'react';
 
 export class IconD extends React.Component {
-  public render() {
+  public render(): React.ReactNode {
     return <>
       <Title>Icon</Title>
       <div className="f-s icon-wrap">
@@ -15,6 +15,6 @@ export class IconD extends React.Component {
         <Icon type="cloud-upload" />
         <span className="b-s" />
       </div>
-    </>
+    </>;
   }
 }

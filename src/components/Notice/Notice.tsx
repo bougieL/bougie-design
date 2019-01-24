@@ -16,16 +16,16 @@ interface IState {
 
 export class Notice extends React.Component<IProps, IState> {
   public state = {
-    entered: false
+    entered: false,
   };
   public componentDidMount(): void {
     this.setState({
-      entered: true
-    })
+      entered: true,
+    });
     const {onCancel} = this.props;
     setTimeout(() => {
       this.setState({
-        entered: false
+        entered: false,
       }, () => {
         setTimeout(() => {
           onCancel();

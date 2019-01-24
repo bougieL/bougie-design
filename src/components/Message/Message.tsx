@@ -15,7 +15,7 @@ interface IState {
 
 export class Message extends React.Component<IProps, IState> {
   public state = {
-    visible: false
+    visible: false,
   };
   public ref: React.RefObject<any> = React.createRef();
   public handleFooterClick(action: string): void {
@@ -38,7 +38,7 @@ export class Message extends React.Component<IProps, IState> {
   }
   public componentDidMount(): void {
     this.setState({
-      visible: true
+      visible: true,
     });
   }
   public render(): React.ReactNode {

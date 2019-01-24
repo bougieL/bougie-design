@@ -15,7 +15,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "release": "node scripts/release.js",
-    "lint": "tslint --lint"
+    "lint": "tslint -c tslint.json 'src/**/*.ts*'"
   },
   "main": "lib/components/index.js",
   "dependencies": {
@@ -39,6 +39,7 @@
     "style-loader": "0.23.1",
     "ts-loader": "^5.3.3",
     "tslint": "^5.12.1",
+    "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.2.4",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.0",

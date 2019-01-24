@@ -1,59 +1,66 @@
-import * as React from 'react'
-import {Button, Title, Table, Notice, MessageBox} from '@/components'
+import { Button, Message, Notice, Table, Title } from '@/components';
+import * as React from 'react';
+
+interface IData {
+  grade: string;
+  name: string;
+  score: number;
+}
 
 export class TableD extends React.Component {
   public state = {
     columns: [
       {
         dataIndex: 'name',
-        name: '姓名'
+        name: '姓名',
       },
       {
         dataIndex: 'score',
-        name: '分数'
+        name: '分数',
       },
       {
         dataIndex: 'grade',
-        name: '等级'
+        name: '等级',
       },
       {
         name: '操作',
-        render: (data: any) => {
-          return <Button type="error" onClick={this.handleDelClick.bind(this, data)}>Delete</Button>
-        }
-      }
+        render: (data: object) => {
+          return <Button type="error" onClick={this.handleDelClick.bind(this, data)}>Delete</Button>;
+        },
+      },
     ],
-    data: []
-  }
-  public componentDidMount() {
-    const data = []
+    data: [],
+  };
+  public componentDidMount(): void {
+    const data: IData[] = [];
     for(let i = 0; i < 10; i++) {
       data.push({
         grade: ['A', 'B', 'C', 'D', 'E'][Math.round(Math.random() * 4)],
         name: '张三',
-        score: Math.round(Math.random() * 100)
-      })
+        score: Math.round(Math.random() * 100),
+      });
     }
-    this.setState({data})
+    this.setState({data});
   }
-  public handleDelClick = (data: any) => {
-    MessageBox.confirm({
-      message: `确定删除${data.name} ?`
+  public handleDelClick = (data: IData) => {
+    Message.confirm({
+      message: `确定删除${data.name} ?`,
     }).then(() => {
       Notice.info({
-        message: '点击了确定'
-      })
+        message: '点击了确定',
+      });
     }).catch(() => {
       Notice.info({
-        message: '点击了取消'
-      })
-    })
+        message: '点击了取消',
+      });
+    });
   }
-  public render() {
-    const {columns, data} = this.state
+  public render(): React.ReactNode {
+    const {columns, data} = this.state;
+
     return <>
       <Title>Table</Title>
       <Table columns={columns} data={data} />
-    </>
+    </>;
   }
 }

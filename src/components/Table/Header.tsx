@@ -9,10 +9,10 @@ export class Header extends React.Component<ITableProps> {
       <tr>
         {
           columns.map(({name, dataIndex}, i) => {
-            return <th key={i} data-index={dataIndex}>{name}</th>
+            return <th key={i} data-index={dataIndex}>{name}</th>;
           })
         }
       </tr>
-    </thead>
+    </thead>;
   }
 }

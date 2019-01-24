@@ -1,25 +1,24 @@
 {
   "extends": "tslint:recommended",
-  "rulesDirectory": "./src",
   "rules": {
-    "quotemark": false,
     "file-name-casing": false,
-    "semicolon": true,
-    "newline-before-return": true,
-    "whitespace": [true, "check-module"],
-    "member-ordering": true,
-    "typedef": [true, "call-signature"],
-    "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
-    "prefer-method-signature": true,
-    "no-default-export": true,
-    "no-any": true,
-    "no-console": {
-      "severity": "warning"
-    },
     "max-line-length": {
       "options": [120]
     },
+    "newline-before-return": true,
+    "no-any": false,
+    "no-console": {
+      "severity": "warning"
+    },
+    "no-default-export": true,
+    "no-import-side-effect": false,
     "prefer-function-over-method": false,
-    "no-import-side-effect": false
-  }
+    "prefer-method-signature": true,
+    "quotemark": false,
+    "semicolon": true,
+    "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
+    "typedef": [true, "call-signature"],
+    "whitespace": [true, "check-module"]
+  },
+  "rulesDirectory": ["tslint-plugin-prettier"]
 }
