@@ -1,6 +1,6 @@
 {
   "name": "bougie-design",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "author": {
     "name": "Bougie",
     "email": "liuqi.hb.xiaogan@gmail.com",
@@ -14,7 +14,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "release": "node scripts/release.js"
+    "release": "node scripts/release.js",
+    "lint": "tslint --lint"
   },
   "main": "lib/components/index.js",
   "dependencies": {
@@ -37,6 +38,7 @@
     "source-map-loader": "^0.2.4",
     "style-loader": "0.23.1",
     "ts-loader": "^5.3.3",
+    "tslint": "^5.12.1",
     "typescript": "^3.2.4",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.0",

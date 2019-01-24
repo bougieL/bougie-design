@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {ITableProps} from './interface'
+import { ITableProps } from './interface';
 
-export default class Header extends React.Component<ITableProps> {
-  public render() {
-    const {columns} = this.props
+export class Header extends React.Component<ITableProps> {
+  public render(): React.ReactNode {
+    const {columns} = this.props;
+
     return <thead>
       <tr>
         {

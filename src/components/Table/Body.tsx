@@ -1,30 +1,32 @@
-import * as React from 'react'
-import {ITableProps} from './interface'
+import * as React from 'react';
+import { ITableProps } from './interface';
 
-export default class Body extends React.Component<ITableProps> {
-  public renderRow = (data: object, i: number) => {
-    const {columns} = this.props
+export class Body extends React.Component<ITableProps> {
+  public renderRow = (data: object, i: number): React.ReactNode => {
+    const {columns} = this.props;
+
     return <tr key={i}>
       {
         columns.map((obj, oi) => {
-          const {dataIndex, render} = obj
+          const {dataIndex, render} = obj;
           if (dataIndex) {
-            return <td key={oi}>{data[dataIndex]}</td>
+            return <td key={oi}>{data[dataIndex]}</td>;
           } else if (render) {
-            return <td key={oi}>{render(data)}</td>
+            return <td key={oi}>{render(data)}</td>;
           } else {
-            return <td key={oi} />
+            return <td key={oi} />;
           }
         })
       }
-    </tr>
+    </tr>;
   }
-  public render() {
-    const {data = []} = this.props
+  public render(): React.ReactNode {
+    const {data = []} = this.props;
+
     return <tbody>
       {
         data.map(this.renderRow)
       }
-    </tbody>
+    </tbody>;
   }
 }

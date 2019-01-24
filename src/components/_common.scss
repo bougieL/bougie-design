@@ -11,7 +11,6 @@ body {
   @include font('content');
   color: palette('content');
   background: palette('background');
-  // font-size: 12px;
 }
 
 div, section, ul, ol, li, p, h1, h2, h3, h4, input{

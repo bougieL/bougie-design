@@ -1,10 +1,8 @@
-import * as React from 'react'
-import {Components} from './views'
+import * as React from 'react';
+import { Components } from './views';
 
-class App extends React.Component {
-  public render() {
-    return <Components />
+export class App extends React.Component {
+  public render(): React.ReactNode {
+    return <Components />;
   }
 }
-
-export default App

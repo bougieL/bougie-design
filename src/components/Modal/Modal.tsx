@@ -1,20 +1,19 @@
-import * as React from 'react'
-import * as ReactDom from 'react-dom'
-import {classNames} from '../../utils'
-import {CSSTransition} from 'react-transition-group'
-import './style'
+import * as React from 'react';
+import * as ReactDom from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
+import { classNames } from '../../utils';
 
 export interface IModalProps {
-  visible?: boolean,
-  title?: string,
-  type?: string,
-  onCancel?: () => void,
-  onOk?: () => void,
-  footer?: () => any
+  visible?: boolean;
+  title?: string;
+  type?: string;
+  onCancel?(): void;
+  onOk?(): void;
+  footer?(): React.ReactNode;
 }
 
 interface IState {
-  entered: boolean
+  entered: boolean;
 }
 
 export class Modal extends React.Component<IModalProps, IState> {
@@ -25,27 +24,28 @@ export class Modal extends React.Component<IModalProps, IState> {
   public state = {
     entered: false
   }
-  public componentWillReceiveProps(nextProps: IModalProps) {
-    const {visible} = nextProps
+  public componentWillReceiveProps(nextProps: IModalProps): void {
+    const {visible} = nextProps;
     if (visible) {
       this.setState({
         entered: visible
-      })
+      });
     }
   }
-  public handleOnCancel = () => {
-    const {onCancel} = this.props
+  public handleOnCancel = (): void => {
+    const {onCancel} = this.props;
     this.setState({
       entered: false
     }, () => {
       if (onCancel) {
-        setTimeout(onCancel, 300)
+        setTimeout(onCancel, 300);
       }
-    })
+    });
   }
-  public render() {
-    const {children, title, visible, footer} = this.props
-    const {entered} = this.state
+  public render(): React.ReactNode {
+    const {children, title, visible, footer} = this.props;
+    const {entered} = this.state;
+
     return ReactDom.createPortal(
       <CSSTransition classNames="bd-modal-mask" timeout={0} in={entered} exit={!entered}>
         <div className={classNames("bd-modal-mask", {
@@ -65,6 +65,6 @@ export class Modal extends React.Component<IModalProps, IState> {
           </CSSTransition>
         </div>
       </CSSTransition>
-    , document.body)
+    , document.body);
   }
 }

@@ -6,16 +6,17 @@
  * @returns {object}
  */
 export function styleToObject(cssText: string): object {
-  const regex = /([\w-]*)\s*:\s*([^;]*)/g
-  let match: any = true
-  const properties = {}
-  while (!!match) {
-    match = regex.exec(cssText)
+  const regex = /([\w-]*)\s*:\s*([^;]*)/g;
+  let match: any = true;
+  const properties = {};
+  while (match) {
+    match = regex.exec(cssText);
     if (match) {
-      properties[match[1]] = match[2].trim()
+      properties[match[1]] = match[2].trim();
     }
   }
-  return properties
+
+  return properties;
 }
 
 /**
@@ -26,13 +27,14 @@ export function styleToObject(cssText: string): object {
  * @returns {string}
  */
 export function objectToStyle(properties: object): string {
-  let cssText: string = ''
-  Object.keys(properties).forEach(key => {
-    cssText += key.replace(/([A-Z])/g, '-$1').toLowerCase() + `:${properties[key]};`
-  })
-  return cssText
-}
+  let cssText: string = '';
+  Object.keys(properties)
+  .forEach((key: string) => {
+    cssText += key.replace(/([A-Z])/g, '-$1').toLowerCase() + `:${properties[key]};`;
+  });
 
+  return cssText;
+}
 
 /**
  * append global style to style tag
@@ -41,14 +43,17 @@ export function objectToStyle(properties: object): string {
  * @param {string} selector
  * @param {(object | string)} style
  */
-export function appendStyle(selector:string, style: object | string): void {
-  let tag = document.querySelector('style')
+export function appendStyle(selector: string, style: object | string): void {
+  let styleStr: string = '';
+  let tag = document.querySelector('style');
   if (!tag) {
-    tag = document.createElement('style')
-    document.head.appendChild(tag)
+    tag = document.createElement('style');
+    document.head.appendChild(tag);
   }
   if (style instanceof Object) {
-    style = objectToStyle(style)
+    styleStr = objectToStyle(style);
+  } else {
+    styleStr = style;
   }
-  tag.innerHTML = tag.innerHTML + `${selector}{${style}}`
+  tag.innerHTML = tag.innerHTML + `${selector}{${styleStr}}`;
 }
