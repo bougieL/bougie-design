@@ -27,10 +27,11 @@ export function styleToObject(cssText: string): object {
  * @returns {string}
  */
 export function objectToStyle(properties: object): string {
-  let cssText: string = '';
+  let cssText = '';
   Object.keys(properties)
   .forEach((key: string) => {
-    cssText += key.replace(/([A-Z])/g, '-$1').toLowerCase() + `:${properties[key]};`;
+    cssText += `${key.replace(/([A-Z])/g, '-$1')
+      .toLowerCase()}:${properties[key]};`;
   });
 
   return cssText;
@@ -44,16 +45,11 @@ export function objectToStyle(properties: object): string {
  * @param {(object | string)} style
  */
 export function appendStyle(selector: string, style: object | string): void {
-  let styleStr: string = '';
   let tag = document.querySelector('style');
   if (!tag) {
     tag = document.createElement('style');
     document.head.appendChild(tag);
   }
-  if (style instanceof Object) {
-    styleStr = objectToStyle(style);
-  } else {
-    styleStr = style;
-  }
-  tag.innerHTML = tag.innerHTML + `${selector}{${styleStr}}`;
+  const styleStr = style instanceof Object ? objectToStyle(style) : style;
+  tag.innerHTML = `${tag.innerHTML}${selector}{${styleStr}}`;
 }

@@ -1,7 +1,7 @@
 type TItems = Array<string | {[key: string]: boolean | null | ''} | [string]>;
 
 export function classNames(...items: TItems): string {
-  let str: string = '';
+  let str = '';
   (function iterator(arr: any[]): void {
     arr.forEach((v: any) => {
       if (Array.isArray(v)) {
@@ -10,7 +10,7 @@ export function classNames(...items: TItems): string {
         Object.keys(v)
         .forEach((key: string) => {
           const val = v[key];
-          if (['', null, false].indexOf(val) < 0) {
+          if (val) {
             str += ` ${key}`;
           }
         });

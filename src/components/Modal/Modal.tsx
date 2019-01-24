@@ -4,12 +4,12 @@ import { CSSTransition } from 'react-transition-group';
 import { classNames } from '../../utils';
 
 export interface IModalProps {
-  visible?: boolean;
   title?: string;
   type?: string;
+  visible?: boolean;
+  footer?(): React.ReactNode;
   onCancel?(): void;
   onOk?(): void;
-  footer?(): React.ReactNode;
 }
 
 interface IState {
@@ -60,7 +60,7 @@ export class Modal extends React.Component<IModalProps, IState> {
               <div className={classNames("bd-modal-content", {
                 "bd-modal-content-bordernone": !footer,
               })}>{children}</div>
-              {footer ? <div className="bd-modal-footer">{footer()}</div> : null}
+              {footer ? <div className="bd-modal-footer">{footer()}</div> : undefined}
             </div>
           </CSSTransition>
         </div>

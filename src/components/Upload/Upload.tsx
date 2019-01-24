@@ -46,12 +46,11 @@ export class Upload extends React.Component<IUploadProps, IState> {
       <Button type="primary" onClick={this.handleButtonClick} icon="cloud-upload">Click to Upload</Button>
       <div className="bd-upload-files">
         {
-          files.map(({name}, i) => {
-            return <div className="bd-upload-file" key={i}>
+          files.map(({name}, i) =>
+            <div className="bd-upload-file" key={i}>
               <span>{name}</span>
               <span className="remove" onClick={this.handleRemove.bind(this, i)}>&times;</span>
-            </div>;
-          })
+            </div>)
         }
       </div>
       <input ref={this.inputRef} type="file" className="hide" multiple={multiple} onChange={this.handleInputChange} />

@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 export interface IInputProps {
-  value?: string | number;
   name?: string;
   placeholder?: string;
   type?: string;
+  value?: string | number;
   onChange?(evt: React.ChangeEvent<HTMLInputElement>): void;
 }
 

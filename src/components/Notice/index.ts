@@ -4,8 +4,8 @@ import { Notice as Modal } from './Notice';
 import './style';
 
 interface INotice {
-  type?: 'info' | 'error' | 'warning' | 'success';
   message?: string;
+  type?: 'info' | 'error' | 'warning' | 'success';
 }
 
 function info(props: INotice): any {

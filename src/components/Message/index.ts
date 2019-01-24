@@ -3,8 +3,8 @@ import * as ReactDOM from 'react-dom';
 import { Message as Modal } from './Message';
 
 interface IConfirm {
-  title?: string;
   message?: string;
+  title?: string;
 }
 
 function confirm(props: IConfirm): any {
@@ -17,7 +17,7 @@ function next({title = '提示', message = '确定'}: IConfirm): Promise<any> {
     const component = React.createElement(Modal, {
       onCancel: () => {
         ReactDOM.unmountComponentAtNode(div);
-        div = null;
+        div = undefined;
       },
       promise: {
         reject,

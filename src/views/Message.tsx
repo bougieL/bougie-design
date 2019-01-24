@@ -5,11 +5,13 @@ export class MessageD extends React.Component {
   public handleMessage = () => {
     Message.confirm({
       message: '你确定？',
-    }).then(() => {
+    })
+    .then(() => {
       Notice.info({
         message: '点击了确定',
       });
-    }).catch(() => {
+    })
+    .catch(() => {
       Notice.info({
         message: '点击了取消',
       });

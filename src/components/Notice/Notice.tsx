@@ -4,8 +4,8 @@ import { CSSTransition } from 'react-transition-group';
 import { classNames } from '../../utils';
 
 interface IProps {
-  type: string;
   children?: any;
+  type: string;
   wrapper: any;
   onCancel(): void;
 }

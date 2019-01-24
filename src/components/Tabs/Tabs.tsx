@@ -4,11 +4,11 @@ import { TabPane } from '../TabPane';
 
 export interface ITabsProps {
   children?: React.ReactNode;
-  list: Array<{
-    label: string | number,
-    value: string | number,
-  }>;
   gutter: number;
+  list: Array<{
+    label: string | number;
+    value: string | number;
+  }>;
   onChange?(data: object | string | number): void;
 }
 
@@ -30,6 +30,52 @@ export class Tabs extends React.Component<ITabsProps, IState> {
     barStyle: {},
     contentStyle: {},
   };
+  public componentDidMount(): void {
+    this.updateBarStyle();
+    this.updateContentStyle();
+  }
+  public handleItemClick(idx: number): void {
+    const {onChange, list} = this.props;
+    this.setState({
+      active: idx,
+    }, () => {
+      this.updateBarStyle();
+      this.updateContentStyle();
+      if (onChange) {
+        onChange(list[idx]);
+      }
+    });
+  }
+  public render(): React.ReactNode {
+    const {list, children, gutter} = this.props;
+    const {active, barStyle, contentStyle} = this.state;
+
+    return <div className="bd-tabs">
+      <div className="bd-tabs-header">
+        <ul className="bd-tabs-list" ref={this.refHeader}>
+          {
+            list.map(({label}, i) =>
+              <li
+                  className={classNames('bd-tabs-item', {
+                    active: i === active,
+                  })}
+                  style={{
+                    margin: `0 ${gutter/2}px`,
+                  }}
+                  onClick={this.handleItemClick.bind(this, i)}
+                  key={i}>{label}
+                </li>)
+          }
+        </ul>
+        <div className="bd-tabs-bar" style={barStyle} />
+      </div>
+      {
+        children ? <div ref={this.refScroll} className="bd-tabs-scroll">
+          <div className="bd-tabs-content" style={contentStyle}>{children}</div>
+        </div> : undefined
+      }
+    </div>;
+  }
   public updateBarStyle(): void {
     if (!this.refHeader || !this.refHeader.current) {
       return;
@@ -38,7 +84,7 @@ export class Tabs extends React.Component<ITabsProps, IState> {
     const {gutter} = this.props;
     const items: NodeListOf<HTMLLIElement> = this.refHeader.current.querySelectorAll('.bd-tabs-item');
     let offset = gutter / 2;
-    for(let i = 0; i < active; i++) {
+    for(let i = 0; i < active; i+=1) {
       offset += items[i].offsetWidth + gutter;
     }
     const barWidth = items[active].offsetWidth;
@@ -60,52 +106,5 @@ export class Tabs extends React.Component<ITabsProps, IState> {
         transform: `translate3d(-${scrollWidth * active}px, 0, 0)`,
       },
     });
-  }
-  public handleItemClick(idx: number): void {
-    const {onChange, list} = this.props;
-    this.setState({
-      active: idx,
-    }, () => {
-      this.updateBarStyle();
-      this.updateContentStyle();
-      if (onChange) {
-        onChange(list[idx]);
-      }
-    });
-  }
-  public componentDidMount(): void {
-    this.updateBarStyle();
-    this.updateContentStyle();
-  }
-  public render(): React.ReactNode {
-    const {list, children, gutter} = this.props;
-    const {active, barStyle, contentStyle} = this.state;
-
-    return <div className="bd-tabs">
-      <div className="bd-tabs-header">
-        <ul className="bd-tabs-list" ref={this.refHeader}>
-          {
-            list.map(({label}, i) => {
-              return <li
-                  className={classNames('bd-tabs-item', {
-                    active: i === active,
-                  })}
-                  style={{
-                    margin: `0 ${gutter/2}px`,
-                  }}
-                  onClick={this.handleItemClick.bind(this, i)}
-                  key={i}>{label}
-                </li>;
-            })
-          }
-        </ul>
-        <div className="bd-tabs-bar" style={barStyle} />
-      </div>
-      {
-        children ? <div ref={this.refScroll} className="bd-tabs-scroll">
-          <div className="bd-tabs-content" style={contentStyle}>{children}</div>
-        </div> : null
-      }
-    </div>;
   }
 }

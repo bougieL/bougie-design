@@ -7,6 +7,7 @@ const publicPath = '/'
 module.exports = {
   entry: [paths.appIndexJs],
   output: {
+    pathinfo: true,
     filename: 'static/js/bundle.js',
     chunkFilename: 'static/js/[name].chunk.js',
     publicPath

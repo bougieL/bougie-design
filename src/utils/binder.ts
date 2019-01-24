@@ -7,7 +7,7 @@ type Tcb = () => void;
 
 export class Binder {
   private that: IThis;
-  private constructor(that: IThis) {
+  public constructor(that: IThis) {
     this.that = that;
   }
   public checkBox(key: string, cb?: Tcb): object {

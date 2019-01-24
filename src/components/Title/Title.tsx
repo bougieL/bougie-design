@@ -2,8 +2,8 @@ import * as React from 'react';
 import { classNames } from '../../utils';
 
 interface IProps {
-  level?: 1 | 2 | 3 | 4 | 5;
   children: string;
+  level?: 1 | 2 | 3 | 4 | 5;
 }
 
 export class Title extends React.Component<IProps> {

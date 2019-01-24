@@ -24,16 +24,15 @@ export class TableD extends React.Component {
       },
       {
         name: '操作',
-        render: (data: object) => {
-          return <Button type="error" onClick={this.handleDelClick.bind(this, data)}>Delete</Button>;
-        },
+        render: (data: object) =>
+          <Button type="error" onClick={this.handleDelClick.bind(this, data)}>Delete</Button>,
       },
     ],
     data: [],
   };
   public componentDidMount(): void {
     const data: IData[] = [];
-    for(let i = 0; i < 10; i++) {
+    for(let i = 0; i < 10; i+=1) {
       data.push({
         grade: ['A', 'B', 'C', 'D', 'E'][Math.round(Math.random() * 4)],
         name: '张三',
@@ -45,11 +44,13 @@ export class TableD extends React.Component {
   public handleDelClick = (data: IData) => {
     Message.confirm({
       message: `确定删除${data.name} ?`,
-    }).then(() => {
+    })
+    .then(() => {
       Notice.info({
         message: '点击了确定',
       });
-    }).catch(() => {
+    })
+    .catch(() => {
       Notice.info({
         message: '点击了取消',
       });

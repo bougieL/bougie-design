@@ -3,8 +3,8 @@ import { classNames } from '../../utils';
 import { Icon } from '../Icon';
 
 export interface IButtonProps {
-  icon?: string;
   children?: React.ReactNode;
+  icon?: string;
   type?: 'default' | 'primary' | 'disable' | 'warning' | 'error' | 'success';
   onClick?(evt: React.MouseEvent<HTMLElement>): void;
 }

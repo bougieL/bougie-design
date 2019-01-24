@@ -2,6 +2,15 @@ import * as React from 'react';
 import { ITableProps } from './interface';
 
 export class Body extends React.Component<ITableProps> {
+  public render(): React.ReactNode {
+    const {data = []} = this.props;
+
+    return <tbody>
+      {
+        data.map(this.renderRow)
+      }
+    </tbody>;
+  }
   public renderRow = (data: object, i: number): React.ReactNode => {
     const {columns} = this.props;
 
@@ -19,14 +28,5 @@ export class Body extends React.Component<ITableProps> {
         })
       }
     </tr>;
-  }
-  public render(): React.ReactNode {
-    const {data = []} = this.props;
-
-    return <tbody>
-      {
-        data.map(this.renderRow)
-      }
-    </tbody>;
   }
 }

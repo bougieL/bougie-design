@@ -2,8 +2,8 @@ import * as React from 'react';
 import { FormItem } from '../FormItem';
 
 export interface IFormProps {
-  children?: React.ReactNode;
   action?: string;
+  children?: React.ReactNode;
   method?: 'get' | 'post' | 'put' | 'delete';
 }
 

@@ -1,6 +1,7 @@
 {
-  "extends": "tslint:recommended",
+  "extends": "tslint:all",
   "rules": {
+    "align": [true, "members", "parameters", "statements"],
     "file-name-casing": false,
     "max-line-length": {
       "options": [120]
@@ -11,14 +12,19 @@
       "severity": "warning"
     },
     "no-default-export": true,
+    "no-implicit-dependencies": false,
     "no-import-side-effect": false,
+    "no-magic-numbers": false,
+    "no-redundant-jsdoc": false,
+    "only-arrow-functions": false,
     "prefer-function-over-method": false,
     "prefer-method-signature": true,
     "quotemark": false,
     "semicolon": true,
     "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
     "typedef": [true, "call-signature"],
+    "variable-name": [true, "ban-keywords"],
     "whitespace": [true, "check-module"]
   },
-  "rulesDirectory": ["tslint-plugin-prettier"]
+  "rulesDirectory": []
 }

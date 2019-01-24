@@ -2,9 +2,9 @@ import * as React from 'react';
 import { classNames } from '../../utils';
 
 export interface IFormItemProps {
+  children?: React.ReactNode;
   label?: string;
   labelWith?: number;
-  children?: React.ReactNode;
   vertical?: 'center' | 'top' | 'bottom';
 }
 
@@ -20,7 +20,7 @@ export class FormItem extends React.Component<IFormItemProps> {
         <div
           className="bd-formitem-label"
           style={{
-            width: labelWith + 'px',
+            width: `${labelWith}px`,
           }}
         >{label}</div>
         {children}
