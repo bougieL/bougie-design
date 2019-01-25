@@ -29,35 +29,22 @@ $palette: (
   primary_dark: #2b85e4,
   info: #2db7f5,
   success: #19be6b,
-  warning: #ff9900,
+  warning: #f90,
   error: #ed4014,
-  // 标题
   title: #17233d,
-  // 正文
-  // content: #515a6e,
   content: #333,
-  // 辅助 图标
   sub: #808695,
-  // 失效
   disable: #ddd,
-  // 边框
   border: #dcdee2,
-  // 分割线
   divider: #e8eaec,
-  // 背景
   background: #f8f8f9,
-  // 浅色背景
   background_light: #fff,
-  // 深色背景
   background_dark: #333,
-  // 浅色字
   content_light: #fff,
-  // 弹层兜底
-  mask: rgba(0, 0, 0, .5),
-  // active边框
-  border_active: rgba(40, 140, 240, .5)
+  mask: rgba(0, 0, 0, 0.5),
+  border_active: rgba(40, 140, 240, 0.5)
 );
 
 @function palette($c) {
-  @return map-get($map: $palette, $key: $c)
+  @return map-get($map: $palette, $key: $c);
 }

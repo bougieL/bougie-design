@@ -3,28 +3,35 @@
 .bd-tabs {
   &-list {
     @include flex(flex-start);
+
     border-bottom: 1px solid palette('border');
   }
+
   &-item {
     @include font('content');
+
     padding: 5px 10px;
     cursor: pointer;
     color: palette('content');
     transition: $transitionPrimary;
+
     &.active {
       color: palette('primary');
     }
   }
+
   &-bar {
     margin-top: -2px;
     height: 2px;
     background: palette('primary');
     transition: $transitionPrimary;
   }
+
   &-scroll {
     width: 100%;
     overflow: hidden;
   }
+
   &-content {
     display: flex;
     transition: $transitionPrimary;

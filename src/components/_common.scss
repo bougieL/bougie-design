@@ -1,30 +1,43 @@
 @import '../style/index';
 
 // --------------reset--------------
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  
 }
 
 body {
   @include font('content');
+
   color: palette('content');
   background: palette('background');
 }
 
-div, section, ul, ol, li, p, h1, h2, h3, h4, input{
+div,
+section,
+ul,
+ol,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+input {
   box-sizing: border-box;
 }
 
-ul, ol, li {
+ul,
+ol,
+li {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
 .hide {
-  display: none!important;
+  display: none !important;
 }
 
 // --------------class--------------

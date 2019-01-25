@@ -15,8 +15,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "release": "node scripts/release.js",
-    "lint": "tslint -c tslint.json 'src/**/*.ts*'",
-    "fix": "tslint --fix -c tslint.json 'src/**/*.ts*'"
+    "lint": "node scripts/lint.js",
+    "fix": "node scripts/fix.js"
   },
   "main": "lib/components/index.js",
   "dependencies": {
@@ -38,6 +38,8 @@
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "0.23.1",
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0",
     "ts-loader": "^5.3.3",
     "tslint": "^5.12.1",
     "typescript": "^3.2.4",

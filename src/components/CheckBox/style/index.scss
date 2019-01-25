@@ -2,18 +2,12 @@
 
 .bd-checkbox {
   @include flex;
+
   cursor: pointer;
-  input {
-    display: none;
-    &:checked {
-      &+.bd-checkbox-icon {
-        background: palette('primary');
-        border-color: palette('primary');
-      }
-    }
-  }
+
   &-icon {
     @include flex;
+
     width: 16px;
     height: 16px;
     border-radius: $borderRadiusPrimary;
@@ -23,5 +17,16 @@
     color: palette('content_light');
     font-size: 20px;
     margin-right: 4px;
+  }
+
+  input {
+    display: none;
+
+    &:checked {
+      & + .bd-checkbox-icon {
+        background: palette('primary');
+        border-color: palette('primary');
+      }
+    }
   }
 }

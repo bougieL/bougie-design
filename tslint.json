@@ -6,21 +6,17 @@
     "max-line-length": {
       "options": [120]
     },
-    "newline-before-return": true,
     "no-any": false,
     "no-console": {
       "severity": "warning"
     },
-    "no-default-export": true,
     "no-implicit-dependencies": false,
     "no-import-side-effect": false,
     "no-magic-numbers": false,
     "no-redundant-jsdoc": false,
     "only-arrow-functions": false,
     "prefer-function-over-method": false,
-    "prefer-method-signature": true,
     "quotemark": false,
-    "semicolon": true,
     "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
     "typedef": [true, "call-signature"],
     "variable-name": [true, "ban-keywords"],

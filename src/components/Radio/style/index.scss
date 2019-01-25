@@ -2,25 +2,18 @@
 
 .bd-radio {
   @include flex;
+
   cursor: pointer;
-  input {
-    display: none;
-    &:checked {
-      &+.bd-radio-icon {
-        border-color: palette('primary');
-        div {
-          opacity: 1;
-        }
-      }
-    }
-  }
-  .bd-radio-icon {
+
+  &-icon {
     @include flex;
+
     width: 16px;
     height: 16px;
     margin-right: 4px;
     border-radius: 50%;
     border: 1px solid palette('border');
+
     div {
       opacity: 0;
       background: palette('primary');
@@ -28,6 +21,20 @@
       height: 8px;
       border-radius: 50%;
       transition: $transitionPrimary;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked {
+      & + .bd-radio-icon {
+        border-color: palette('primary');
+
+        div {
+          opacity: 1;
+        }
+      }
     }
   }
 }
