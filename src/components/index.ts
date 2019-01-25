@@ -1,4 +1,4 @@
-import './_common';
+import './style';
 export * from './Table';
 export * from './Input';
 export * from './FormItem';
