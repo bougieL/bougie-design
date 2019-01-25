@@ -1,5 +1,15 @@
-const devServer = require('../config/webpackDevServer.config')
+const WebpackDevServer = require('webpack-dev-server')
+const webpack = require('webpack')
+const webpackConfig = require('../config/webpack.config.dev')
 
-devServer.listen(2999, '0.0.0.0', () => {
-  console.log(`server started at http://localhost:2999`)
+const devServerConfig = Object.assign({}, webpackConfig.devServer)
+
+WebpackDevServer.addDevServerEntrypoints(webpackConfig, devServerConfig)
+
+const compiler = webpack(webpackConfig)
+
+const devServer = new WebpackDevServer(compiler, devServerConfig)
+
+devServer.listen(devServerConfig.port, devServerConfig.host, () => {
+  console.log(`Server is started at http://${devServerConfig.host}:${devServerConfig.port}`)
 })

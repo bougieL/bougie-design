@@ -10,7 +10,7 @@ do
   ./node_modules/.bin/node-sass $item > $target
 done
 
-./node_modules/.bin/tsc
+./node_modules/.bin/tsc -p tsconfig.prod.json
 
 for item in `find ./lib/components -name index.js`
 do

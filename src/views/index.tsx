@@ -1,3 +1,4 @@
+import { Title } from '@/components';
 import * as React from 'react';
 import { ButtonD } from './Button';
 import { CheckBoxD } from './CheckBox';
@@ -12,6 +13,7 @@ import { TabsD } from './Tabs';
 export class Components extends React.Component {
   public render(): React.ReactNode {
     return <>
+      <Title level={1}>YuanSheng-UI, A UI Design Language</Title>
       <ButtonD />
       <IconD />
       <ModalD />
