@@ -12,14 +12,8 @@ export class Input extends React.Component<IInputProps> {
   public static defaultProps: Partial<IInputProps> = {
     type: 'text',
   };
-  public handleOnChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    const { onChange } = this.props;
-    if (onChange) {
-      onChange(evt);
-    }
-  }
   public render(): React.ReactNode {
-    const {value, name, placeholder, type} = this.props;
+    const {value, name, placeholder, type, onChange} = this.props;
 
     return <input
         className="bd-input"
@@ -27,7 +21,7 @@ export class Input extends React.Component<IInputProps> {
         placeholder={placeholder}
         name={name}
         value={value}
-        onChange={this.handleOnChange}
+        onChange={onChange}
       />;
   }
 }

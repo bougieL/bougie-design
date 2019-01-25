@@ -7,11 +7,11 @@ export class Body extends React.Component<ITableProps> {
 
     return <tbody>
       {
-        data.map(this.renderRow)
+        data.map(this.renderRow.bind(this))
       }
     </tbody>;
   }
-  public renderRow = (data: object, i: number): React.ReactNode => {
+  public renderRow(data: object, i: number): React.ReactNode {
     const {columns} = this.props;
 
     return <tr key={i}>

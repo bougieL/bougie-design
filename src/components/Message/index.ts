@@ -7,16 +7,16 @@ interface IConfirm {
   title?: string;
 }
 
-function confirm(props: IConfirm): any {
+function confirm(props: IConfirm): Promise<() => void> {
   return next(props);
 }
 
-function next({title = '提示', message = '确定'}: IConfirm): Promise<any> {
+function next({title = '提示', message = '确定'}: IConfirm): Promise<() => void> {
   return new Promise((resolve, reject) => {
-    let div: any = document.createElement('div');
+    let div: HTMLDivElement | undefined = document.createElement('div');
     const component = React.createElement(Modal, {
-      onCancel: () => {
-        ReactDOM.unmountComponentAtNode(div);
+      onCancel(): void {
+        ReactDOM.unmountComponentAtNode(div as HTMLDivElement);
         div = undefined;
       },
       promise: {

@@ -14,7 +14,7 @@ interface IState {
 }
 
 export class Message extends React.Component<IProps, IState> {
-  public ref: React.RefObject<any> = React.createRef();
+  public ref: React.RefObject<Modal> = React.createRef();
   public state = {
     visible: false,
   };
@@ -25,7 +25,7 @@ export class Message extends React.Component<IProps, IState> {
   }
   public handleFooterClick(action: string): void {
     const {promise: {resolve, reject}, onCancel} = this.props;
-    if (onCancel) {
+    if (onCancel && this.ref.current) {
       this.ref.current.handleOnCancel();
     }
     if (action === 'cancel' && reject) {
@@ -42,7 +42,7 @@ export class Message extends React.Component<IProps, IState> {
         ref={this.ref}
         title={title}
         visible={visible}
-        footer={this.renderFooter}
+        footer={this.renderFooter.bind(this)}
         onCancel={onCancel}
         >{children}
       </Modal>;

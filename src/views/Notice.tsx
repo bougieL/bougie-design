@@ -2,7 +2,7 @@ import { Button, Notice, Title } from '@/components';
 import * as React from 'react';
 
 export class NoticeD extends React.Component {
-  public handleNotice = () => {
+  public handleNotice(): void {
     Notice.info({
       message: 'Hello World.',
     });
@@ -10,7 +10,7 @@ export class NoticeD extends React.Component {
   public render(): React.ReactNode {
     return <>
       <Title>Notice</Title>
-      <Button onClick={this.handleNotice}>Notice</Button>
+      <Button onClick={this.handleNotice.bind(this)}>Notice</Button>
     </>;
   }
 }

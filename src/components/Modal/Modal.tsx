@@ -32,7 +32,7 @@ export class Modal extends React.Component<IModalProps, IState> {
       });
     }
   }
-  public handleOnCancel = (): void => {
+  public handleOnCancel(): void {
     const {onCancel} = this.props;
     this.setState({
       entered: false,
@@ -55,7 +55,7 @@ export class Modal extends React.Component<IModalProps, IState> {
             <div className="bd-modal">
               <div className="bd-modal-header">
                 <span className="bd-modal-title">{title}</span>
-                <span className="bd-modal-close" onClick={this.handleOnCancel}>&times;</span>
+                <span className="bd-modal-close" onClick={this.handleOnCancel.bind(this)}>&times;</span>
               </div>
               <div className={classNames("bd-modal-content", {
                 "bd-modal-content-bordernone": !footer,

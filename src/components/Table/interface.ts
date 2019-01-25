@@ -1,8 +1,8 @@
 export interface ITableProps {
   columns: Array<{
     dataIndex?: string | number;
-    name: string;
-    render?(data: any): JSX.Element;
+    name: string | number;
+    render?(data: object): React.ReactNode;
   }>;
   data?: object[];
 }

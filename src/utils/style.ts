@@ -7,7 +7,7 @@
  */
 export function styleToObject(cssText: string): object {
   const regex = /([\w-]*)\s*:\s*([^;]*)/g;
-  let match: any = true;
+  let match: boolean | RegExpExecArray | null = true;
   const properties = {};
   while (match) {
     match = regex.exec(cssText);

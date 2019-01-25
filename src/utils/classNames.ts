@@ -1,9 +1,9 @@
-type TItems = Array<string | {[key: string]: boolean | null | ''} | [string]>;
+type TItem = string | {[key: string]: boolean | null | '' | undefined} | [string];
 
-export function classNames(...items: TItems): string {
+export function classNames(...items: TItem[]): string {
   let str = '';
-  (function iterator(arr: any[]): void {
-    arr.forEach((v: any) => {
+  (function iterator(arr: TItem[]): void {
+    arr.forEach((v: TItem) => {
       if (Array.isArray(v)) {
         iterator(v);
       } else if (v instanceof Object) {

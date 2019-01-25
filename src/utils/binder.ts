@@ -18,7 +18,7 @@ export class Binder {
 
     return {
       checked: that.state[key],
-      onChange: (): void => {
+      onChange(): void {
         that.setState(setState , cb);
       },
     };
@@ -27,7 +27,7 @@ export class Binder {
     const that: IThis = this.that;
 
     return {
-      onCancel: (): void => {
+      onCancel(): void {
         that.setState({ [key]: false }, cb);
       },
       visible: that.state[key],
@@ -37,7 +37,7 @@ export class Binder {
     const that: IThis = this.that;
 
     return {
-      onChange: (v: string | number): void => {
+      onChange(v: string | number): void {
         that.setState({ [key]: v }, cb);
       },
       value: that.state[key],

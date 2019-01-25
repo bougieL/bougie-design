@@ -4,7 +4,7 @@ import { Radio } from '../Radio';
 interface IProps {
   children?: React.ReactNode;
   value?: string;
-  onChange?(data: any): void;
+  onChange?(evt: React.ChangeEvent<HTMLInputElement>): void;
 }
 
 export class RadioGroup extends React.Component<IProps> {

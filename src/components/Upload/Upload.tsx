@@ -20,20 +20,20 @@ export class Upload extends React.Component<IUploadProps, IState> {
   public state = {
     files: [],
   };
-  public handleButtonClick = () => {
+  public handleButtonClick(): void {
     const current = this.inputRef.current;
     if (current) {
       current.click();
     }
   }
-  public handleInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  public handleInputChange(evt: React.ChangeEvent<HTMLInputElement>): void {
     evt.persist();
     if (evt.target.files) {
       const files = Array.from(evt.target.files);
       this.setState({files});
     }
   }
-  public handleRemove = (i: number) => {
+  public handleRemove(i: number): void {
     const files = [...this.state.files];
     files.splice(i, 1);
     this.setState({files});
@@ -43,7 +43,7 @@ export class Upload extends React.Component<IUploadProps, IState> {
     const {multiple} = this.props;
 
     return <div className={classNames('bd-upload')}>
-      <Button type="primary" onClick={this.handleButtonClick} icon="cloud-upload">Click to Upload</Button>
+      <Button type="primary" onClick={this.handleButtonClick.bind(this)} icon="cloud-upload">Click to Upload</Button>
       <div className="bd-upload-files">
         {
           files.map(({name}, i) =>
@@ -53,7 +53,11 @@ export class Upload extends React.Component<IUploadProps, IState> {
             </div>)
         }
       </div>
-      <input ref={this.inputRef} type="file" className="hide" multiple={multiple} onChange={this.handleInputChange} />
+      <input ref={this.inputRef}
+        type="file"
+        className="hide"
+        multiple={multiple}
+        onChange={this.handleInputChange.bind(this)} />
     </div>;
   }
 }

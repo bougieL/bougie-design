@@ -24,7 +24,7 @@ export class TableD extends React.Component {
       },
       {
         name: '操作',
-        render: (data: object) =>
+        render: (data: object): React.ReactNode =>
           <Button type="error" onClick={this.handleDelClick.bind(this, data)}>Delete</Button>,
       },
     ],
@@ -41,7 +41,7 @@ export class TableD extends React.Component {
     }
     this.setState({data});
   }
-  public handleDelClick = (data: IData) => {
+  public handleDelClick(data: IData): void {
     Message.confirm({
       message: `确定删除${data.name} ?`,
     })

@@ -4,9 +4,9 @@ import { CSSTransition } from 'react-transition-group';
 import { classNames } from '../../utils';
 
 interface IProps {
-  children?: any;
+  children?: React.ReactNode;
   type: string;
-  wrapper: any;
+  wrapper: HTMLDivElement;
   onCancel(): void;
 }
 
