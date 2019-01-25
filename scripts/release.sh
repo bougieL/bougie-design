@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf ./lib
+
 cp -r ./src ./lib
 
 for item in `find ./lib/components -name index.scss`
