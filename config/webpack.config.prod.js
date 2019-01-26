@@ -2,16 +2,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const paths = require('./_paths')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const publicPath = '/'
-
 module.exports = {
   bail: true,
   entry: [paths.appIndexJs],
   output: {
     path: paths.appBuild,
     filename: 'static/js/[name].[chunkhash:8].js',
-    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
-    publicPath
+    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js'
   },
   mode: 'production',
   resolve: {

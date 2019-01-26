@@ -9,6 +9,7 @@ import { NoticeD } from './Notice';
 import { RadioD } from './Radio';
 import { TableD } from './Table';
 import { TabsD } from './Tabs';
+import { SelectD } from './Select';
 
 export class Components extends React.Component {
   public render(): React.ReactNode {
@@ -22,6 +23,7 @@ export class Components extends React.Component {
       <TabsD />
       <CheckBoxD />
       <RadioD />
+      <SelectD />
       <TableD />
     </>;
   }

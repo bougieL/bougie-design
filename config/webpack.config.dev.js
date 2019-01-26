@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const paths = require('./_paths')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const publicPath = '/'
 
@@ -12,7 +13,7 @@ module.exports = {
     chunkFilename: 'static/js/[name].chunk.js',
     publicPath
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   mode: 'development',
   resolve: {
     modules: [paths.appNodeModules, 'node_modules'],
@@ -36,20 +37,12 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.(js|jsx|mjs)$/,
-      //   loader: require.resolve('source-map-loader'),
-      //   enforce: 'pre',
-      //   include: paths.appSrc,
-      // },
-      // {
-      //   oneOf: [
       {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
         loader: require.resolve('url-loader'),
         options: {
           limit: 10000,
-          name: 'static/media/[name].[hash:8].[ext]'
+          name: 'static/media/[name].[ext]'
         }
       },
       {
@@ -64,6 +57,26 @@ module.exports = {
           }
         ]
       },
+      // {
+      //   test: /\.scss$/,
+      //   use: ExtractTextPlugin.extract({
+      //     fallback: 'style-loader',
+      //     use: [
+      //       {
+      //         loader: require.resolve('css-loader'),
+      //         options: {
+      //           sourceMap: true
+      //         }
+      //       }, {
+      //         loader: require.resolve('sass-loader'),
+      //         options: {
+      //           sourceMap: true
+      //         }
+      //       }
+      //     ],
+      //     publicPath
+      //   })
+      // },
       {
         test: /\.scss$/,
         use: [
@@ -71,14 +84,14 @@ module.exports = {
             loader: require.resolve('style-loader')
           }, {
             loader: require.resolve('css-loader'),
-            options: {
-              sourceMap: true
-            }
+            // options: {
+            //   sourceMap: true
+            // }
           }, {
             loader: require.resolve('sass-loader'),
-            options: {
-              sourceMap: true
-            }
+            // options: {
+            //   sourceMap: true
+            // }
           }
         ]
       },
@@ -86,11 +99,9 @@ module.exports = {
         exclude: [/\.(js|jsx|mjs|ts|tsx)$/, /\.html$/, /\.json$/, /\.scss$/],
         loader: require.resolve('file-loader'),
         options: {
-          name: 'static/media/[name].[hash:8].[ext]'
+          name: 'static/media/[name].[ext]'
         }
       }
-      //   ]
-      // }
     ]
   },
   plugins: [
@@ -98,7 +109,8 @@ module.exports = {
       inject: true,
       template: paths.appHtml
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    // new ExtractTextPlugin('static/css/style.css')
   ],
   devServer: {
     host: '0.0.0.0',

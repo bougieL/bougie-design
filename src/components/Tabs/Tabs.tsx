@@ -56,15 +56,15 @@ export class Tabs extends React.Component<ITabsProps, IState> {
           {
             list.map(({label}, i) =>
               <li
-                  className={classNames('bd-tabs-item', {
-                    active: i === active,
-                  })}
-                  style={{
-                    margin: `0 ${gutter/2}px`,
-                  }}
-                  onClick={this.handleItemClick.bind(this, i)}
-                  key={i}>{label}
-                </li>)
+                className={classNames('bd-tabs-item', {
+                  active: i === active,
+                })}
+                style={{
+                  margin: `0 ${gutter/2}px`,
+                }}
+                onClick={this.handleItemClick.bind(this, i)}
+                key={i}>{label}
+              </li>)
           }
         </ul>
         <div className="bd-tabs-bar" style={barStyle} />
@@ -77,7 +77,7 @@ export class Tabs extends React.Component<ITabsProps, IState> {
     </div>;
   }
   public updateBarStyle(): void {
-    if (!this.refHeader || !this.refHeader.current) {
+    if (!this.refHeader.current) {
       return;
     }
     const {active} = this.state;
