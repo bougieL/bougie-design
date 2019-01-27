@@ -37,3 +37,8 @@
     transition: $transitionPrimary;
   }
 }
+
+.bd-tabpane {
+  flex-shrink: 0;
+  width: 100%;
+}

@@ -1,21 +1,25 @@
 import * as React from 'react';
 import { classNames } from '../../utils';
-import { TabPane } from '../TabPane';
+import { TabPane } from './TabPane';
+import {tabsContext} from './context'
 
 export interface ITabsProps {
   children?: React.ReactNode;
   gutter: number;
-  list: Array<{
-    label: string | number;
-    value: string | number;
-  }>;
   onChange?(data: object | string | number): void;
+}
+
+interface ITabItem {
+  tab: string | number;
+  value: string | number;
+  index: number
 }
 
 interface IState {
   active: number;
   barStyle: object;
   contentStyle: object;
+  list: ITabItem[];
 }
 
 export class Tabs extends React.Component<ITabsProps, IState> {
@@ -25,17 +29,16 @@ export class Tabs extends React.Component<ITabsProps, IState> {
   public static TabPane = TabPane;
   public refHeader: React.RefObject<HTMLUListElement> = React.createRef();
   public refScroll: React.RefObject<HTMLDivElement> = React.createRef();
+  private list: ITabItem[] = [];
   public state = {
     active: 0,
     barStyle: {},
     contentStyle: {},
+    list: []
   };
-  public componentDidMount(): void {
-    this.updateBarStyle();
-    this.updateContentStyle();
-  }
   public handleItemClick(idx: number): void {
-    const {onChange, list} = this.props;
+    const {onChange} = this.props;
+    const {list} = this.state
     this.setState({
       active: idx,
     }, () => {
@@ -46,15 +49,32 @@ export class Tabs extends React.Component<ITabsProps, IState> {
       }
     });
   }
+  public getTabPane(v: any) {
+    const length = this.list.length
+    this.list.push({
+      ...v,
+      index: length
+    })
+    this.setState({
+      list: this.list
+    }, () => {
+      this.updateBarStyle();
+      this.updateContentStyle();
+    })
+  }
   public render(): React.ReactNode {
-    const {list, children, gutter} = this.props;
-    const {active, barStyle, contentStyle} = this.state;
-
-    return <div className="bd-tabs">
+    const {children, gutter} = this.props;
+    const {list, active, barStyle, contentStyle} = this.state;
+    const {Provider} = tabsContext
+    const providerValue = {
+      getTabPane: this.getTabPane.bind(this)
+    }
+    return <Provider value={providerValue}>
+    <div className="bd-tabs">
       <div className="bd-tabs-header">
         <ul className="bd-tabs-list" ref={this.refHeader}>
           {
-            list.map(({label}, i) =>
+            list.map(({tab}, i) =>
               <li
                 className={classNames('bd-tabs-item', {
                   active: i === active,
@@ -63,7 +83,7 @@ export class Tabs extends React.Component<ITabsProps, IState> {
                   margin: `0 ${gutter/2}px`,
                 }}
                 onClick={this.handleItemClick.bind(this, i)}
-                key={i}>{label}
+                key={i}>{tab}
               </li>)
           }
         </ul>
@@ -74,9 +94,10 @@ export class Tabs extends React.Component<ITabsProps, IState> {
           <div className="bd-tabs-content" style={contentStyle}>{children}</div>
         </div> : undefined
       }
-    </div>;
+    </div>
+    </Provider>;
   }
-  public updateBarStyle(): void {
+  private updateBarStyle(): void {
     if (!this.refHeader.current) {
       return;
     }
@@ -95,7 +116,7 @@ export class Tabs extends React.Component<ITabsProps, IState> {
       },
     });
   }
-  public updateContentStyle(): void {
+  private updateContentStyle(): void {
     if (!this.refScroll || !this.refScroll.current) {
       return;
     }

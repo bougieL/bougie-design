@@ -1,4 +1,4 @@
-type TItem = string | {[key: string]: boolean | null | '' | undefined} | [string];
+type TItem = string | {[key: string]: boolean | null | '' | undefined} | [string] | undefined | null;
 
 export function classNames(...items: TItem[]): string {
   let str = '';
@@ -14,7 +14,7 @@ export function classNames(...items: TItem[]): string {
             str += ` ${key}`;
           }
         });
-      } else {
+      } else if (v) {
         str += ` ${v}`;
       }
     });

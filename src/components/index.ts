@@ -10,7 +10,6 @@ export * from './Message';
 export * from './Upload';
 export * from './Notice';
 export * from './Icon';
-export * from './TabPane';
 export * from './Tabs';
 export * from './CheckBox';
 export * from './Radio';

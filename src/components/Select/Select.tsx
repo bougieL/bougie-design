@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {classNames} from '../../utils';
+import {classNames, attachEvent} from '../../utils';
 import {selectContext} from './context';
 import {Option} from './Option'
 import {Icon} from '../Icon'
@@ -29,7 +29,7 @@ export class Select extends React.Component<ISelectProps, IState> {
     }
   }
   public componentDidMount(): void {
-    document.addEventListener('click', () => {
+    attachEvent(document,'click', () => {
       this.setState({
         active: false
       })
