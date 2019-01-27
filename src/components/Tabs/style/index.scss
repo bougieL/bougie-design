@@ -13,7 +13,6 @@
     padding: 5px 10px;
     cursor: pointer;
     color: palette('content');
-    transition: $transitionPrimary;
 
     &.active {
       color: palette('primary');
@@ -24,7 +23,6 @@
     margin-top: -2px;
     height: 2px;
     background: palette('primary');
-    transition: $transitionPrimary;
   }
 
   &-scroll {
@@ -34,8 +32,11 @@
 
   &-content {
     display: flex;
-    transition: $transitionPrimary;
   }
+}
+
+.bd-tabs-animate {
+  transition: $transitionPrimary;
 }
 
 .bd-tabpane {

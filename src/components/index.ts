@@ -15,3 +15,4 @@ export * from './CheckBox';
 export * from './Radio';
 export * from './RadioGroup';
 export * from './Select';
+export * from './Pagination';

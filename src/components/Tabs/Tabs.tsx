@@ -6,6 +6,7 @@ import {tabsContext} from './context'
 export interface ITabsProps {
   children?: React.ReactNode;
   gutter: number;
+  defaultValue?: string | number;
   onChange?(data: object | string | number): void;
 }
 
@@ -20,6 +21,7 @@ interface IState {
   barStyle: object;
   contentStyle: object;
   list: ITabItem[];
+  isAnimate: boolean;
 }
 
 export class Tabs extends React.Component<ITabsProps, IState> {
@@ -34,9 +36,10 @@ export class Tabs extends React.Component<ITabsProps, IState> {
     active: 0,
     barStyle: {},
     contentStyle: {},
-    list: []
+    list: [],
+    isAnimate: false
   };
-  public handleItemClick(idx: number): void {
+  private handleItemClick(idx: number): void {
     const {onChange} = this.props;
     const {list} = this.state
     this.setState({
@@ -49,22 +52,35 @@ export class Tabs extends React.Component<ITabsProps, IState> {
       }
     });
   }
-  public getTabPane(v: any) {
+  private getTabPane(v: any) {
+    const {defaultValue} = this.props
     const length = this.list.length
+    let active = 0
     this.list.push({
       ...v,
       index: length
     })
+    this.list.forEach(({value}, i) => {
+      if (value === defaultValue) {
+        active = i
+      }
+    })
     this.setState({
-      list: this.list
+      list: this.list,
+      active
     }, () => {
       this.updateBarStyle();
       this.updateContentStyle();
+      setTimeout(() => {
+        this.setState({
+          isAnimate: true
+        })
+      })
     })
   }
   public render(): React.ReactNode {
     const {children, gutter} = this.props;
-    const {list, active, barStyle, contentStyle} = this.state;
+    const {list, active, barStyle, contentStyle, isAnimate} = this.state;
     const {Provider} = tabsContext
     const providerValue = {
       getTabPane: this.getTabPane.bind(this)
@@ -78,6 +94,7 @@ export class Tabs extends React.Component<ITabsProps, IState> {
               <li
                 className={classNames('bd-tabs-item', {
                   active: i === active,
+                  'bd-tabs-animate': isAnimate
                 })}
                 style={{
                   margin: `0 ${gutter/2}px`,
@@ -87,11 +104,19 @@ export class Tabs extends React.Component<ITabsProps, IState> {
               </li>)
           }
         </ul>
-        <div className="bd-tabs-bar" style={barStyle} />
+        <div
+          className={classNames("bd-tabs-bar", {
+            'bd-tabs-animate': isAnimate
+          })}
+          style={barStyle} />
       </div>
       {
         children ? <div ref={this.refScroll} className="bd-tabs-scroll">
-          <div className="bd-tabs-content" style={contentStyle}>{children}</div>
+          <div
+            className={classNames("bd-tabs-content", {
+              'bd-tabs-animate': isAnimate
+            })} 
+            style={contentStyle}>{children}</div>
         </div> : undefined
       }
     </div>

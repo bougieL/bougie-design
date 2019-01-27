@@ -1,23 +1,27 @@
 import * as React from 'react';
 import {Tabs, Title} from '@/components'
-import {Usual, DataInput, DataDisplay, FeedBack} from './views';
+import {Usual, DataInput, DataDisplay, FeedBack, Navigation} from './views';
 
 const {TabPane} = Tabs
 
 const tabConfig = [{
-  value: 1,
+  value: 'usual',
   tab: '通用',
   component: Usual
 }, {
-  value: 2,
+  value: 'navigation',
+  tab: '导航',
+  component: Navigation
+}, {
+  value: 'dataInput',
   tab: '数据录入',
   component: DataInput
 }, {
-  value: 3,
+  value: 'dataDisplay',
   tab: '数据展示',
   component: DataDisplay
 }, {
-  value: 4,
+  value: 'feedBack',
   tab: '反馈',
   component: FeedBack
 }]
@@ -25,9 +29,9 @@ const tabConfig = [{
 export const App = () =>
   <>
     <Title level={1}>YuanSheng-UI, A UI Design Language.</Title>
-    <Tabs>
-      {tabConfig.map(({value, tab, component}) =>
-        <TabPane value={value} tab={tab} key={value} className="app-tabpane">{
+    <Tabs defaultValue="navigation">
+      {tabConfig.map(({component, ...rest}, i) =>
+        <TabPane {...rest} key={i} className="app-tabpane">{
           React.createElement(component)
         }</TabPane>
       )}
