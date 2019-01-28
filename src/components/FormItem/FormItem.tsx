@@ -15,8 +15,9 @@ export class FormItem extends React.Component<IFormItemProps> {
   public render(): React.ReactNode {
     const {label, labelWith, children, vertical} = this.props;
 
-    return <div
-      className={classNames("bd-formitem", `bd-formitem-vertical${vertical}`)}>
+    return (
+      <div
+        className={classNames("bd-formitem", `bd-formitem-vertical${vertical}`)}>
         <div
           className="bd-formitem-label"
           style={{
@@ -24,6 +25,7 @@ export class FormItem extends React.Component<IFormItemProps> {
           }}
         >{label}</div>
         {children}
-      </div>;
+      </div>
+    );
   }
 }

@@ -15,13 +15,14 @@ export class Input extends React.Component<IInputProps> {
   public render(): React.ReactNode {
     const {value, name, placeholder, type, onChange} = this.props;
 
-    return <input
+    return (
+      <input
         className="bd-input"
         type={type}
         placeholder={placeholder}
         name={name}
         value={value}
-        onChange={onChange}
-      />;
+        onChange={onChange}/>
+    );
   }
 }

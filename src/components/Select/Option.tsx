@@ -10,34 +10,38 @@ export interface IOptionProps {
 export const Option = (props: IOptionProps): JSX.Element => {
   const {Consumer} = selectContext;
 
-  return <Consumer>
+  return (
+    <Consumer>
       {({value: parentValue, getOptionValue}) =>
-          <OptionComponent {...props} parentValue={parentValue} getOptionValue={getOptionValue} />
+        <OptionComponent {...props} parentValue={parentValue} getOptionValue={getOptionValue} />
       }
-    </Consumer>;
+    </Consumer>
+  );
 };
 
 interface IOptionComponentProps extends IOptionProps {
   parentValue?: string | number;
-  getOptionValue(v: IOptionValue): void;
+  getOptionValue(v: IOptionValue, isDefault: boolean): void;
 }
 
 class OptionComponent extends React.Component<IOptionComponentProps> {
   public componentDidMount(): void {
     const {parentValue, value, children, getOptionValue} = this.props;
     if (parentValue === value) {
-      getOptionValue({value, children});
+      getOptionValue({value, children}, true);
     }
   }
   public render(): React.ReactNode {
     const {children, value, parentValue, getOptionValue} = this.props;
 
-    return <li
-      className={classNames('bd-option', {
-        'bd-option-active': value === parentValue,
-      })}
-      onClick={getOptionValue.bind(this, {value, children})}>
-      {children}
-    </li>;
+    return (
+      <li
+        className={classNames('bd-option', {
+          'bd-option-active': value === parentValue,
+        })}
+        onClick={getOptionValue.bind(this, {value, children})}>
+        {children}
+      </li>
+    );
   }
 }

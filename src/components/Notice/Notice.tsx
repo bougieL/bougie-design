@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
-import { classNames } from '../../utils';
+import { classNames, delay } from '../../utils';
 
 interface IProps {
   children?: React.ReactNode;
@@ -18,20 +18,17 @@ export class Notice extends React.Component<IProps, IState> {
   public state = {
     entered: false,
   };
-  public componentDidMount(): void {
+  public async componentDidMount(): Promise<void> {
     this.setState({
       entered: true,
     });
     const {onCancel} = this.props;
-    setTimeout(() => {
-      this.setState({
-        entered: false,
-      }, () => {
-        setTimeout(() => {
-          onCancel();
-        }, 300);
-      });
-    }, 3000);
+    await delay(3000);
+    this.setState({
+      entered: false,
+    });
+    await delay(300);
+    onCancel();
   }
   public render(): React.ReactNode {
     const {type, children, wrapper} = this.props;

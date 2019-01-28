@@ -48,27 +48,31 @@ export class Pagination extends React.Component<IPaginaitonProps, IState> {
     const distance = Math.abs(pageNum - current);
     if (distance > 2 && pageNum !== 1 && pageNum !== pageTotal) {
       if (distance === 3) {
-        return <li key={pageNum} className={classNames('bd-pagination-item', {
-            'bd-pagination-item-active': pageNum === current,
-          })}
-          onClick={this.handleItemClick.bind(this, pageNum)}>
+        return (
+          <li key={pageNum}
+            className='bd-pagination-item'
+            onClick={this.handleItemClick.bind(this, pageNum)}>
             <a>
               <Icon type='more' />
             </a>
-          </li>;
+          </li>
+        );
       }
 
       return undefined;
     }
 
-    return <li key={pageNum} className={classNames('bd-pagination-item', {
-        'bd-pagination-item-active': pageNum === current,
-      })}
-      onClick={this.handleItemClick.bind(this, pageNum)}>
+    return (
+      <li key={pageNum}
+        className={classNames('bd-pagination-item', {
+          'bd-pagination-item-active': pageNum === current,
+        })}
+        onClick={this.handleItemClick.bind(this, pageNum)}>
         <a>
           {pageNum}
         </a>
-      </li>;
+      </li>
+    );
   }
   private renderList(): React.ReactNode {
     const {pageTotal} = this.state;
@@ -82,23 +86,24 @@ export class Pagination extends React.Component<IPaginaitonProps, IState> {
   public render(): React.ReactNode {
     const {current, pageTotal} = this.state;
 
-    return <div
-      className={classNames('bd-pagination')}>
-      <ul className="bd-pagination-list">
-        <li className={classNames('bd-pagination-item', {
-          'bd-pagination-item-disable': current === 1,
-        })}
-        onClick={this.handlePrevClick.bind(this)}>
+    return (
+      <ul className="bd-pagination">
+        <li
+          className={classNames('bd-pagination-item', {
+            'bd-pagination-item-disable': current === 1,
+          })}
+          onClick={this.handlePrevClick.bind(this)}>
           <Icon type='arrow-back' />
         </li>
         {this.renderList()}
-        <li className={classNames('bd-pagination-item', {
-          'bd-pagination-item-disable': current === pageTotal,
-        })}
-        onClick={this.handleNextClick.bind(this)}>
+        <li
+          className={classNames('bd-pagination-item', {
+            'bd-pagination-item-disable': current === pageTotal,
+          })}
+          onClick={this.handleNextClick.bind(this)}>
           <Icon type='arrow-forward' />
         </li>
       </ul>
-    </div>;
+    );
   }
 }

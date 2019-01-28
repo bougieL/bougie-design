@@ -117,41 +117,43 @@ export class Tabs extends React.Component<ITabsProps, IState> {
       getTabPane: this.getTabPane.bind(this),
     };
 
-    return <Provider value={providerValue}>
-      <div className="bd-tabs">
-        <div className="bd-tabs-header">
-          <ul className="bd-tabs-list" ref={this.refHeader}>
-            {
-              list.map(({tab}, i) =>
-                <li
-                  className={classNames('bd-tabs-item', {
-                    "active": i === active,
-                    'bd-tabs-animate': isAnimate,
-                  })}
-                  style={{
-                    margin: `0 ${gutter/2}px`,
-                  }}
-                  onClick={this.handleItemClick.bind(this, i)}
-                  key={i}>{tab}
-                </li>)
-            }
-          </ul>
-          <div
-            className={classNames("bd-tabs-bar", {
-              'bd-tabs-animate': isAnimate,
-            })}
-            style={barStyle} />
-        </div>
-        {
-          children ? <div ref={this.refScroll} className="bd-tabs-scroll">
+    return (
+      <Provider value={providerValue}>
+        <div className="bd-tabs">
+          <div className="bd-tabs-header">
+            <ul className="bd-tabs-list" ref={this.refHeader}>
+              {
+                list.map(({tab}, i) =>
+                  <li
+                    className={classNames('bd-tabs-item', {
+                      "active": i === active,
+                      'bd-tabs-animate': isAnimate,
+                    })}
+                    style={{
+                      margin: `0 ${gutter/2}px`,
+                    }}
+                    onClick={this.handleItemClick.bind(this, i)}
+                    key={i}>{tab}
+                  </li>)
+              }
+            </ul>
             <div
-              className={classNames("bd-tabs-content", {
+              className={classNames("bd-tabs-bar", {
                 'bd-tabs-animate': isAnimate,
               })}
-              style={contentStyle}>{children}</div>
-          </div> : undefined
-        }
-      </div>
-    </Provider>;
+              style={barStyle} />
+          </div>
+          {
+            children ? <div ref={this.refScroll} className="bd-tabs-scroll">
+              <div
+                className={classNames("bd-tabs-content", {
+                  'bd-tabs-animate': isAnimate,
+                })}
+                style={contentStyle}>{children}</div>
+            </div> : undefined
+          }
+        </div>
+      </Provider>
+    );
   }
 }

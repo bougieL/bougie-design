@@ -16,13 +16,15 @@ export class Button extends React.Component<IButtonProps> {
   public render(): React.ReactNode {
     const {children, onClick, type, icon} = this.props;
 
-    return <button
-      className={classNames('bd-button', `bd-button-${type}`)}
-      onClick={onClick}
-      type="button"
-      disabled={type === 'disable'}>
-      {icon ? <Icon type={icon} /> : undefined}
-      <span>{children}</span>
-    </button>;
+    return (
+      <button
+        className={classNames('bd-button', `bd-button-${type}`)}
+        onClick={onClick}
+        type="button"
+        disabled={type === 'disable'}>
+        {icon ? <Icon type={icon} /> : undefined}
+        <span>{children}</span>
+      </button>
+    );
   }
 }

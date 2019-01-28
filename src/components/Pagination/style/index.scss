@@ -1,9 +1,7 @@
 @import '../../../style/index';
 
 .bd-pagination {
-  &-list {
-    @include flex(flex-end);
-  }
+  @include flex(flex-end);
 
   &-item {
     @include flex;

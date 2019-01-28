@@ -12,8 +12,10 @@ export class RadioGroup extends React.Component<IProps> {
   public render(): React.ReactNode {
     const {children} = this.props;
 
-    return <div className="bd-radiogroup">
-      {children}
-    </div>;
+    return (
+      <div className="bd-radiogroup">
+        {children}
+      </div>
+    );
   }
 }

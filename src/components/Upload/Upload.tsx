@@ -42,22 +42,29 @@ export class Upload extends React.Component<IUploadProps, IState> {
     const {files} = this.state;
     const {multiple} = this.props;
 
-    return <div className={classNames('bd-upload')}>
-      <Button type="primary" onClick={this.handleButtonClick.bind(this)} icon="cloud-upload">Click to Upload</Button>
-      <div className="bd-upload-files">
-        {
-          files.map(({name}, i) =>
-            <div className="bd-upload-file" key={i}>
-              <span>{name}</span>
-              <span className="remove" onClick={this.handleRemove.bind(this, i)}>&times;</span>
-            </div>)
-        }
+    return (
+      <div className={classNames('bd-upload')}>
+        <Button
+          type="primary"
+          onClick={this.handleButtonClick.bind(this)}
+          icon="cloud-upload">
+          Click to Upload
+        </Button>
+        <div className="bd-upload-files">
+          {
+            files.map(({name}, i) =>
+              <div className="bd-upload-file" key={i}>
+                <span>{name}</span>
+                <span className="remove" onClick={this.handleRemove.bind(this, i)}>&times;</span>
+              </div>)
+          }
+        </div>
+        <input ref={this.inputRef}
+          type="file"
+          className="hide"
+          multiple={multiple}
+          onChange={this.handleInputChange.bind(this)} />
       </div>
-      <input ref={this.inputRef}
-        type="file"
-        className="hide"
-        multiple={multiple}
-        onChange={this.handleInputChange.bind(this)} />
-    </div>;
+    );
   }
 }

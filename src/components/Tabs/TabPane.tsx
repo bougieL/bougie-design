@@ -12,11 +12,13 @@ export interface ITabPaneProps {
 export const TabPane = (props: ITabPaneProps) => {
   const {Consumer} = tabsContext;
 
-  return <Consumer>
+  return (
+    <Consumer>
       {({getTabPane}) =>
           <TabPaneComponent {...props} getTabPane={getTabPane} />
       }
-    </Consumer>;
+    </Consumer>
+  );
 };
 
 interface ITabPaneComponentProps extends ITabPaneProps {
@@ -31,9 +33,11 @@ class TabPaneComponent extends React.Component<ITabPaneComponentProps> {
   public render(): React.ReactNode {
     const {children, className} = this.props;
 
-    return <div
-      className={classNames("bd-tabpane", className)}>
-        {children}
-      </div>;
+    return (
+      <div
+        className={classNames("bd-tabpane", className)}>
+          {children}
+      </div>
+    );
   }
 }

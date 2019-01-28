@@ -12,8 +12,10 @@ export class Form extends React.Component<IFormProps> {
   public render(): React.ReactNode {
     const {children} = this.props;
 
-    return <form className="db-form" autoComplete="off">
-      {children}
-    </form>;
+    return (
+      <form className="db-form" autoComplete="off">
+        {children}
+      </form>
+    );
   }
 }

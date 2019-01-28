@@ -31,15 +31,15 @@ export class Select extends React.Component<ISelectProps, IState> {
       active: !active,
     }));
   }
-  private getOptionValue(value: IOptionValue): void {
+  private getOptionValue(value: IOptionValue, isDefault: boolean = false): void {
     const {onChange} = this.props;
     this.setState({value});
-    if (onChange && value.value) {
+    if (onChange && value.value && !isDefault) {
       onChange(value.value);
     }
   }
   public componentDidMount(): void {
-    attachEvent(document,'click', () => {
+    attachEvent(document, 'click', () => {
       this.setState({
         active: false,
       });
@@ -54,20 +54,22 @@ export class Select extends React.Component<ISelectProps, IState> {
       value,
     };
 
-    return <Provider value={providerValue}>
-      <div
-        onClick={this.handleInputClick.bind(this)}
-        className={classNames('bd-select', {
-          active,
-        })}>
-        <div className="bd-select-val">
-          <span>{label}</span>
-          <Icon type="arrow-down" />
+    return (
+      <Provider value={providerValue}>
+        <div
+          onClick={this.handleInputClick.bind(this)}
+          className={classNames('bd-select', {
+            active,
+          })}>
+          <div className="bd-select-val">
+            <span>{label}</span>
+            <Icon type="arrow-down" />
+          </div>
+          <ul className="bd-select-list" ref={this.refList}>
+            {children}
+          </ul>
         </div>
-        <ul className="bd-select-list" ref={this.refList}>
-          {children}
-        </ul>
-      </div>
-    </Provider>;
+      </Provider>
+    );
   }
 }
