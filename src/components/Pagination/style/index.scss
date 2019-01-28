@@ -4,8 +4,10 @@
   &-list {
     @include flex(flex-end);
   }
+
   &-item {
     @include flex;
+
     flex-shrink: 0;
     min-width: 32px;
     height: 32px;
@@ -14,17 +16,22 @@
     border-radius: $borderRadiusPrimary;
     margin-right: 8px;
     transition: $transitionPrimary;
+
     a {
       margin: 0 6px;
     }
-    &:hover, &-active {
+
+    &:hover,
+    &-active {
       border-color: palette('primary');
       color: palette('primary');
     }
+
     &-disable {
       border-color: palette('disable');
       color: palette('disable');
       cursor: not-allowed;
+
       &:hover {
         border-color: palette('disable');
         color: palette('disable');

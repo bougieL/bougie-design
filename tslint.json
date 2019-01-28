@@ -20,7 +20,23 @@
     "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
     "typedef": [true, "call-signature"],
     "variable-name": [true, "ban-keywords"],
-    "whitespace": [true, "check-module"]
+    "whitespace": [true, "check-module"],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "private-constructor",
+          "protected-constructor",
+          "public-constructor",
+          "private-static-field",
+          "protected-static-field",
+          "public-static-field",
+          "private-instance-method",
+          "protected-instance-method",
+          "public-instance-method"
+        ]
+      }
+    ]
   },
   "rulesDirectory": []
 }

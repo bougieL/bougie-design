@@ -1,6 +1,6 @@
-import * as React from 'react'
-import {classNames} from '../../utils'
-import {selectContext} from './context'
+import * as React from 'react';
+import { classNames } from '../../utils';
+import { IOptionValue ,selectContext } from './context';
 
 export interface IOptionProps {
   value?: string | number;
@@ -8,35 +8,36 @@ export interface IOptionProps {
 }
 
 export const Option = (props: IOptionProps): JSX.Element => {
-  const {Consumer} = selectContext
+  const {Consumer} = selectContext;
+
   return <Consumer>
-      {({value: parentValue, getOptionValue}) => {
-          return <OptionComponent {...props} parentValue={parentValue} getOptionValue={getOptionValue} />
-        }
+      {({value: parentValue, getOptionValue}) =>
+          <OptionComponent {...props} parentValue={parentValue} getOptionValue={getOptionValue} />
       }
-    </Consumer>
-}
+    </Consumer>;
+};
 
 interface IOptionComponentProps extends IOptionProps {
   parentValue?: string | number;
-  getOptionValue(v: any): void
+  getOptionValue(v: IOptionValue): void;
 }
 
 class OptionComponent extends React.Component<IOptionComponentProps> {
-  public componentDidMount() {
-    const {parentValue, value, children, getOptionValue} = this.props
+  public componentDidMount(): void {
+    const {parentValue, value, children, getOptionValue} = this.props;
     if (parentValue === value) {
-      getOptionValue({value, children})
+      getOptionValue({value, children});
     }
   }
   public render(): React.ReactNode {
-    const {children, value, parentValue, getOptionValue} = this.props
+    const {children, value, parentValue, getOptionValue} = this.props;
+
     return <li
       className={classNames('bd-option', {
-        'bd-option-active': value === parentValue
+        'bd-option-active': value === parentValue,
       })}
       onClick={getOptionValue.bind(this, {value, children})}>
       {children}
-    </li>
+    </li>;
   }
 }

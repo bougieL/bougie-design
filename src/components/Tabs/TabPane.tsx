@@ -1,6 +1,6 @@
-import * as React from 'react'
-import {tabsContext} from './context'
-import {classNames} from '../../utils'
+import * as React from 'react';
+import { classNames } from '../../utils';
+import { ITabPaneValue, tabsContext } from './context';
 
 export interface ITabPaneProps {
   tab?: React.ReactNode;
@@ -10,23 +10,23 @@ export interface ITabPaneProps {
 }
 
 export const TabPane = (props: ITabPaneProps) => {
-  const {Consumer} = tabsContext
+  const {Consumer} = tabsContext;
+
   return <Consumer>
-      {({getTabPane}) => {
-          return <TabPaneComponent {...props} getTabPane={getTabPane} />
-        }
+      {({getTabPane}) =>
+          <TabPaneComponent {...props} getTabPane={getTabPane} />
       }
-    </Consumer>
-}
+    </Consumer>;
+};
 
 interface ITabPaneComponentProps extends ITabPaneProps {
-  getTabPane(v: any): void
+  getTabPane(v: ITabPaneValue): void;
 }
 
-class TabPaneComponent extends React.Component<ITabPaneComponentProps>{
+class TabPaneComponent extends React.Component<ITabPaneComponentProps> {
   public componentDidMount(): void {
-    const {tab, value, getTabPane} = this.props
-    getTabPane({tab, value})
+    const {tab, value, getTabPane} = this.props;
+    getTabPane({tab, value});
   }
   public render(): React.ReactNode {
     const {children, className} = this.props;

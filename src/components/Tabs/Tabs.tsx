@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { classNames } from '../../utils';
+import { ITabPaneValue, tabsContext } from './context';
 import { TabPane } from './TabPane';
-import {tabsContext} from './context'
 
 export interface ITabsProps {
   children?: React.ReactNode;
@@ -11,9 +11,9 @@ export interface ITabsProps {
 }
 
 interface ITabItem {
-  tab: string | number;
-  value: string | number;
-  index: number
+  tab: string | number | React.ReactNode;
+  value?: string | number;
+  index: number;
 }
 
 interface IState {
@@ -25,10 +25,6 @@ interface IState {
 }
 
 export class Tabs extends React.Component<ITabsProps, IState> {
-  public static defaultProps: Partial<ITabsProps> = {
-    gutter: 10,
-  };
-  public static TabPane = TabPane;
   public refHeader: React.RefObject<HTMLUListElement> = React.createRef();
   public refScroll: React.RefObject<HTMLDivElement> = React.createRef();
   private list: ITabItem[] = [];
@@ -36,12 +32,16 @@ export class Tabs extends React.Component<ITabsProps, IState> {
     active: 0,
     barStyle: {},
     contentStyle: {},
+    isAnimate: false,
     list: [],
-    isAnimate: false
   };
+  public static defaultProps: Partial<ITabsProps> = {
+    gutter: 10,
+  };
+  public static TabPane = TabPane;
   private handleItemClick(idx: number): void {
     const {onChange} = this.props;
-    const {list} = this.state
+    const {list} = this.state;
     this.setState({
       active: idx,
     }, () => {
@@ -52,75 +52,31 @@ export class Tabs extends React.Component<ITabsProps, IState> {
       }
     });
   }
-  private getTabPane(v: any) {
-    const {defaultValue} = this.props
-    const length = this.list.length
-    let active = 0
+  private getTabPane(v: ITabPaneValue): void {
+    const {defaultValue} = this.props;
+    const length = this.list.length;
+    let active = 0;
     this.list.push({
       ...v,
-      index: length
-    })
+      index: length,
+    });
     this.list.forEach(({value}, i) => {
       if (value === defaultValue) {
-        active = i
+        active = i;
       }
-    })
+    });
     this.setState({
+      active,
       list: this.list,
-      active
     }, () => {
       this.updateBarStyle();
       this.updateContentStyle();
       setTimeout(() => {
         this.setState({
-          isAnimate: true
-        })
-      })
-    })
-  }
-  public render(): React.ReactNode {
-    const {children, gutter} = this.props;
-    const {list, active, barStyle, contentStyle, isAnimate} = this.state;
-    const {Provider} = tabsContext
-    const providerValue = {
-      getTabPane: this.getTabPane.bind(this)
-    }
-    return <Provider value={providerValue}>
-    <div className="bd-tabs">
-      <div className="bd-tabs-header">
-        <ul className="bd-tabs-list" ref={this.refHeader}>
-          {
-            list.map(({tab}, i) =>
-              <li
-                className={classNames('bd-tabs-item', {
-                  active: i === active,
-                  'bd-tabs-animate': isAnimate
-                })}
-                style={{
-                  margin: `0 ${gutter/2}px`,
-                }}
-                onClick={this.handleItemClick.bind(this, i)}
-                key={i}>{tab}
-              </li>)
-          }
-        </ul>
-        <div
-          className={classNames("bd-tabs-bar", {
-            'bd-tabs-animate': isAnimate
-          })}
-          style={barStyle} />
-      </div>
-      {
-        children ? <div ref={this.refScroll} className="bd-tabs-scroll">
-          <div
-            className={classNames("bd-tabs-content", {
-              'bd-tabs-animate': isAnimate
-            })} 
-            style={contentStyle}>{children}</div>
-        </div> : undefined
-      }
-    </div>
-    </Provider>;
+          isAnimate: true,
+        });
+      });
+    });
   }
   private updateBarStyle(): void {
     if (!this.refHeader.current) {
@@ -152,5 +108,50 @@ export class Tabs extends React.Component<ITabsProps, IState> {
         transform: `translate3d(-${scrollWidth * active}px, 0, 0)`,
       },
     });
+  }
+  public render(): React.ReactNode {
+    const {children, gutter} = this.props;
+    const {list, active, barStyle, contentStyle, isAnimate} = this.state;
+    const {Provider} = tabsContext;
+    const providerValue = {
+      getTabPane: this.getTabPane.bind(this),
+    };
+
+    return <Provider value={providerValue}>
+      <div className="bd-tabs">
+        <div className="bd-tabs-header">
+          <ul className="bd-tabs-list" ref={this.refHeader}>
+            {
+              list.map(({tab}, i) =>
+                <li
+                  className={classNames('bd-tabs-item', {
+                    "active": i === active,
+                    'bd-tabs-animate': isAnimate,
+                  })}
+                  style={{
+                    margin: `0 ${gutter/2}px`,
+                  }}
+                  onClick={this.handleItemClick.bind(this, i)}
+                  key={i}>{tab}
+                </li>)
+            }
+          </ul>
+          <div
+            className={classNames("bd-tabs-bar", {
+              'bd-tabs-animate': isAnimate,
+            })}
+            style={barStyle} />
+        </div>
+        {
+          children ? <div ref={this.refScroll} className="bd-tabs-scroll">
+            <div
+              className={classNames("bd-tabs-content", {
+                'bd-tabs-animate': isAnimate,
+              })}
+              style={contentStyle}>{children}</div>
+          </div> : undefined
+        }
+      </div>
+    </Provider>;
   }
 }

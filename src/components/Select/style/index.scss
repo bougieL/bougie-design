@@ -2,23 +2,28 @@
 
 .bd-select {
   position: relative;
+
   &-val {
     @include flex(space-between);
+
     border: 1px solid palette('border');
     padding: 8px;
     background: palette('background_light');
     transition: $transitionPrimary;
     border-radius: $borderRadiusPrimary;
     cursor: pointer;
+
     .bd-icon {
       color: palette('sub');
       transition: $transitionPrimary;
     }
+
     &:focus,
     &:hover {
       border-color: palette('primary');
     }
   }
+
   &-list {
     position: absolute;
     left: 0;
@@ -31,14 +36,17 @@
     transform: rotateX(90deg);
     transform-origin: left top;
   }
+
   &.active {
     border-color: palette('primary');
-    .bd-select{
+
+    .bd-select {
       &-list {
         transform: none;
       }
+
       &-val .bd-icon {
-        transform: rotate(180deg)
+        transform: rotate(180deg);
       }
     }
   }
@@ -48,9 +56,11 @@
   padding: 8px;
   transition: $transitionPrimary;
   cursor: pointer;
+
   &:hover {
     background: palette('background');
   }
+
   &-active {
     background: palette('background');
     font-weight: bold;

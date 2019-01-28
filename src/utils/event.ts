@@ -1,7 +1,7 @@
-type TCb = (evt: any) => void
+type TCb = (evt: Event) => void;
 
-type TEl = HTMLElement | Document
+type TEl = HTMLElement | Document;
 
 export function attachEvent(el: TEl, type: string, callback: TCb): void {
-  el.addEventListener(type, callback)
+  el.addEventListener(type, callback);
 }

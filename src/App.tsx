@@ -1,30 +1,30 @@
+import { Tabs, Title } from '@/components';
 import * as React from 'react';
-import {Tabs, Title} from '@/components'
-import {Usual, DataInput, DataDisplay, FeedBack, Navigation} from './views';
+import { DataDisplay, DataInput, FeedBack, Navigation, Usual } from './views';
 
-const {TabPane} = Tabs
+const {TabPane} = Tabs;
 
 const tabConfig = [{
-  value: 'usual',
+  component: Usual,
   tab: '通用',
-  component: Usual
+  value: 'usual',
 }, {
-  value: 'navigation',
+  component: Navigation,
   tab: '导航',
-  component: Navigation
+  value: 'navigation',
 }, {
-  value: 'dataInput',
+  component: DataInput,
   tab: '数据录入',
-  component: DataInput
+  value: 'dataInput',
 }, {
-  value: 'dataDisplay',
+  component: DataDisplay,
   tab: '数据展示',
-  component: DataDisplay
+  value: 'dataDisplay',
 }, {
-  value: 'feedBack',
+  component: FeedBack,
   tab: '反馈',
-  component: FeedBack
-}]
+  value: 'feedBack',
+}];
 
 export const App = () =>
   <>
@@ -33,7 +33,7 @@ export const App = () =>
       {tabConfig.map(({component, ...rest}, i) =>
         <TabPane {...rest} key={i} className="app-tabpane">{
           React.createElement(component)
-        }</TabPane>
+        }</TabPane>,
       )}
     </Tabs>
-  </>
+  </>;

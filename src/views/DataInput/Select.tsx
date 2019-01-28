@@ -7,8 +7,8 @@ export class SelectD extends React.Component {
     check2: false,
     check3: false,
   };
-  private handleOnChange(v: any) {
-    console.log(v)
+  private handleOnChange(v: string | number): void {
+    alert(v);
   }
   public render(): React.ReactNode {
     return <>

@@ -1,9 +1,9 @@
-import * as React from 'react'
-import {TabsD} from './Tabs'
-import {TableD} from './Table'
+import * as React from 'react';
+import { TableD } from './Table';
+import { TabsD } from './Tabs';
 
 export const DataDisplay = () =>
   <>
     <TabsD />
     <TableD />
-  </>
+  </>;

@@ -1,9 +1,8 @@
-import * as React from 'react'
-import {Pagination, Title} from '@/components'
+import { Pagination, Title } from '@/components';
+import * as React from 'react';
 
-export const PaginationD = () => {
-  return <>
+export const PaginationD = () =>
+  <>
     <Title>Pagination</Title>
     <Pagination total={1000} />
-  </>
-}
+  </>;

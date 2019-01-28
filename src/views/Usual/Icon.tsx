@@ -1,13 +1,13 @@
 import { Icon, Title } from '@/components';
+import { appendStyle } from '@/utils';
 import * as React from 'react';
-import {appendStyle} from '@/utils'
 
 export class IconD extends React.Component {
   public componentDidMount(): void {
     appendStyle('.icon-wrap .bd-icon', {
+      color: '#39f',
       fontSize: '36px',
-      color: '#39f'
-    })
+    });
   }
   public render(): React.ReactNode {
     return <>

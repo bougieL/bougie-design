@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {classNames, attachEvent} from '../../utils';
-import {selectContext} from './context';
-import {Option} from './Option'
-import {Icon} from '../Icon'
+import { attachEvent, classNames } from '../../utils';
+import { Icon } from '../Icon';
+import { IOptionValue, selectContext } from './context';
+import { Option } from './Option';
 
 export interface ISelectProps {
   defaultValue?: string | number;
@@ -11,56 +11,54 @@ export interface ISelectProps {
 }
 
 interface IState {
-  active: boolean
-  value: {
-    value?: string | number,
-    children?: React.ReactNode
-  }
+  active: boolean;
+  value: IOptionValue;
 }
 
 export class Select extends React.Component<ISelectProps, IState> {
-  static Option = Option
-  private refList: React.RefObject<HTMLUListElement> = React.createRef()
+  private refList: React.RefObject<HTMLUListElement> = React.createRef();
   public state = {
     active: false,
     value: {
+      children: undefined,
       value: this.props.defaultValue,
-      children: undefined as React.ReactNode
+    },
+  };
+  public static Option = Option;
+  private handleInputClick(evt: React.MouseEvent<HTMLDivElement>): void {
+    evt.nativeEvent.stopImmediatePropagation();
+    this.setState(({active}) => ({
+      active: !active,
+    }));
+  }
+  private getOptionValue(value: IOptionValue): void {
+    const {onChange} = this.props;
+    this.setState({value});
+    if (onChange && value.value) {
+      onChange(value.value);
     }
   }
   public componentDidMount(): void {
     attachEvent(document,'click', () => {
       this.setState({
-        active: false
-      })
-    })
-  }
-  public handleInputClick(evt: React.MouseEvent<HTMLDivElement>): void {
-    evt.nativeEvent.stopImmediatePropagation()
-    this.setState(({active}) => ({
-      active: !active
-    }))
-  }
-  public getOptionValue(value: any): void {
-    const {onChange} = this.props
-    this.setState({value})
-    if (onChange) {
-      onChange(value)
-    }
+        active: false,
+      });
+    });
   }
   public render(): React.ReactNode {
-    const {active, value: {value, children: label}} = this.state
-    const {children} = this.props
-    const {Provider} = selectContext
+    const {active, value: {value, children: label}} = this.state;
+    const {children} = this.props;
+    const {Provider} = selectContext;
     const providerValue = {
       getOptionValue: this.getOptionValue.bind(this),
-      value
-    }
+      value,
+    };
+
     return <Provider value={providerValue}>
       <div
         onClick={this.handleInputClick.bind(this)}
         className={classNames('bd-select', {
-          active
+          active,
         })}>
         <div className="bd-select-val">
           <span>{label}</span>
@@ -70,6 +68,6 @@ export class Select extends React.Component<ISelectProps, IState> {
           {children}
         </ul>
       </div>
-    </Provider>
+    </Provider>;
   }
 }
