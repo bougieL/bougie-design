@@ -28,8 +28,8 @@ const tabConfig = [{
 
 export const App = () =>
   <>
-    <Title level={1}>YuanSheng-UI, A UI Design Language.</Title>
-    <Tabs defaultValue="navigation">
+    <Title level={1}>FuYin-UI, A UI Design Language.</Title>
+    <Tabs defaultValue="feedBack">
       {tabConfig.map(({component, ...rest}, i) =>
         <TabPane {...rest} key={i} className="app-tabpane">{
           React.createElement(component)

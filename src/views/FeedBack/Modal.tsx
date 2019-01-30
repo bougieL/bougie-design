@@ -9,13 +9,6 @@ export class ModalD extends React.Component {
     footer: false,
     primary: false,
   };
-  public footer(): React.ReactNode {
-    return <>
-      <Button>确定</Button>
-      <span className="b-s" />
-      <Button>取消</Button>
-    </>;
-  }
   public handleBtnClick(key: string): void {
     this.setState({
       [key]: true,
@@ -32,7 +25,15 @@ export class ModalD extends React.Component {
           <Button type="warning" onClick={this.handleBtnClick.bind(this, 'custom')}>custom</Button>
         </div>
         <Modal title="Primary" {...this.bd.modal('primary')}>Primary Modal</Modal>
-        <Modal title="Footer" {...this.bd.modal('footer')} footer={this.footer}>Primary Modal</Modal>
+        <Modal title="Footer" {...this.bd.modal('footer')}
+          footer={(
+            <>
+              <Button>确定</Button>
+              <span className="b-s" />
+              <Button>取消</Button>
+            </>
+          )}>
+        Primary Modal</Modal>
         <Modal title="Custom" {...this.bd.modal('custom')}>
           <Input />
         </Modal>

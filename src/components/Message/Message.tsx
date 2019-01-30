@@ -29,15 +29,6 @@ export class Message extends React.Component<IProps, IState> {
       resolve();
     }
   }
-  private renderFooter(): React.ReactNode {
-    return (
-      <>
-        <Button onClick={this.handleFooterClick.bind(this, 'cancel')}>取消</Button>
-        <span className="b-s" />
-        <Button type="primary" onClick={this.handleFooterClick.bind(this, 'confirm')}>确定</Button>
-      </>
-    );
-  }
   public componentDidMount(): void {
     this.setState({
       visible: true,
@@ -52,7 +43,13 @@ export class Message extends React.Component<IProps, IState> {
         ref={this.ref}
         title={title}
         visible={visible}
-        footer={this.renderFooter.bind(this)}
+        footer={(
+          <>
+            <Button onClick={this.handleFooterClick.bind(this, 'cancel')}>取消</Button>
+            <span className="b-s" />
+            <Button type="primary" onClick={this.handleFooterClick.bind(this, 'confirm')}>确定</Button>
+          </>
+        )}
         onCancel={onCancel}
         >{children}
       </Modal>

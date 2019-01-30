@@ -2,12 +2,13 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 import { classNames, delay } from '../../utils';
+import { Icon } from '../Icon';
 
 export interface IModalProps {
   title?: string;
-  type?: string;
+  type: string;
   visible?: boolean;
-  footer?(): React.ReactNode;
+  footer?: React.ReactNode;
   onCancel?(): void;
   onOk?(): void;
 }
@@ -24,6 +25,9 @@ export class Modal extends React.Component<IModalProps, IState> {
   public state = {
     entered: false,
   };
+  private handleModalClick(evt: React.MouseEvent<HTMLDivElement>): void {
+    evt.stopPropagation();
+  }
   public componentWillReceiveProps(nextProps: IModalProps): void {
     const {visible} = nextProps;
     if (visible) {
@@ -50,18 +54,19 @@ export class Modal extends React.Component<IModalProps, IState> {
       ReactDom.createPortal(
         <CSSTransition classNames="bd-modal-mask" timeout={0} in={entered} exit={!entered}>
           <div className={classNames("bd-modal-mask", {
-            hide: !visible,
-          })}>
+              hide: !visible,
+            })}
+            onClick={this.handleOnCancel.bind(this)}>
             <CSSTransition classNames="bd-modal" timeout={0} in={entered} exit={!entered}>
-              <div className="bd-modal">
+              <div className="bd-modal" onClick={this.handleModalClick.bind(this)}>
                 <div className="bd-modal-header">
                   <span className="bd-modal-title">{title}</span>
-                  <span className="bd-modal-close" onClick={this.handleOnCancel.bind(this)}>&times;</span>
+                  <Icon className="bd-modal-close" onClick={this.handleOnCancel.bind(this)} type="close"/>
                 </div>
                 <div className={classNames("bd-modal-content", {
                   "bd-modal-content-bordernone": !footer,
                 })}>{children}</div>
-                {footer ? <div className="bd-modal-footer">{footer()}</div> : undefined}
+                {footer ? <div className="bd-modal-footer">{footer}</div> : undefined}
               </div>
             </CSSTransition>
           </div>

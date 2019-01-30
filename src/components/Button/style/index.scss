@@ -4,6 +4,7 @@
   @include font('sub');
   @include flex;
 
+  display: inline-block;
   outline: none;
   padding: 6px 15px;
   border-radius: $borderRadiusPrimary;

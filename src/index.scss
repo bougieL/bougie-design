@@ -1,9 +1,33 @@
+@import './style/index';
+
 #root {
   width: 800px;
   margin: 0 auto;
   padding-top: 20px;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 }
 
 .app-tabpane {
   padding: 20px 10px;
+}
+
+// --------------class--------------
+.f-s {
+  @include flex(flex-start);
+}
+
+.f-c {
+  @include flex;
+}
+
+.f-e {
+  @include flex(flex-end);
+}
+
+.b-s {
+  width: 15px;
+  display: inline-block;
 }

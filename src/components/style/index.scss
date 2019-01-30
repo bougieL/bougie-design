@@ -39,20 +39,3 @@ li {
 .hide {
   display: none !important;
 }
-
-// --------------class--------------
-.f-s {
-  @include flex(flex-start);
-}
-
-.f-c {
-  @include flex;
-}
-
-.f-e {
-  @include flex(flex-end);
-}
-
-.b-s {
-  width: 15px;
-}

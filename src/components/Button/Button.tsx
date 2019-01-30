@@ -4,9 +4,11 @@ import { Icon } from '../Icon';
 
 export interface IButtonProps {
   children?: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
   icon?: string;
   type?: 'default' | 'primary' | 'disable' | 'warning' | 'error' | 'success';
-  onClick?(evt: React.MouseEvent<HTMLElement>): void;
+  onClick?(evt: React.MouseEvent<HTMLButtonElement>): void;
 }
 
 export class Button extends React.Component<IButtonProps> {
@@ -14,12 +16,13 @@ export class Button extends React.Component<IButtonProps> {
     type: 'default',
   };
   public render(): React.ReactNode {
-    const {children, onClick, type, icon} = this.props;
+    const {children, onClick, type, icon, className, style} = this.props;
 
     return (
       <button
-        className={classNames('bd-button', `bd-button-${type}`)}
+        className={classNames('bd-button', `bd-button-${type}`, className)}
         onClick={onClick}
+        style={style}
         type="button"
         disabled={type === 'disable'}>
         {icon ? <Icon type={icon} /> : undefined}
