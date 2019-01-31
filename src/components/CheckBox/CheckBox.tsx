@@ -10,16 +10,19 @@ export interface ICheckBoxProps {
   onChange?(evt: React.ChangeEvent): void;
 }
 
+const prefixCls = 'bd-checkbox';
+
 export class CheckBox extends React.Component<ICheckBoxProps> {
   public render(): React.ReactNode {
     const {checked, children, className, onChange, style} = this.props;
+    const checkBoxCls = classNames(prefixCls, className);
 
     return (
       <label
-        className={classNames("bd-checkbox", className)}
+        className={checkBoxCls}
         style={style}>
         <input type="checkbox" onChange={onChange} checked={checked} />
-        <div className="bd-checkbox-icon">
+        <div className={`${prefixCls}-icon`}>
           <Icon type="checkmark" />
         </div>
         <span>{children}</span>

@@ -1,6 +1,6 @@
 @import '../../../style/index';
 
-.bd-tabs {
+.bd-carousel {
   &-list {
     @include flex(flex-start);
 
@@ -35,11 +35,11 @@
   }
 }
 
-.bd-tabs-animate {
+.bd-carousel-animate {
   transition: $transitionPrimary;
 }
 
-.bd-tabpane {
+.bd-slide {
   flex-shrink: 0;
   width: 100%;
 }

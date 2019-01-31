@@ -16,4 +16,8 @@
   &:hover {
     border-color: palette('primary');
   }
+
+  &:focus {
+    @include colorBoxshadow(palette('primary'));
+  }
 }

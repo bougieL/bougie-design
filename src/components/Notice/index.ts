@@ -4,30 +4,15 @@ import { Notice as NoticeComponent } from './Notice';
 import './style';
 
 interface INotice {
+  type?: 'info' | 'success' | 'warning' | 'error';
   message?: React.ReactNode;
 }
 
-function info(props: INotice): void {
-  return next({...props, type: 'info'});
+export function Notice(props: INotice): void {
+  return next({...props});
 }
 
-function success(props: INotice): void {
-  return next({...props, type: 'success'});
-}
-
-function warning(props: INotice): void {
-  return next({...props, type: 'warning'});
-}
-
-function error(props: INotice): void {
-  return next({...props, type: 'error'});
-}
-
-interface INoticeNext extends INotice {
-  type: 'info' | 'error' | 'warning' | 'success';
-}
-
-function next({type, message}: INoticeNext): void {
+function next({type, message}: INotice): void {
   let wrapper = document.querySelector('.bd-notice-wrapper') as HTMLDivElement;
   if (!wrapper) {
     wrapper = document.createElement('div');
@@ -45,10 +30,3 @@ function next({type, message}: INoticeNext): void {
   }, message);
   ReactDOM.render(component, div);
 }
-
-export const Notice = {
-  error,
-  info,
-  success,
-  warning,
-};

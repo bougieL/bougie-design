@@ -37,8 +37,8 @@ export class Binder {
     const that: IThis = this.that;
 
     return {
-      onChange(v: string | number): void {
-        that.setState({ [key]: v }, cb);
+      onChange(evt: React.ChangeEvent<HTMLInputElement>): void {
+        that.setState({ [key]: evt.target.value }, cb);
       },
       value: that.state[key],
     };

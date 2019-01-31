@@ -6,7 +6,7 @@ import { Icon } from '../Icon';
 
 interface IProps {
   children?: React.ReactNode;
-  type: string;
+  type?: 'info' | 'success' | 'warning' | 'error';
   wrapper: HTMLDivElement;
   onCancel(): void;
 }
@@ -23,6 +23,9 @@ interface IState {
 }
 
 export class Notice extends React.Component<IProps, IState> {
+  public static defaultProps: Partial<IProps> = {
+    type: 'info',
+  };
   public state = {
     entered: false,
   };

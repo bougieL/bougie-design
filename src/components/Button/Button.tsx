@@ -11,16 +11,23 @@ export interface IButtonProps {
   onClick?(evt: React.MouseEvent<HTMLButtonElement>): void;
 }
 
+const prefixCls = 'bd-button';
+
 export class Button extends React.Component<IButtonProps> {
   public static defaultProps: Partial<IButtonProps>  = {
     type: 'default',
   };
   public render(): React.ReactNode {
     const {children, onClick, type, icon, className, style} = this.props;
+    const buttonCls = classNames(
+      prefixCls,
+      `bd-button-${type}`,
+      className,
+    );
 
     return (
       <button
-        className={classNames('bd-button', `bd-button-${type}`, className)}
+        className={buttonCls}
         onClick={onClick}
         style={style}
         type="button"

@@ -59,7 +59,7 @@ export class Select extends React.Component<ISelectProps, IState> {
         <div
           onClick={this.handleInputClick.bind(this)}
           className={classNames('bd-select', {
-            active,
+            'bd-select-active': active,
           })}>
           <div className="bd-select-val">
             <span>{label}</span>

@@ -37,16 +37,20 @@
     transform-origin: left top;
   }
 
-  &.active {
-    border-color: palette('primary');
-
+  &-active {
     .bd-select {
       &-list {
         transform: none;
       }
 
-      &-val .bd-icon {
-        transform: rotate(180deg);
+      &-val{
+        @include colorBoxshadow(palette('primary'));
+
+        border-color: palette('primary');
+        .bd-icon {
+          
+          transform: rotate(180deg);
+        }
       }
     }
   }

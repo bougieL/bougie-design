@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { createContext } from 'react';
 
 export interface IOptionValue {
   value?: string | number;
@@ -9,7 +9,7 @@ interface ISelectContext {
   value?: string | number;
 }
 
-export const selectContext = React.createContext<ISelectContext>({
+export const selectContext = createContext<ISelectContext>({
   getOptionValue(v: IOptionValue): void {
     alert(v);
   },

@@ -3,8 +3,9 @@ import * as React from 'react';
 
 export class NoticeD extends React.Component {
   public handleNotice(type: string, message: string): void {
-    Notice[type]({
+    Notice({
       message,
+      type,
     });
   }
   public render(): React.ReactNode {
@@ -12,11 +13,17 @@ export class NoticeD extends React.Component {
       <Title>Notice</Title>
       <Button onClick={this.handleNotice.bind(this, 'info', 'This is a info notice.')}>Info</Button>
       <span className="b-s"></span>
-      <Button onClick={this.handleNotice.bind(this, 'success', 'This is a success message.')}>Success</Button>
+      <Button onClick={this.handleNotice.bind(this, 'success', 'This is a success notice.')}>Success</Button>
       <span className="b-s"></span>
-      <Button onClick={this.handleNotice.bind(this, 'warning', 'This is a warning message.')}>Warning</Button>
+      <Button onClick={this.handleNotice.bind(this, 'warning', 'This is a warning notice.')}>Warning</Button>
       <span className="b-s"></span>
-      <Button onClick={this.handleNotice.bind(this, 'error', 'This is a error message.')}>Error</Button>
+      <Button onClick={this.handleNotice.bind(this, 'error', 'This is a error notice.')}>Error</Button>
+      <span className="b-s"></span>
+      <Button
+        onClick={this.handleNotice.bind(this, 'error', `This is a very very very very very
+        very very very very very long notice.`)}>
+        Long Notice
+      </Button>
       <span className="b-s"></span>
     </>;
   }
