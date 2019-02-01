@@ -6,7 +6,7 @@ function resolve(...p) {
 }
 
 module.exports = {
-  appBuild: resolve('docs'),
+  appBuild: resolve('/'),
   appPublic: resolve('public'),
   appHtml: resolve('public', 'index.html'),
   appIndexJs: resolve('src', 'index.tsx'),
