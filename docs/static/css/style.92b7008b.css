@@ -273,8 +273,8 @@ li {
  */
 @font-face {
   font-family: "Ionicons";
-  src: url(/static/media/ionicons.0a6f9ed3.eot);
-  src: url(/static/media/ionicons.0a6f9ed3.eot#iefix) format("embedded-opentype"), url(/static/media/ionicons.96f1c901.woff2) format("woff2"), url(/static/media/ionicons.0d3af9ed.woff) format("woff"), url(/static/media/ionicons.78ea6899.ttf) format("truetype"), url(/static/media/ionicons.582e81d6.svg#Ionicons) format("svg");
+  src: url(/docs/static/media/ionicons.0a6f9ed3.eot);
+  src: url(/docs/static/media/ionicons.0a6f9ed3.eot#iefix) format("embedded-opentype"), url(/docs/static/media/ionicons.96f1c901.woff2) format("woff2"), url(/docs/static/media/ionicons.0d3af9ed.woff) format("woff"), url(/docs/static/media/ionicons.78ea6899.ttf) format("truetype"), url(/docs/static/media/ionicons.582e81d6.svg#Ionicons) format("svg");
   font-weight: normal;
   font-style: normal; }
 
