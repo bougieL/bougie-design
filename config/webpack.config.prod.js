@@ -7,8 +7,8 @@ module.exports = {
   entry: [paths.appIndexJs],
   output: {
     path: paths.appBuild,
-    filename: 'static/js/[name].[chunkhash:8].js',
-    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js'
+    filename: 'static/js/[name].js?[hash:8]',
+    chunkFilename: 'static/js/[name].chunk.js?[hash:8]'
   },
   mode: 'production',
   resolve: {
@@ -38,7 +38,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/media/[name].[hash:8].[ext]'
+          name: 'static/media/[name].[ext]?[hash:8]'
         }
       },
       {
@@ -61,10 +61,12 @@ module.exports = {
         })
       },
       {
-        exclude: [/\.(js|jsx|mjs|ts|tsx)$/, /\.html$/, /\.json$/, /\.scss$/, /\css$/],
+        exclude: [/\.(js|jsx|mjs|ts|tsx)$/, /\.html$/, /\.json$/, /\.scss$/, /\.css$/],
         loader: 'file-loader',
         options: {
-          name: '/static/media/[name].[hash:8].[ext]'
+          name: '[name].[ext]?[hash:8]',
+          publicPath: '../media',
+          outputPath: 'static/media'
         }
       }
     ]
@@ -74,6 +76,6 @@ module.exports = {
       inject: true,
       template: paths.appHtml
     }),
-    new ExtractTextPlugin('static/css/style.[hash:8].css')
+    new ExtractTextPlugin('static/css/style.css?[hash:8]')
   ]
 }
