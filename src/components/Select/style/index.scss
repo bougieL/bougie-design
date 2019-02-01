@@ -26,6 +26,7 @@
 
   &-list {
     position: absolute;
+    z-index: 1;
     left: 0;
     top: calc(100% + 2px);
     background: palette('background_light');

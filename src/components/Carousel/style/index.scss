@@ -1,38 +1,55 @@
 @import '../../../style/index';
 
 .bd-carousel {
+  position: relative;
+  &-scroll {
+    overflow: hidden;
+  }
   &-list {
     @include flex(flex-start);
-
-    border-bottom: 1px solid palette('border');
+    transition: $transitionPrimary;
   }
 
-  &-item {
-    @include font('content');
-
-    padding: 5px 10px;
+  &-indicator {
+    @include flex;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    &-item {
+      border-radius: 2px;
+      height: 4px;
+      width: 18px;
+      margin: 4px;
+      background: rgba(#fff, .4);
+      cursor: pointer;
+      transition: $transitionPrimary;
+      &-active {
+        width: 36px;
+        background: #fff;
+      }
+    }
+  }
+  &-btn {
+    @include flex;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    color: #fff;
     cursor: pointer;
-    color: palette('content');
-
-    &-active {
-      color: palette('primary');
+    font-size: 20px;
+    opacity: 0.4;
+    transition: $transitionPrimary;
+    &:hover {
+      opacity: 1;
+    }
+    &-next {
+      right: 0;
     }
   }
 
-  &-bar {
-    margin-top: -2px;
-    height: 2px;
-    background: palette('primary');
-  }
-
-  &-scroll {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  &-content {
-    display: flex;
-  }
 }
 
 .bd-carousel-animate {

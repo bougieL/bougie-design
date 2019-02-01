@@ -46,12 +46,12 @@ export class TableD extends React.Component {
       message: `确定删除${data.name} ?`,
     })
     .then(() => {
-      Notice.info({
+      Notice({
         message: '点击了确定',
       });
     })
     .catch(() => {
-      Notice.info({
+      Notice({
         message: '点击了取消',
       });
     });

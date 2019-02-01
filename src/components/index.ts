@@ -17,3 +17,4 @@ export * from './RadioGroup';
 export * from './Select';
 export * from './Pagination';
 export * from './Carousel';
+export * from './Switch';

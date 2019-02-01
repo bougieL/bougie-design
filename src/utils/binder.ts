@@ -43,4 +43,18 @@ export class Binder {
       value: that.state[key],
     };
   }
+  public switch(key: string, cb?: Tcb): object {
+    const that: IThis = this.that;
+
+    function setState(prevState: object): object {
+      return { [key]: !prevState[key] };
+    }
+
+    return {
+      onChange(v: boolean): void {
+        that.setState(setState, cb);
+      },
+      checked: that.state[key],
+    };
+  }
 }

@@ -3,6 +3,7 @@ import { CheckBoxD } from './CheckBox';
 import { InputD } from './Input';
 import { RadioD } from './Radio';
 import { SelectD } from './Select';
+import { SwitchD } from './Switch';
 
 export const DataInput = () =>
   <>
@@ -10,4 +11,5 @@ export const DataInput = () =>
     <CheckBoxD />
     <RadioD />
     <SelectD />
+    <SwitchD />
   </>;
