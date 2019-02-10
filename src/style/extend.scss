@@ -6,3 +6,14 @@
   border: none;
   outline: none;
 }
+
+%text-elli {
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+%no-select {
+  user-select: none;
+}

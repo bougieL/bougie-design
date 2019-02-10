@@ -39,7 +39,7 @@ class OptionComponent extends React.Component<IOptionComponentProps> {
         className={classNames('bd-option', {
           'bd-option-active': value === parentValue,
         })}
-        onClick={getOptionValue.bind(this, {value, children})}>
+        onClick={getOptionValue.bind(this, {value, children}, false)}>
         {children}
       </li>
     );

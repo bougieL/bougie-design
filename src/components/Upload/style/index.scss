@@ -1,6 +1,6 @@
 @import '../../../style/index';
 
-.bd-upload {
+.#{$bdPrefix}-upload {
   width: 100%;
 
   &-file {

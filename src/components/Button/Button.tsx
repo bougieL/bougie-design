@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, getPrefixCls } from '../../utils';
 import { Icon } from '../Icon';
 
 export interface IButtonProps {
@@ -11,7 +11,7 @@ export interface IButtonProps {
   onClick?(evt: React.MouseEvent<HTMLButtonElement>): void;
 }
 
-const prefixCls = 'bd-button';
+const prefixCls = getPrefixCls('button');
 
 export class Button extends React.Component<IButtonProps> {
   public static defaultProps: Partial<IButtonProps>  = {
@@ -21,7 +21,7 @@ export class Button extends React.Component<IButtonProps> {
     const {children, onClick, type, icon, className, style} = this.props;
     const buttonCls = classNames(
       prefixCls,
-      `bd-button-${type}`,
+      `${prefixCls}-${type}`,
       className,
     );
 

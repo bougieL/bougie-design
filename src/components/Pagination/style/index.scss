@@ -1,7 +1,8 @@
 @import '../../../style/index';
 
-.bd-pagination {
+.#{$bdPrefix}-pagination {
   @include flex(flex-end);
+  @extend %no-select;
 
   &-item {
     @include flex;

@@ -1,6 +1,6 @@
 @import '../../../style/index';
 
-.bd-formitem {
+.#{$bdPrefix}-formitem {
   margin-bottom: 10px;
 
   &-label {

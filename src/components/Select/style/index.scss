@@ -1,6 +1,6 @@
 @import '../../../style/index';
 
-.bd-select {
+.#{$bdPrefix}-select {
   position: relative;
 
   &-val {
@@ -13,7 +13,7 @@
     border-radius: $borderRadiusPrimary;
     cursor: pointer;
 
-    .bd-icon {
+    .#{$bdPrefix}-icon {
       color: palette('sub');
       transition: $transitionPrimary;
     }
@@ -39,7 +39,7 @@
   }
 
   &-active {
-    .bd-select {
+    .#{$bdPrefix}-select {
       &-list {
         transform: none;
       }
@@ -48,7 +48,7 @@
         @include colorBoxshadow(palette('primary'));
 
         border-color: palette('primary');
-        .bd-icon {
+        .#{$bdPrefix}-icon {
           
           transform: rotate(180deg);
         }
@@ -57,7 +57,7 @@
   }
 }
 
-.bd-option {
+.#{$bdPrefix}-option {
   padding: 8px;
   transition: $transitionPrimary;
   cursor: pointer;

@@ -1,6 +1,6 @@
 @import '../../../style/index';
 
-.bd-switch {
+.#{$bdPrefix}-switch {
   @extend %no-border;
   padding: 2px;
   height: 24px;
@@ -21,13 +21,13 @@
   }
   &-checked {
     background: palette('primary');
-    .bd-switch-inner {
+    .#{$bdPrefix}-switch-inner {
       left: 100%;
       transform: translateX(-100%);
     }
   }
   &:active {
-    .bd-switch-inner {
+    .#{$bdPrefix}-switch-inner {
       width: 26px;
     }
     box-shadow: $boxShadowPrimary;

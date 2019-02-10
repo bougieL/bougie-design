@@ -1,6 +1,6 @@
 @import '../../../style/index';
 
-.bd-checkbox {
+.#{$bdPrefix}-checkbox {
   @include flex;
 
   cursor: pointer;
@@ -23,7 +23,7 @@
     display: none;
 
     &:checked {
-      & + .bd-checkbox-icon {
+      & + .#{$bdPrefix}-checkbox-icon {
         background: palette('primary');
         border-color: palette('primary');
       }

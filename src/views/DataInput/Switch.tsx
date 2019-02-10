@@ -9,7 +9,7 @@ export class SwitchD extends React.Component {
   private bd = new Binder(this);
   private cb() {
     const {checked} = this.state;
-    Notice({
+    Notice.open({
       message: `Switched to ${checked}`
     })
   }

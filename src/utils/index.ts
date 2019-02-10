@@ -3,3 +3,4 @@ export * from './style';
 export * from './binder';
 export * from './event';
 export * from './async';
+export * from './prefix';

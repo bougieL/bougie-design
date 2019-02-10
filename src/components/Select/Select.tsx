@@ -5,7 +5,7 @@ import { IOptionValue, selectContext } from './context';
 import { Option } from './Option';
 
 export interface ISelectProps {
-  defaultValue?: string | number;
+  value?: string | number;
   children?: React.ReactNode;
   onChange?(value: string | number): void;
 }
@@ -21,7 +21,7 @@ export class Select extends React.Component<ISelectProps, IState> {
     active: false,
     value: {
       children: undefined,
-      value: this.props.defaultValue,
+      value: this.props.value,
     },
   };
   public static Option = Option;

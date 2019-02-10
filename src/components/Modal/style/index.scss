@@ -1,6 +1,6 @@
 @import '../../../style/index';
 
-.bd-modal {
+.#{$bdPrefix}-modal {
   min-width: 20%;
   background: palette('background');
   border-radius: $borderRadiusPrimary;

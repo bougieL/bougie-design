@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, getPrefixCls } from '../../utils';
 import { carouselContext, ISlideValue } from './context';
+
+const prefixCls = getPrefixCls('slide');
 
 export interface ISlideProps {
   value?: string | number;
@@ -32,10 +34,11 @@ class SlideComponent extends React.Component<ISlideComponentProps> {
   }
   public render(): React.ReactNode {
     const {children, className, style} = this.props;
+    const slideCls = classNames(prefixCls, className);
 
     return (
       <li
-        className={classNames("bd-slide", className)}
+        className={slideCls}
         style={style}>
         {children}
       </li>

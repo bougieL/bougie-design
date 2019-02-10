@@ -1,8 +1,14 @@
-import { Pagination, Title } from '@/components';
+import { Pagination, Title, Notice } from '@/components';
 import * as React from 'react';
+
+function handleOnChange(page: number, pageSize: number): void {
+  Notice.open({
+    message: `Current page ${page}, ${pageSize} items per page.`
+  })
+}
 
 export const PaginationD = () =>
   <>
     <Title>Pagination</Title>
-    <Pagination total={1000} />
+    <Pagination onChange={handleOnChange} total={1000} />
   </>;

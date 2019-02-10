@@ -1,6 +1,6 @@
 @import '../../../style/index';
 
-.bd-radio {
+.#{$bdPrefix}-radio {
   @include flex;
 
   cursor: pointer;
@@ -28,7 +28,7 @@
     display: none;
 
     &:checked {
-      & + .bd-radio-icon {
+      & + .#{$bdPrefix}-radio-icon {
         border-color: palette('primary');
 
         div {

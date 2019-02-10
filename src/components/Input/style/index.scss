@@ -1,6 +1,6 @@
 @import '../../../style/index';
 
-.bd-input {
+.#{$bdPrefix}-input {
   @include font('content');
   $border: palette('border');
 

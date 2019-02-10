@@ -1,6 +1,6 @@
 @import '../../../style/index';
 
-.bd-carousel {
+.#{$bdPrefix}-carousel {
   position: relative;
   &-scroll {
     overflow: hidden;
@@ -52,11 +52,11 @@
 
 }
 
-.bd-carousel-animate {
+.#{$bdPrefix}-carousel-animate {
   transition: $transitionPrimary;
 }
 
-.bd-slide {
+.#{$bdPrefix}-slide {
   flex-shrink: 0;
   width: 100%;
 }

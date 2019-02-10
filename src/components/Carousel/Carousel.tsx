@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, getPrefixCls } from '../../utils';
 import { carouselContext, ISlideValue } from './context';
 import { Slide } from './Slide';
 import { Icon } from '../Icon';
@@ -11,7 +11,7 @@ export interface ICarouselProps {
   onChange?(data: object | string | number): void;
 }
 
-const prefixCls = 'bd-carousel';
+const prefixCls = getPrefixCls('carousel');
 
 interface ISlideItem {
   value?: string | number;

@@ -9,7 +9,7 @@ export class InputD extends React.Component {
   private bd = new Binder(this);
   private cb(): void {
     const {value} = this.state
-    Notice({
+    Notice.open({
       message: `Input "${value}"`
     })
   }

@@ -22,17 +22,24 @@ export class Pagination extends React.Component<IPaginaitonProps, IState> {
     current: 1,
     pageTotal: Math.ceil(this.props.total / this.props.pageSize),
   };
+  private handleOnChange(): void {
+    const {current} = this.state;
+    const {pageSize, onChange} = this.props;
+    if (onChange) {
+      onChange(current, pageSize);
+    }
+  }
   private handleItemClick(pageNum: number): void {
     this.setState({
       current: pageNum,
-    });
+    }, this.handleOnChange);
   }
   private handlePrevClick(): void {
     const {current} = this.state;
     if (current > 1) {
       this.setState({
         current: current - 1,
-      });
+      }, this.handleOnChange);
     }
   }
   private handleNextClick(): void {
@@ -40,7 +47,7 @@ export class Pagination extends React.Component<IPaginaitonProps, IState> {
     if (current < pageTotal) {
       this.setState({
         current: current + 1,
-      });
+      }, this.handleOnChange);
     }
   }
   private renderItem(pageNum: number): React.ReactNode {

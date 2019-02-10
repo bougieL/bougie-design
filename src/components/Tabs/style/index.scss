@@ -1,6 +1,6 @@
 @import '../../../style/index';
 
-.bd-tabs {
+.#{$bdPrefix}-tabs {
   &-list {
     @include flex(flex-start);
 
@@ -35,11 +35,11 @@
   }
 }
 
-.bd-tabs-animate {
+.#{$bdPrefix}-tabs-animate {
   transition: $transitionPrimary;
 }
 
-.bd-tabpane {
+.#{$bdPrefix}-tabpane {
   flex-shrink: 0;
   width: 100%;
 }

@@ -1,6 +1,6 @@
 @import '../../../style/index';
 
-.bd-table {
+.#{$bdPrefix}-table {
   $background: palette('background');
 
   background: palette('background_light');

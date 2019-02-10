@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, delay } from '../../utils';
 import { ITabPaneValue, tabsContext } from './context';
 import { TabPane } from './TabPane';
 
@@ -68,13 +68,12 @@ export class Tabs extends React.Component<ITabsProps, IState> {
     this.setState({
       active,
       list: this.list,
-    }, () => {
+    }, async () => {
       this.updateBarStyle();
       this.updateContentStyle();
-      setTimeout(() => {
-        this.setState({
-          isAnimate: true,
-        });
+      await delay();
+      this.setState({
+        isAnimate: true,
       });
     });
   }
@@ -84,7 +83,7 @@ export class Tabs extends React.Component<ITabsProps, IState> {
     }
     const {active} = this.state;
     const {gutter} = this.props;
-    const items: NodeListOf<HTMLLIElement> = this.refHeader.current.querySelectorAll('.bd-tabs-item');
+    const items: NodeListOf<HTMLLIElement> = this.refHeader.current.childNodes as NodeListOf<HTMLLIElement>;
     let offset = gutter / 2;
     for(let i = 0; i < active; i+=1) {
       offset += items[i].offsetWidth + gutter;

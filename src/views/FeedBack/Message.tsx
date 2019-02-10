@@ -7,12 +7,12 @@ export class MessageD extends React.Component {
       message: '你确定？',
     })
     .then(() => {
-      Notice.info({
+      Notice.open({
         message: '点击了确定',
       });
     })
     .catch(() => {
-      Notice.info({
+      Notice.open({
         message: '点击了取消',
       });
     });
