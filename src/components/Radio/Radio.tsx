@@ -25,7 +25,7 @@ export const Radio = (props: IRadioProps) => {
 
 interface IRadioComponentProps extends IRadioProps {
   parentValue?: string | number;
-  getRadioValue(v: string | number): void;
+  getRadioValue?(v: string | number): void;
 }
 
 class RadioComponent extends React.Component<IRadioComponentProps> {

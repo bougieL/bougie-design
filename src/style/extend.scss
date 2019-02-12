@@ -28,11 +28,14 @@
 
 %disabled {
   $background: palette('background_disabled');
+
   background: $background !important;
   color: palette('disabled') !important;
   cursor: not-allowed !important;
   box-shadow: none !important;
-  &:hover, &:focus {
+
+  &:hover,
+  &:focus {
     box-shadow: none !important;
   }
 }

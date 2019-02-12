@@ -25,7 +25,7 @@ export const Option = (props: IOptionProps): JSX.Element => {
 
 interface IOptionComponentProps extends IOptionProps {
   parentValue?: string | number;
-  getOptionValue(v: IOptionValue, isDefault: boolean): void;
+  getOptionValue?(v: IOptionValue, isDefault: boolean): void;
 }
 
 class OptionComponent extends React.Component<IOptionComponentProps> {
@@ -36,11 +36,13 @@ class OptionComponent extends React.Component<IOptionComponentProps> {
 
       return;
     }
-    getOptionValue({value, children}, false);
+    if (getOptionValue) {
+      getOptionValue({value, children}, false);
+    }
   }
   public componentDidMount(): void {
     const {parentValue, value, children, getOptionValue} = this.props;
-    if (parentValue === value) {
+    if (parentValue === value && getOptionValue) {
       getOptionValue({value, children}, true);
     }
   }

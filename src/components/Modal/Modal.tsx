@@ -8,7 +8,7 @@ const prefixCls = getPrefixCls('modal');
 
 export interface IModalProps {
   title?: string;
-  type: string;
+  type?: string;
   visible?: boolean;
   footer?: React.ReactNode;
   onCancel?(): void;

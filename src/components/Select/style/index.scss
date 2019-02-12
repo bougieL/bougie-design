@@ -2,6 +2,7 @@
 
 .#{$bdPrefix}-select {
   @extend %no-select;
+
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -59,6 +60,7 @@
 
   &-disabled {
     @extend %disabled;
+
     .#{$bdPrefix}-select-val {
       border-color: palette('border');
     }

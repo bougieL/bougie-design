@@ -25,13 +25,15 @@ export const TabPane = (props: ITabPaneProps) => {
 };
 
 interface ITabPaneComponentProps extends ITabPaneProps {
-  getTabPane(v: ITabPaneValue): void;
+  getTabPane?(v: ITabPaneValue): void;
 }
 
 class TabPaneComponent extends React.Component<ITabPaneComponentProps> {
   public componentDidMount(): void {
     const {tab, value, getTabPane} = this.props;
-    getTabPane({tab, value});
+    if (getTabPane) {
+      getTabPane({tab, value});
+    }
   }
   public render(): React.ReactNode {
     const {children, className, style} = this.props;

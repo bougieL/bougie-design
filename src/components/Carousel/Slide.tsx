@@ -24,13 +24,15 @@ export const Slide = (props: ISlideProps) => {
 };
 
 interface ISlideComponentProps extends ISlideProps {
-  getSlide(v: ISlideValue): void;
+  getSlide?(v: ISlideValue): void;
 }
 
 class SlideComponent extends React.Component<ISlideComponentProps> {
   public componentDidMount(): void {
     const {value, getSlide} = this.props;
-    getSlide({value});
+    if (getSlide) {
+      getSlide({value});
+    }
   }
   public render(): React.ReactNode {
     const {children, className, style} = this.props;
