@@ -98,12 +98,13 @@
     }
   }
 
-  &-disable {
-    $background: palette('disable');
+  &-disabled {
+    @extend %disabled;
+    // $background: palette('disable');
 
-    background: $background;
-    color: lighten(palette('content'), $lightenMount);
-    cursor: not-allowed;
+    // background: $background;
+    // color: lighten(palette('content'), $lightenMount);
+    // cursor: not-allowed;
   }
 
   &:active {

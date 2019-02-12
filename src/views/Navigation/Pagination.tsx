@@ -1,10 +1,10 @@
-import { Pagination, Title, Notice } from '@/components';
+import { Notice, Pagination, Title } from '@/components';
 import * as React from 'react';
 
 function handleOnChange(page: number, pageSize: number): void {
   Notice.open({
-    message: `Current page ${page}, ${pageSize} items per page.`
-  })
+    message: `Current page ${page}, ${pageSize} items per page.`,
+  });
 }
 
 export const PaginationD = () =>

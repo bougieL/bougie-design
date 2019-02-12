@@ -1,3 +1,3 @@
-export function getPrefixCls(classname: string) {
-  return `bd-${classname}`
+export function getPrefixCls(classname: string): string {
+  return `bd-${classname}`;
 }

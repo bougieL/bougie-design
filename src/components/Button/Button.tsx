@@ -2,27 +2,31 @@ import * as React from 'react';
 import { classNames, getPrefixCls } from '../../utils';
 import { Icon } from '../Icon';
 
+const prefixCls = getPrefixCls('button');
+
 export interface IButtonProps {
   children?: React.ReactNode;
   className?: string;
+  disabled?: boolean;
   style?: React.CSSProperties;
   icon?: string;
-  type?: 'default' | 'primary' | 'disable' | 'warning' | 'error' | 'success';
+  type?: 'default' | 'primary' | 'warning' | 'error' | 'success';
   onClick?(evt: React.MouseEvent<HTMLButtonElement>): void;
 }
-
-const prefixCls = getPrefixCls('button');
 
 export class Button extends React.Component<IButtonProps> {
   public static defaultProps: Partial<IButtonProps>  = {
     type: 'default',
   };
   public render(): React.ReactNode {
-    const {children, onClick, type, icon, className, style} = this.props;
+    const {children, onClick, type, icon, className, style, disabled} = this.props;
     const buttonCls = classNames(
       prefixCls,
-      `${prefixCls}-${type}`,
       className,
+      {
+        [`${prefixCls}-${type}`]: !disabled,
+        [`${prefixCls}-disabled`]: disabled,
+      },
     );
 
     return (
@@ -31,7 +35,7 @@ export class Button extends React.Component<IButtonProps> {
         onClick={onClick}
         style={style}
         type="button"
-        disabled={type === 'disable'}>
+        disabled={disabled}>
         {icon ? <Icon type={icon} /> : undefined}
         <span>{children}</span>
       </button>

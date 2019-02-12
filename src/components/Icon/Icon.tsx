@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, getPrefixCls } from '../../utils';
+
+const prefixCls = getPrefixCls('icon');
 
 export interface IIconProps {
   className?: string;
@@ -8,8 +10,6 @@ export interface IIconProps {
   type: string;
   onClick?(evt: React.MouseEvent<HTMLElement>): void;
 }
-
-const prefixCls = 'bd-icon';
 
 export class Icon extends React.Component<IIconProps> {
   protected static defaultProps: Partial<IIconProps> = {

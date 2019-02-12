@@ -16,7 +16,7 @@ export class ButtonD extends React.Component {
         <span className="b-s" />
         <Button type="error">Error</Button>
         <span className="b-s" />
-        <Button type="disable">Disable</Button>
+        <Button disabled>Disabled</Button>
         <span className="b-s" />
         <Button icon="at">Icon</Button>
         <span className="b-s" />

@@ -1,17 +1,18 @@
 @import '../../../style/index';
 
 .#{$bdPrefix}-select {
+  @extend %no-select;
   position: relative;
+  display: inline-block;
+  cursor: pointer;
 
   &-val {
     @include flex(space-between);
 
     border: 1px solid palette('border');
     padding: 8px;
-    background: palette('background_light');
     transition: $transitionPrimary;
     border-radius: $borderRadiusPrimary;
-    cursor: pointer;
 
     .#{$bdPrefix}-icon {
       color: palette('sub');
@@ -44,26 +45,38 @@
         transform: none;
       }
 
-      &-val{
+      &-val {
         @include colorBoxshadow(palette('primary'));
 
         border-color: palette('primary');
+
         .#{$bdPrefix}-icon {
-          
           transform: rotate(180deg);
         }
       }
     }
   }
+
+  &-disabled {
+    @extend %disabled;
+    .#{$bdPrefix}-select-val {
+      border-color: palette('border');
+    }
+  }
 }
 
 .#{$bdPrefix}-option {
+  @extend %text-elli;
+
   padding: 8px;
   transition: $transitionPrimary;
-  cursor: pointer;
 
   &:hover {
     background: palette('background');
+  }
+
+  &-disabled {
+    @extend %disabled;
   }
 
   &-active {

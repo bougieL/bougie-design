@@ -29,7 +29,7 @@ const tabConfig = [{
 export const App = () =>
   <>
     <Title level={1}>Bougie-Design</Title>
-    <Tabs defaultValue="navigation">
+    <Tabs defaultValue="dataDisplay">
       {tabConfig.map(({component, ...rest}, i) =>
         <TabPane {...rest} key={i} className="app-tabpane">{
           React.createElement(component)

@@ -1,8 +1,12 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, getPrefixCls } from '../../utils';
 import { Button } from '../Button';
 
+const prefixCls = getPrefixCls('upload');
+
 interface IUploadProps {
+  className?: string;
+  style?: React.CSSProperties;
   files?: object[];
   multiple?: boolean;
   onChange?(evt: React.ChangeEvent<HTMLInputElement>): void;
@@ -40,20 +44,21 @@ export class Upload extends React.Component<IUploadProps, IState> {
   }
   public render(): React.ReactNode {
     const {files} = this.state;
-    const {multiple} = this.props;
+    const {multiple, className, ...rest} = this.props;
+    const uploadCls = classNames(prefixCls, className);
 
     return (
-      <div className={classNames('bd-upload')}>
+      <div className={uploadCls} {...rest}>
         <Button
           type="primary"
           onClick={this.handleButtonClick.bind(this)}
           icon="cloud-upload">
           Click to Upload
         </Button>
-        <div className="bd-upload-files">
+        <div className={`${prefixCls}-files`}>
           {
             files.map(({name}, i) =>
-              <div className="bd-upload-file" key={i}>
+              <div className={`${prefixCls}-file`} key={i}>
                 <span>{name}</span>
                 <span className="remove" onClick={this.handleRemove.bind(this, i)}>&times;</span>
               </div>)

@@ -5,13 +5,11 @@ export interface IOptionValue {
   children?: React.ReactNode;
 }
 interface ISelectContext {
-  getOptionValue(v: IOptionValue): void;
+  getOptionValue?(v: IOptionValue): void;
   value?: string | number;
 }
 
 export const selectContext = createContext<ISelectContext>({
-  getOptionValue(v: IOptionValue): void {
-    alert(v);
-  },
-  value: '',
+  getOptionValue: undefined,
+  value: undefined,
 });

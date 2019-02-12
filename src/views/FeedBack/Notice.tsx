@@ -4,7 +4,7 @@ import * as React from 'react';
 export class NoticeD extends React.Component {
   public handleNotice(type: string, message: string): void {
     Notice[type]({
-      message
+      message,
     });
   }
   public render(): React.ReactNode {

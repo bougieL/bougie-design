@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, getPrefixCls } from '../../utils';
+
+const prefixCls = getPrefixCls('title');
 
 interface IProps {
   children?: string;
@@ -14,10 +16,11 @@ export class Title extends React.Component<IProps> {
   };
   public render(): React.ReactNode {
     const {level, children, className, ...rest} = this.props;
+    const titleCls = classNames(prefixCls, `${prefixCls}-${level}`, className);
 
     return (
       React.createElement(`h${level}`, {
-        className: classNames('bd-title', `bd-title-${level}`, className),
+        className: titleCls,
         ...rest,
       }, children)
     );

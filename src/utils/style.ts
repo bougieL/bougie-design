@@ -29,10 +29,10 @@ export function styleToObject(cssText: string): object {
 export function objectToStyle(properties: object): string {
   let cssText = '';
   Object.keys(properties)
-  .forEach((key: string) => {
-    cssText += `${key.replace(/([A-Z])/g, '-$1')
-      .toLowerCase()}:${properties[key]};`;
-  });
+    .forEach((key: string) => {
+      cssText += `${key.replace(/([A-Z])/g, '-$1')
+        .toLowerCase()}:${properties[key]};`;
+    });
 
   return cssText;
 }

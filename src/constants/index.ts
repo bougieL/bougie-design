@@ -1,1 +1,1 @@
-export * from './prefix'
+export * from './prefix';

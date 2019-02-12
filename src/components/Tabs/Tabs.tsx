@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { classNames, delay } from '../../utils';
+import { classNames, delay, getPrefixCls } from '../../utils';
 import { ITabPaneValue, tabsContext } from './context';
 import { TabPane } from './TabPane';
+
+const prefixCls = getPrefixCls('tabs');
 
 export interface ITabsProps {
   children?: React.ReactNode;
@@ -11,7 +13,7 @@ export interface ITabsProps {
 }
 
 interface ITabItem {
-  tab: string | number | React.ReactNode;
+  tab: React.ReactNode;
   value?: string | number;
   index: number;
 }
@@ -118,15 +120,15 @@ export class Tabs extends React.Component<ITabsProps, IState> {
 
     return (
       <Provider value={providerValue}>
-        <div className="bd-tabs">
-          <div className="bd-tabs-header">
-            <ul className="bd-tabs-list" ref={this.refHeader}>
+        <div className={prefixCls}>
+          <div className={`${prefixCls}-header`}>
+            <ul className={`${prefixCls}-list`} ref={this.refHeader}>
               {
                 list.map(({tab}, i) =>
                   <li
-                    className={classNames('bd-tabs-item', {
-                      "active": i === active,
-                      'bd-tabs-animate': isAnimate,
+                    className={classNames(`${prefixCls}-item`, {
+                      [`${prefixCls}-item-active`]: i === active,
+                      [`${prefixCls}-animate`]: isAnimate,
                     })}
                     style={{
                       margin: `0 ${gutter/2}px`,
@@ -137,16 +139,16 @@ export class Tabs extends React.Component<ITabsProps, IState> {
               }
             </ul>
             <div
-              className={classNames("bd-tabs-bar", {
-                'bd-tabs-animate': isAnimate,
+              className={classNames([`${prefixCls}-bar`], {
+                [`${prefixCls}-animate`]: isAnimate,
               })}
               style={barStyle} />
           </div>
           {
-            children ? <div ref={this.refScroll} className="bd-tabs-scroll">
+            children ? <div ref={this.refScroll} className={`${prefixCls}-scroll`}>
               <div
-                className={classNames("bd-tabs-content", {
-                  'bd-tabs-animate': isAnimate,
+                className={classNames(`${prefixCls}-content`, {
+                  [`${prefixCls}-animate`]: isAnimate,
                 })}
                 style={contentStyle}>{children}</div>
             </div> : undefined

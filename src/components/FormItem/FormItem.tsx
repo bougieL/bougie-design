@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, getPrefixCls } from '../../utils';
+
+const prefixCls = getPrefixCls('formitem');
 
 export interface IFormItemProps {
   children?: React.ReactNode;
@@ -14,12 +16,13 @@ export class FormItem extends React.Component<IFormItemProps> {
   };
   public render(): React.ReactNode {
     const {label, labelWith, children, vertical} = this.props;
+    const formItemCls = classNames(prefixCls, `${prefixCls}-vertical-${vertical}`);
 
     return (
       <div
-        className={classNames("bd-formitem", `bd-formitem-vertical${vertical}`)}>
+        className={formItemCls}>
         <div
-          className="bd-formitem-label"
+          className={`${prefixCls}-label`}
           style={{
             width: `${labelWith}px`,
           }}

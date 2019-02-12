@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { classNames, getPrefixCls } from '../../utils';
+import { Icon } from '../Icon';
 import { carouselContext, ISlideValue } from './context';
 import { Slide } from './Slide';
-import { Icon } from '../Icon';
+
+const prefixCls = getPrefixCls('carousel');
 
 export interface ICarouselProps {
   children?: React.ReactNode;
@@ -10,8 +12,6 @@ export interface ICarouselProps {
   defaultValue?: string | number;
   onChange?(data: object | string | number): void;
 }
-
-const prefixCls = getPrefixCls('carousel');
 
 interface ISlideItem {
   value?: string | number;
@@ -37,7 +37,6 @@ export class Carousel extends React.Component<ICarouselProps, IState> {
   };
   public static Slide = Slide;
   private getSlide(v: ISlideValue): void {
-    // const {defaultValue} = this.props;
     const length = this.slideList.length;
     this.slideList.push({
       ...v,
@@ -49,20 +48,22 @@ export class Carousel extends React.Component<ICarouselProps, IState> {
   }
   private handleIndicatorItemClick(index: number): void {
     this.setState({
-      activeIndex: index
-    }, this.updateContentStyle)
+      activeIndex: index,
+    }, this.updateContentStyle);
   }
   private renderIndicator(): React.ReactNode {
     const {slideList, activeIndex} = this.state;
-    const indicatorPrefixCls = `${prefixCls}-indicator`
+    const indicatorPrefixCls = `${prefixCls}-indicator`;
+
     return (
       <ul className={indicatorPrefixCls}>
         {
           slideList.map(({index}) => {
             const iCls = classNames(`${indicatorPrefixCls}-item`, {
-              [`${indicatorPrefixCls}-item-active`]: index === activeIndex
-            })
-            return <li key={index} className={iCls} onClick={this.handleIndicatorItemClick.bind(this, index)} />
+              [`${indicatorPrefixCls}-item-active`]: index === activeIndex,
+            });
+
+            return <li key={index} className={iCls} onClick={this.handleIndicatorItemClick.bind(this, index)} />;
           })
         }
       </ul>
@@ -70,6 +71,7 @@ export class Carousel extends React.Component<ICarouselProps, IState> {
   }
   private renderBtn(): React.ReactNode {
     const btnPrefixCls = `${prefixCls}-btn`;
+
     return (
       <>
         <Icon
@@ -81,14 +83,14 @@ export class Carousel extends React.Component<ICarouselProps, IState> {
           className={classNames(btnPrefixCls, `${btnPrefixCls}-next`)}
           type="arrow-forward" />
       </>
-    )
+    );
   }
   private updateContentStyle(): void {
     if (!this.refScroll || !this.refScroll.current) {
       return;
     }
     const scrollWidth = this.refScroll.current.offsetWidth;
-    const {activeIndex} = this.state
+    const {activeIndex} = this.state;
     this.setState({
       contentStyle: {
         transform: `translate3d(-${scrollWidth * activeIndex}px, 0, 0)`,
@@ -96,16 +98,16 @@ export class Carousel extends React.Component<ICarouselProps, IState> {
     });
   }
   private slidePrev(): void {
-    const {activeIndex, slideList} = this.state
+    const {activeIndex, slideList} = this.state;
     this.setState({
-      activeIndex: activeIndex <= 0 ? slideList.length - 1 : activeIndex - 1
-    }, this.updateContentStyle)
+      activeIndex: activeIndex <= 0 ? slideList.length - 1 : activeIndex - 1,
+    }, this.updateContentStyle);
   }
   private slideNext(): void {
-    const {activeIndex, slideList} = this.state
+    const {activeIndex, slideList} = this.state;
     this.setState({
-      activeIndex: activeIndex >= slideList.length - 1 ? 0 : activeIndex + 1
-    }, this.updateContentStyle)
+      activeIndex: activeIndex >= slideList.length - 1 ? 0 : activeIndex + 1,
+    }, this.updateContentStyle);
   }
   private slideStart(): void {
     if (this.slideInterval) {
@@ -118,7 +120,7 @@ export class Carousel extends React.Component<ICarouselProps, IState> {
     this.slideInterval = undefined;
   }
   public componentDidMount(): void {
-    this.updateContentStyle()
+    this.updateContentStyle();
     this.slideStart();
   }
   public render(): React.ReactNode {

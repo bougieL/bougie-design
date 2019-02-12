@@ -1,7 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { getPrefixCls } from '../../utils';
 import { Notice as NoticeComponent } from './Notice';
 import './style';
+
+const prefixCls = getPrefixCls('notice');
 
 interface INotice {
   message?: React.ReactNode;
@@ -15,11 +18,11 @@ function NoticeFunc(props: INoticeFunc): void {
   return next({...props});
 }
 
-function next({type, message}: INotice): void {
-  let wrapper = document.querySelector('.bd-notice-wrapper') as HTMLDivElement;
+function next({type, message}: INoticeFunc): void {
+  let wrapper = document.querySelector(`.${prefixCls}-wrapper`) as HTMLDivElement;
   if (!wrapper) {
     wrapper = document.createElement('div');
-    wrapper.classList.add('bd-notice-wrapper');
+    wrapper.classList.add(`${prefixCls}-wrapper`);
     document.body.appendChild(wrapper);
   }
   let div: HTMLDivElement | undefined = document.createElement('div');
@@ -35,34 +38,34 @@ function next({type, message}: INotice): void {
 }
 
 export const Notice = {
-  open(props: INotice) {
+  open(props: INotice): void {
     NoticeFunc({
       type: 'info',
-      ...props
-    })
+      ...props,
+    });
   },
-  info(props: INotice) {
+  info(props: INotice): void {
     NoticeFunc({
       type: 'info',
-      ...props
-    })
+      ...props,
+    });
   },
-  success(props: INotice) {
+  success(props: INotice): void {
     NoticeFunc({
       type: 'success',
-      ...props
-    })
+      ...props,
+    });
   },
-  warning(props: INotice) {
+  warning(props: INotice): void {
     NoticeFunc({
       type: 'warning',
-      ...props
-    })
+      ...props,
+    });
   },
-  error(props: INotice) {
+  error(props: INotice): void {
     NoticeFunc({
       type: 'error',
-      ...props
-    })
+      ...props,
+    });
   },
-}
+};

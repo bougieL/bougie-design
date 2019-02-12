@@ -1,4 +1,4 @@
-import { Switch, Title, Notice } from '@/components';
+import { Notice, Switch, Title } from '@/components';
 import { Binder } from '@/utils';
 import * as React from 'react';
 
@@ -7,11 +7,11 @@ export class SwitchD extends React.Component {
     checked: true,
   };
   private bd = new Binder(this);
-  private cb() {
+  private cb(): void {
     const {checked} = this.state;
     Notice.open({
-      message: `Switched to ${checked}`
-    })
+      message: `Switched to ${checked}`,
+    });
   }
   public render(): React.ReactNode {
     return <>

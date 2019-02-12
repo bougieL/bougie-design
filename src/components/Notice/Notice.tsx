@@ -1,12 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
-import { classNames, delay } from '../../utils';
+import { classNames, delay, getPrefixCls } from '../../utils';
 import { Icon } from '../Icon';
+
+const prefixCls = getPrefixCls('notice');
 
 interface IProps {
   children?: React.ReactNode;
-  type?: 'info' | 'success' | 'warning' | 'error';
+  type: 'info' | 'success' | 'warning' | 'error';
   wrapper: HTMLDivElement;
   onCancel(): void;
 }
@@ -44,14 +46,15 @@ export class Notice extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
     const {type, children, wrapper} = this.props;
     const {entered} = this.state;
+    const noticeCls = classNames(prefixCls, `${prefixCls}-${type}`);
 
     return ReactDOM.createPortal(
-    <CSSTransition classNames="bd-notice" timeout={0} in={entered} exit={!entered}>
+    <CSSTransition classNames={prefixCls} timeout={0} in={entered} exit={!entered}>
       <div
-        className={classNames('bd-notice', `bd-notice-${type}`)}
+        className={noticeCls}
       >
         <Icon type={iconMap[type]} />
-        <div className="bd-notice-text">
+        <div className={`${prefixCls}-text`}>
           {children}
         </div>
       </div>

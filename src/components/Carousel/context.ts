@@ -4,11 +4,9 @@ export interface ISlideValue {
   value?: string | number;
 }
 interface ICarouselContext {
-  getSlide(v: ISlideValue): void;
+  getSlide?(v: ISlideValue): void;
 }
 
 export const carouselContext = createContext<ICarouselContext>({
-  getSlide(v: ISlideValue): void {
-    alert(v);
-  },
+  getSlide: undefined,
 });

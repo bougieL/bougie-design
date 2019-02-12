@@ -2,6 +2,7 @@
 
 .#{$bdPrefix}-switch {
   @extend %no-border;
+
   padding: 2px;
   height: 24px;
   width: 48px;
@@ -9,6 +10,7 @@
   transition: $transitionPrimary;
   border-radius: 12px;
   cursor: pointer;
+
   &-inner {
     position: relative;
     display: block;
@@ -19,17 +21,21 @@
     transition: $transitionPrimary;
     left: 0;
   }
+
   &-checked {
     background: palette('primary');
+
     .#{$bdPrefix}-switch-inner {
       left: 100%;
       transform: translateX(-100%);
     }
   }
+
   &:active {
     .#{$bdPrefix}-switch-inner {
       width: 26px;
     }
+
     box-shadow: $boxShadowPrimary;
   }
 }

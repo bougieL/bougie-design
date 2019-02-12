@@ -2,6 +2,7 @@
 
 .#{$bdPrefix}-pagination {
   @include flex(flex-end);
+
   @extend %no-select;
 
   &-item {

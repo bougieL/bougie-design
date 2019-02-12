@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, getPrefixCls } from '../../utils';
 import { Icon } from '../Icon';
+
+const prefixCls = getPrefixCls('checkbox');
 
 export interface ICheckBoxProps {
   checked?: boolean;
@@ -9,8 +11,6 @@ export interface ICheckBoxProps {
   style?: React.CSSProperties;
   onChange?(evt: React.ChangeEvent): void;
 }
-
-const prefixCls = 'bd-checkbox';
 
 export class CheckBox extends React.Component<ICheckBoxProps> {
   public render(): React.ReactNode {

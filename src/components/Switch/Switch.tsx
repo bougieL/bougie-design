@@ -1,25 +1,26 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, getPrefixCls } from '../../utils';
 
-const prefixCls = 'bd-switch'
+const prefixCls = getPrefixCls('switch');
 
 interface ISwitchProps {
   checked?: boolean;
+  className?: string;
   onChange?(v: boolean): void;
 }
 
 export class Switch extends React.Component<ISwitchProps> {
   private handleClick(): void {
-    const {checked, onChange} = this.props
+    const {checked, onChange} = this.props;
     if (onChange) {
-      onChange(!checked)
+      onChange(!checked);
     }
   }
   public render(): React.ReactNode {
-    const {checked} = this.props;
-    const switchCls = classNames(prefixCls, {
-      [`${prefixCls}-checked`]: checked
-    })
+    const {checked, className} = this.props;
+    const switchCls = classNames(prefixCls, className, {
+      [`${prefixCls}-checked`]: checked,
+    });
 
     return (
       <button
@@ -28,6 +29,6 @@ export class Switch extends React.Component<ISwitchProps> {
         type='button'>
         <span className={`${prefixCls}-inner`} />
       </button>
-    )
+    );
   }
 }

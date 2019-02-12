@@ -9,11 +9,13 @@
     flex-shrink: 0;
   }
 
-  &-verticalcenter {
-    @include flex(flex-start);
-  }
+  &-vertical {
+    &-center {
+      @include flex(flex-start);
+    }
 
-  &-verticaltop {
-    @include flex(center, flex-start);
+    &-top {
+      @include flex(center, flex-start);
+    }
   }
 }

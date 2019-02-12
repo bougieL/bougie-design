@@ -1,8 +1,10 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
-import { classNames, delay } from '../../utils';
+import { classNames, delay, getPrefixCls } from '../../utils';
 import { Icon } from '../Icon';
+
+const prefixCls = getPrefixCls('modal');
 
 export interface IModalProps {
   title?: string;
@@ -52,21 +54,21 @@ export class Modal extends React.Component<IModalProps, IState> {
 
     return (
       ReactDom.createPortal(
-        <CSSTransition classNames="bd-modal-mask" timeout={0} in={entered} exit={!entered}>
-          <div className={classNames("bd-modal-mask", {
+        <CSSTransition classNames={`${prefixCls}-mask`} timeout={0} in={entered} exit={!entered}>
+          <div className={classNames(`${prefixCls}-mask`, {
               hide: !visible,
             })}
             onClick={this.handleOnCancel.bind(this)}>
-            <CSSTransition classNames="bd-modal" timeout={0} in={entered} exit={!entered}>
-              <div className="bd-modal" onClick={this.handleModalClick.bind(this)}>
-                <div className="bd-modal-header">
-                  <span className="bd-modal-title">{title}</span>
-                  <Icon className="bd-modal-close" onClick={this.handleOnCancel.bind(this)} type="close"/>
+            <CSSTransition classNames={prefixCls} timeout={0} in={entered} exit={!entered}>
+              <div className={prefixCls} onClick={this.handleModalClick.bind(this)}>
+                <div className={`${prefixCls}-header`}>
+                  <span className={`${prefixCls}-title`}>{title}</span>
+                  <Icon className={`${prefixCls}-close`} onClick={this.handleOnCancel.bind(this)} type="close"/>
                 </div>
-                <div className={classNames("bd-modal-content", {
-                  "bd-modal-content-bordernone": !footer,
+                <div className={classNames(`${prefixCls}-content`, {
+                  [`${prefixCls}-content-bordernone`]: !footer,
                 })}>{children}</div>
-                {footer ? <div className="bd-modal-footer">{footer}</div> : undefined}
+                {footer ? <div className={`${prefixCls}-footer`}>{footer}</div> : undefined}
               </div>
             </CSSTransition>
           </div>

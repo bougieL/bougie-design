@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, getPrefixCls } from '../../utils';
 import { ITabPaneValue, tabsContext } from './context';
 
+const prefixCls = getPrefixCls('tabpane');
+
 export interface ITabPaneProps {
+  style?: React.CSSProperties;
   tab?: React.ReactNode;
   value?: string | number;
   children?: React.ReactNode;
@@ -31,11 +34,13 @@ class TabPaneComponent extends React.Component<ITabPaneComponentProps> {
     getTabPane({tab, value});
   }
   public render(): React.ReactNode {
-    const {children, className} = this.props;
+    const {children, className, style} = this.props;
+    const tabPaneCls = classNames(prefixCls, className);
 
     return (
       <div
-        className={classNames("bd-tabpane", className)}>
+        className={tabPaneCls}
+        style={style}>
           {children}
       </div>
     );

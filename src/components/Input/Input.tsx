@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, getPrefixCls } from '../../utils';
+
+const prefixCls = getPrefixCls('input');
 
 export interface IInputProps {
   className?: string;
@@ -17,10 +19,11 @@ export class Input extends React.Component<IInputProps> {
   };
   public render(): React.ReactNode {
     const {className, ...rest} = this.props;
+    const inputCls = classNames(prefixCls, className);
 
     return (
       <input
-        className={classNames("bd-input", className)}
+        className={inputCls}
         {...rest}/>
     );
   }

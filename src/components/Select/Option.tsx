@@ -1,10 +1,14 @@
 import * as React from 'react';
-import { classNames } from '../../utils';
+import { classNames, getPrefixCls } from '../../utils';
 import { IOptionValue ,selectContext } from './context';
+
+const preifxCls = getPrefixCls('option');
 
 export interface IOptionProps {
   value?: string | number;
   children?: React.ReactNode;
+  className?: string;
+  disabled?: boolean;
 }
 
 export const Option = (props: IOptionProps): JSX.Element => {
@@ -25,6 +29,15 @@ interface IOptionComponentProps extends IOptionProps {
 }
 
 class OptionComponent extends React.Component<IOptionComponentProps> {
+  private handleOptionClick(evt: React.MouseEvent<HTMLLIElement>): void {
+    const {getOptionValue, value, children, disabled} = this.props;
+    if (disabled) {
+      evt.nativeEvent.stopImmediatePropagation();
+
+      return;
+    }
+    getOptionValue({value, children}, false);
+  }
   public componentDidMount(): void {
     const {parentValue, value, children, getOptionValue} = this.props;
     if (parentValue === value) {
@@ -32,14 +45,16 @@ class OptionComponent extends React.Component<IOptionComponentProps> {
     }
   }
   public render(): React.ReactNode {
-    const {children, value, parentValue, getOptionValue} = this.props;
+    const {children, value, parentValue, className, disabled} = this.props;
+    const optionCls = classNames(preifxCls, className, {
+      [`${preifxCls}-active`]: value === parentValue,
+      [`${preifxCls}-disabled`]: disabled,
+    });
 
     return (
       <li
-        className={classNames('bd-option', {
-          'bd-option-active': value === parentValue,
-        })}
-        onClick={getOptionValue.bind(this, {value, children}, false)}>
+        className={optionCls}
+        onClick={this.handleOptionClick.bind(this)}>
         {children}
       </li>
     );
