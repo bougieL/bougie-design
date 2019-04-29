@@ -3,18 +3,18 @@ node_js:
   - "10"
 
 install:
-  - npm install
+  - yarn
 
 test: true
 
 script:
-  - npm run fix
-  - npm run build
+  - yarn fix
+  - yarn build
 
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: 0023b774a9450644763aff00ae0886beba4e49f0  # Set in the settings page of your repository, as a secure variable
+  github_token: ef5806c3bbd0dde9f8ce3241a53050fda2b31528  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   on:
     branch: master
