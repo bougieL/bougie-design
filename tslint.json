@@ -3,10 +3,16 @@
   "rules": {
     "align": [true, "members", "parameters", "statements"],
     "file-name-casing": false,
+    "completed-docs": false,
+    "no-unbound-method": false,
+    "prefer-readonly": false,
+    "strict-boolean-expressions": false,
+    "no-unused-expression": false,
     "max-line-length": {
       "options": [120]
     },
     "no-any": true,
+    "no-unsafe-any": false,
     "no-console": {
       "severity": "warning"
     },

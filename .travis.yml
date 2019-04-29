@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "10"
+
+install:
+  - npm install
+
+test: true
+
+script:
+  - npm run fix
+  - npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: 0023b774a9450644763aff00ae0886beba4e49f0  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
