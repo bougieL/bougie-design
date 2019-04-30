@@ -1,0 +1,41 @@
+%hide {
+  display: none !important;
+}
+
+%no-border {
+  border: none;
+  outline: none;
+}
+
+%full-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+%text-elli {
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+%no-select {
+  user-select: none;
+}
+
+%disabled {
+  $background: palette('background_disabled');
+
+  background: $background !important;
+  color: palette('disabled') !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+
+  &:hover,
+  &:focus {
+    box-shadow: none !important;
+  }
+}

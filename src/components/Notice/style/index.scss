@@ -1,0 +1,84 @@
+@import '../../../style/index';
+
+$margin: 12px;
+
+.#{$bdPrefix}-notice {
+  @include flex(flex-start, flex-start);
+
+  padding: 12px;
+  box-shadow: $boxShadowPrimary;
+  border-radius: $borderRadiusPrimary;
+  margin: $margin;
+  background: palette('background_light');
+  width: 240px;
+  border-left: 6px solid transparent;
+  transition: $transitionPrimary;
+
+  &-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+
+  &-enter {
+    transform: translateX(calc(100% + #{$margin}));
+
+    &-done {
+      transform: none;
+    }
+  }
+
+  &-exit {
+    &-done {
+      transform: translateX(calc(100% + #{$margin}));
+    }
+  }
+
+  .#{$bdPrefix}-icon {
+    flex-shrink: 0;
+    // font-size: 30px;
+    margin-right: 15px;
+    // margin-top: -10px;
+    // transform: translateY(-10px);
+  }
+
+  &-info {
+    $color: palette('primary');
+
+    border-color: $color;
+
+    .#{$bdPrefix}-icon {
+      color: $color;
+    }
+  }
+
+  &-success {
+    $color: palette('success');
+
+    border-color: $color;
+
+    .#{$bdPrefix}-icon {
+      color: $color;
+    }
+  }
+
+  &-warning {
+    $color: palette('warning');
+
+    border-color: $color;
+
+    .#{$bdPrefix}-icon {
+      color: $color;
+    }
+  }
+
+  &-error {
+    $color: palette('error');
+
+    border-color: $color;
+
+    .#{$bdPrefix}-icon {
+      color: $color;
+    }
+  }
+}
