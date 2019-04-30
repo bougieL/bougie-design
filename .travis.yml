@@ -14,7 +14,7 @@ deploy:
   skip_cleanup: true
   keep_history: true
   on:
-    branch: docs
+    branch: master
 env:
   global:
     secure: TTQLIDz0jL4FRFrpq6DDocxLiELUSpJsj9phdmjW9Eg9kna73KjPF2XmZaWFvkObZU3og/7Thr/iwsXQqfdq8gHShhLkHZAZqgvWqbjMIQABYIFqqqUE9grrPdrLXWVAidh+nET+pjes8VX92NBz6HA+i/15+PugVwYhC85AGyNN2JRL7nxCwh2ECiKATRiX+cLmVqFwTGpzqHovAiBFnap17whWa4C4uVEzdBwjQAZKw+IFxiiJIA7hkFTTThS11uCx//Dr7/A1X7c6ZLao/qiwvW8fNAbhV5ZA6dx4a0vtLwj6lprjcwWuGQX/vutKHnpdNpxeIDhmLNspN1U7YxjgUZJXgFjpE6tw1I8N6nSRpzhPUlrXPkKUAdN9x2jN20NSUeFDSl0FhazPwhGWzlSQb0gNyH1U04wvw3QB2VP/3UvTiyCZjum6prTpuXy/D262smG97o0/0XlNySX6MC+OLQNDIVgzO4YO2IHVB8lW6CBSMeTlcE8a4yvHwmGQpLKnX6tY06/n8lvjgZgPKZaRZL6aVrBE+/104Gt/aBFpraZZpiXJjXjdm4TO3N+u8gT8+gkDJ0BvzrX7Kf/W/WouecziCJgzYCB7y8eqec4kmZKRs2O6zyKJ0SbPrW54UuCmjFzTLEmdRCXRLIbEQsWvS5x+FKKwGNGRcrgPjxY=
