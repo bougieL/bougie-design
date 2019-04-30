@@ -9,6 +9,7 @@ test: true
 script:
   - yarn fix
   - yarn build
+  - cp -r ./docs/* .
 deploy:
   provider: pages
   skip_cleanup: true
