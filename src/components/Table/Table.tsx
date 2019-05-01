@@ -1,7 +1,5 @@
 import * as React from 'react';
-
 import { classNames, getPrefixCls } from '../../utils';
-
 import { Body } from './Body';
 import { Header } from './Header';
 import { ITableProps } from './interface';

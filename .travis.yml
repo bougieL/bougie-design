@@ -7,7 +7,6 @@ install:
   - yarn
 test: true
 script:
-  - yarn fix
   - yarn docs:build
   - cp -r ./.docz/dist/* .
 deploy:

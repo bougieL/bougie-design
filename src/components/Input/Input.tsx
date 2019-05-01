@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { classNames, getPrefixCls } from '../../utils';
 
 const prefixCls = getPrefixCls('input');

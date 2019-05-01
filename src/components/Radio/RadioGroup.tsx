@@ -1,7 +1,5 @@
 import * as React from 'react';
-
 import { classNames, getPrefixCls } from '../../utils';
-
 import { radioContext } from './context';
 import { Radio } from './Radio';
 
