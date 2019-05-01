@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
+
 import { classNames, delay, getPrefixCls } from '../../utils';
 import { Icon } from '../Icon';
 

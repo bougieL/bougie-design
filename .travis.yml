@@ -8,8 +8,8 @@ install:
 test: true
 script:
   - yarn fix
-  - yarn build
-  - cp -r ./docs/* .
+  - yarn docs:build
+  - cp -r ./.docz/dist/* .
 deploy:
   provider: pages
   skip_cleanup: true

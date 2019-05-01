@@ -1,6 +1,8 @@
 import * as React from 'react';
+
 import { attachEvent, classNames, getPrefixCls } from '../../utils';
 import { Icon } from '../Icon';
+
 import { IOptionValue, selectContext } from './context';
 import { Option } from './Option';
 

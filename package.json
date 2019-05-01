@@ -29,7 +29,9 @@
     "build": "node scripts/build.js",
     "release": "bash scripts/release.sh",
     "lint": "bash scripts/lint.sh",
-    "fix": "bash scripts/fix.sh"
+    "fix": "bash scripts/fix.sh",
+    "docs:dev": "docz dev docs",
+    "docs:build": "docz build docs"
   },
   "main": "lib/components/index.js",
   "dependencies": {
@@ -42,6 +44,8 @@
     "@types/react-dom": "^16.0.11",
     "@types/react-transition-group": "^2.0.15",
     "css-loader": "2.1.0",
+    "docz": "^1.0.4",
+    "docz-theme-default": "^1.0.4",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "3.0.1",
     "html-webpack-plugin": "^3.2.0",

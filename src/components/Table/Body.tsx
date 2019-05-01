@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { ITableProps } from './interface';
 
 export class Body extends React.Component<ITableProps> {

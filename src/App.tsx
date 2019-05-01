@@ -1,5 +1,6 @@
 import { Tabs, Title } from '@/components';
 import * as React from 'react';
+
 import { DataDisplay, DataInput, FeedBack, Navigation, Usual } from './views';
 
 const {TabPane} = Tabs;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { ITableProps } from './interface';
 
 export class Header extends React.Component<ITableProps> {
