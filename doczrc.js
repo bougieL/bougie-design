@@ -1,6 +1,7 @@
 const paths = require('./config/_paths')
 
 export default {
+  hashRouter: true,
   base: '/bougie-design',
   src: 'docs',
   typescript: true,
