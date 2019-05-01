@@ -9,7 +9,7 @@ yarn add bougie-design
 or
 #### use npm
 ```bash
-npm i bougie-design -D
+npm i bougie-design
 ```
 
 ## API Documentation

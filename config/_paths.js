@@ -15,6 +15,7 @@ module.exports = {
   appTsConfig: resolve('tsconfig.json'),
   appEsLint: resolve('tslint.json'),
   appNodeModules: resolve('node_modules'),
+  appComponents: resolve('src', 'components'),
   resolveComponents(...p) {
     return resolve('src', 'components', ...p)
   },
