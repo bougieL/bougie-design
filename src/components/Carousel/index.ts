@@ -1,4 +1,4 @@
-import './style';
+import './style'
 
-export * from './Carousel';
-export * from './Slide';
+export * from './Carousel'
+export * from './Slide'

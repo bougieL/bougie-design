@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { ButtonD } from './Button';
-import { IconD } from './Icon';
+import * as React from 'react'
+import { ButtonD } from './Button'
+import { IconD } from './Icon'
 
-export const Usual = () =>
+export const Usual = () => (
   <>
     <ButtonD />
     <IconD />
-  </>;
+  </>
+)

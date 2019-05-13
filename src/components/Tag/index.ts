@@ -1,3 +1,3 @@
-import './style';
+import './style'
 
-export * from './Tag';
+export * from './Tag'

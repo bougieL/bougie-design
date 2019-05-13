@@ -48,7 +48,7 @@ module.exports = {
           {
             loader: 'ts-loader',
             options: {
-              transpileOnly: true,
+              transpileOnly: true
             }
           }
         ]
@@ -61,7 +61,13 @@ module.exports = {
         })
       },
       {
-        exclude: [/\.(js|jsx|mjs|ts|tsx)$/, /\.html$/, /\.json$/, /\.scss$/, /\.css$/],
+        exclude: [
+          /\.(js|jsx|mjs|ts|tsx)$/,
+          /\.html$/,
+          /\.json$/,
+          /\.scss$/,
+          /\.css$/
+        ],
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash:8]',

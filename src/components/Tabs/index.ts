@@ -1,4 +1,4 @@
-import './style';
+import './style'
 
-export * from './Tabs';
-export * from './TabPane';
+export * from './Tabs'
+export * from './TabPane'

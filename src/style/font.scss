@@ -1,7 +1,16 @@
 $font: (
-  title: (size: 16px, weight: bold),
-  content: (size: 14px, weight: normal),
-  sub: (size: 12px, weight: normal)
+  title: (
+    size: 16px,
+    weight: bold
+  ),
+  content: (
+    size: 14px,
+    weight: normal
+  ),
+  sub: (
+    size: 12px,
+    weight: normal
+  )
 );
 
 @mixin font($type) {

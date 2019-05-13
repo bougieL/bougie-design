@@ -23,7 +23,10 @@
 
     background: $background;
     color: palette('content');
-    $hover: darken($color: $background, $amount: $lightenMount);
+    $hover: darken(
+      $color: $background,
+      $amount: $lightenMount
+    );
 
     border-color: rgba(palette('content'), $opacityPrimary);
 
@@ -41,7 +44,10 @@
 
     background: $background;
     color: palette('content_light');
-    $hover: lighten($color: $background, $amount: $lightenMount);
+    $hover: lighten(
+      $color: $background,
+      $amount: $lightenMount
+    );
 
     &:hover {
       background: $hover;
@@ -57,7 +63,10 @@
 
     background: $background;
     color: palette('content_light');
-    $hover: lighten($color: $background, $amount: $lightenMount);
+    $hover: lighten(
+      $color: $background,
+      $amount: $lightenMount
+    );
 
     &:hover {
       background: $hover;
@@ -73,7 +82,10 @@
 
     background: $background;
     color: palette('content_light');
-    $hover: lighten($color: $background, $amount: $lightenMount);
+    $hover: lighten(
+      $color: $background,
+      $amount: $lightenMount
+    );
 
     &:hover {
       background: $hover;
@@ -89,7 +101,10 @@
 
     background: $background;
     color: palette('content_light');
-    $hover: lighten($color: $background, $amount: $lightenMount);
+    $hover: lighten(
+      $color: $background,
+      $amount: $lightenMount
+    );
 
     &:hover {
       background: $hover;
