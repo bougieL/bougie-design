@@ -1,6 +1,6 @@
 const paths = require('./config/_paths')
 
-export default {
+module.exports = {
   base: '/bougie-design',
   src: 'docs',
   dest: '.docz/bougie-design',
@@ -20,15 +20,11 @@ export default {
       {
         test: /\.(ts|tsx)$/,
         include: paths.appSrc,
-        use: 'ts-loader'
+        use: ['ts-loader']
       },
       {
         test: /\.(css|scss)$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
     return config

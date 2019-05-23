@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const paths = require('./_paths')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const publicPath = '/'
 

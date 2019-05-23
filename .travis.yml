@@ -8,7 +8,7 @@ install:
 test: true
 script:
   - yarn docs:build
-  - cp -r ./.docz/dist/* .
+  - cp -r ./.docz/* .
 deploy:
   provider: pages
   skip_cleanup: true

@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const paths = require('./_paths')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   bail: true,
@@ -54,11 +53,8 @@ module.exports = {
         ]
       },
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
-        })
+        test: /\.(css|scss)$/,
+        use: ['css-loader', 'sass-loader', 'style-loader']
       },
       {
         exclude: [
@@ -81,7 +77,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml
-    }),
-    new ExtractTextPlugin('static/css/style.css?[hash:8]')
+    })
   ]
 }
