@@ -1,4 +1,4 @@
-import { Notice, Pagination, Title } from '@/components'
+import { Notice, Pagination, Title } from '../../components'
 import * as React from 'react'
 
 function handleOnChange(page: number, pageSize: number): void {

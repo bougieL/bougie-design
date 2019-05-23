@@ -1,5 +1,5 @@
-import { CheckBox, Title } from '@/components'
-import { Binder } from '@/utils'
+import { CheckBox, Title } from '../../components'
+import { Binder } from '../../utils'
 import * as React from 'react'
 
 export class CheckBoxD extends React.Component {

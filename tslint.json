@@ -3,6 +3,7 @@
   "rules": {
     "align": [true, "members", "parameters", "statements"],
     "file-name-casing": false,
+    "semicolon": false,
     "completed-docs": false,
     "no-unbound-method": false,
     "prefer-readonly": false,
@@ -23,10 +24,11 @@
     "only-arrow-functions": false,
     "prefer-function-over-method": false,
     "quotemark": false,
-    "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
+    "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
     "typedef": [true, "call-signature"],
     "variable-name": [true, "ban-keywords"],
     "whitespace": [true, "check-module"],
+    "ordered-imports": false,
     "member-ordering": [
       true,
       {

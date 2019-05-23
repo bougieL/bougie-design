@@ -1,4 +1,4 @@
-import { Notice, Select, Title } from '@/components'
+import { Notice, Select, Title } from '../../components'
 import * as React from 'react'
 
 const { Option } = Select

@@ -1,5 +1,5 @@
-import { Icon, Title } from '@/components'
-import { appendStyle } from '@/utils'
+import { Icon, Title } from '../../components'
+import { appendStyle } from '../../utils'
 import * as React from 'react'
 
 export class IconD extends React.Component {

@@ -1,4 +1,4 @@
-import { RadioGroup, Title } from '@/components'
+import { RadioGroup, Title } from '../../components'
 import * as React from 'react'
 
 const { Radio } = RadioGroup

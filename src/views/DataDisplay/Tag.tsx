@@ -1,4 +1,4 @@
-import { Tag, Title } from '@/components'
+import { Tag, Title } from '../../components'
 import * as React from 'react'
 
 export const TagD = () => (

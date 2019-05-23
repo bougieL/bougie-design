@@ -1,4 +1,4 @@
-import { Carousel, Title } from '@/components'
+import { Carousel, Title } from '../../components'
 import * as React from 'react'
 
 const { Slide } = Carousel

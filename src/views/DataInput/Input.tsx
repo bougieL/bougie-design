@@ -1,5 +1,5 @@
-import { Input, Notice, Title } from '@/components'
-import { Binder } from '@/utils'
+import { Input, Notice, Title } from '../../components'
+import { Binder } from '../../utils'
 import * as React from 'react'
 
 export class InputD extends React.Component {

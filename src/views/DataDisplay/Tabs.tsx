@@ -1,4 +1,4 @@
-import { Tabs, Title } from '@/components'
+import { Tabs, Title } from '../../components'
 import * as React from 'react'
 
 const { TabPane } = Tabs

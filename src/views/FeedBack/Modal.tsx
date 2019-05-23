@@ -1,5 +1,5 @@
-import { Button, Input, Modal, Title } from '@/components'
-import { Binder } from '@/utils'
+import { Button, Input, Modal, Title } from '../../components'
+import { Binder } from '../../utils'
 import * as React from 'react'
 
 export class ModalD extends React.Component {

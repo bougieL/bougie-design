@@ -1,4 +1,4 @@
-import { Button, Message, Notice, Title } from '@/components'
+import { Button, Message, Notice, Title } from '../../components'
 import * as React from 'react'
 
 export class MessageD extends React.Component {

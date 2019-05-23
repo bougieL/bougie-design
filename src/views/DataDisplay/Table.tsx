@@ -1,4 +1,4 @@
-import { Button, Message, Notice, Table, Title } from '@/components'
+import { Button, Message, Notice, Table, Title } from '../../components'
 import * as React from 'react'
 
 interface IData {

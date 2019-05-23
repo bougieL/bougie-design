@@ -1,5 +1,5 @@
-import { Notice, Switch, Title } from '@/components'
-import { Binder } from '@/utils'
+import { Notice, Switch, Title } from '../../components'
+import { Binder } from '../../utils'
 import * as React from 'react'
 
 export class SwitchD extends React.Component {

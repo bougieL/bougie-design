@@ -1,4 +1,4 @@
-import { Button, Title } from '@/components'
+import { Button, Title } from '../../components'
 import * as React from 'react'
 
 export class ButtonD extends React.Component {
