@@ -1,14 +1,14 @@
 @import './style/index';
 
-#root {
-  width: 800px;
-  margin: 0 auto;
-  padding-top: 20px;
+// #root {
+//   width: 800px;
+//   margin: 0 auto;
+//   padding-top: 20px;
 
-  @media screen and (max-width: 500px) {
-    width: 100%;
-  }
-}
+//   @media screen and (max-width: 500px) {
+//     width: 100%;
+//   }
+// }
 
 .app-tabpane {
   padding: 20px 10px;

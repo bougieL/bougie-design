@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const paths = require('./_paths')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const publicPath = '/'
 
@@ -82,13 +81,15 @@ module.exports = {
         use: [
           {
             loader: require.resolve('style-loader')
-          }, {
-            loader: require.resolve('css-loader'),
+          },
+          {
+            loader: require.resolve('css-loader')
             // options: {
             //   sourceMap: true
             // }
-          }, {
-            loader: require.resolve('sass-loader'),
+          },
+          {
+            loader: require.resolve('sass-loader')
             // options: {
             //   sourceMap: true
             // }
@@ -109,7 +110,7 @@ module.exports = {
       inject: true,
       template: paths.appHtml
     }),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin()
     // new ExtractTextPlugin('static/css/style.css')
   ],
   devServer: {

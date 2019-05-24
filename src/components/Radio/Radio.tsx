@@ -1,67 +1,72 @@
-import * as React from 'react';
-import { classNames, getPrefixCls } from '../../utils';
-import { radioContext } from './context';
+import * as React from 'react'
+import { classNames, getPrefixCls } from '../../utils'
+import { radioContext } from './context'
 
-const prefixCls = getPrefixCls('radio');
+const prefixCls = getPrefixCls('radio')
 
 export interface IRadioProps {
-  children?: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  value: string | number;
+  children?: React.ReactNode
+  className?: string
+  style?: React.CSSProperties
+  value: string | number
 }
 
 export const Radio = (props: IRadioProps) => {
-  const { Consumer } = radioContext;
+  const { Consumer } = radioContext
 
   return (
     <Consumer>
-      {({value: parentValue, getRadioValue}) =>
-        <RadioComponent {...props} parentValue={parentValue} getRadioValue={getRadioValue} />
-      }
+      {({ value: parentValue, getRadioValue }) => (
+        <RadioComponent
+          {...props}
+          parentValue={parentValue}
+          getRadioValue={getRadioValue}
+        />
+      )}
     </Consumer>
-  );
-};
+  )
+}
 
 interface IRadioComponentProps extends IRadioProps {
-  parentValue?: string | number;
-  getRadioValue?(v: string | number): void;
+  parentValue?: string | number
+  getRadioValue?(v: string | number): void
 }
 
 class RadioComponent extends React.Component<IRadioComponentProps> {
   private handleOnChange = (): void => {
-    const {getRadioValue, value} = this.props;
+    const { getRadioValue, value } = this.props
     if (!getRadioValue) {
-      return;
+      return
     }
-    getRadioValue(value);
+    getRadioValue(value)
   }
   private handleChecked = (): object => {
-    const {parentValue, getRadioValue, value} = this.props;
+    const { parentValue, getRadioValue, value } = this.props
     if (!getRadioValue) {
-      return {};
+      return {}
     }
 
     return {
-      checked: parentValue === value,
-    };
+      checked: parentValue === value
+    }
   }
   public render(): React.ReactNode {
-    const {children, className, style, value} = this.props;
-    const radioCls = classNames(prefixCls, className);
+    const { children, className, style, value } = this.props
+    const radioCls = classNames(prefixCls, className)
 
     return (
       <label className={radioCls} style={style}>
-        <input type="radio"
+        <input
+          type="radio"
           value={value}
           {...this.handleChecked()}
           onChange={this.handleOnChange}
-          />
+        />
         <div className={`${prefixCls}-icon`}>
           <div />
         </div>
         <span>{children}</span>
       </label>
-    );
+    )
   }
 }

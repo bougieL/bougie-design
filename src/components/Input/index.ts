@@ -1,3 +1,3 @@
-import './style';
+import './style'
 
-export * from './Input';
+export * from './Input'

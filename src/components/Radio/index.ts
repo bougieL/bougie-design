@@ -1,4 +1,4 @@
-import './style';
+import './style'
 
-export * from './Radio';
-export * from './RadioGroup';
+export * from './Radio'
+export * from './RadioGroup'

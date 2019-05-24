@@ -1,7 +1,8 @@
-import * as React from 'react';
-import { PaginationD } from './Pagination';
+import * as React from 'react'
+import { PaginationD } from './Pagination'
 
-export const Navigation = () =>
+export const Navigation = () => (
   <>
     <PaginationD />
-  </>;
+  </>
+)

@@ -1,3 +1,3 @@
-import './style';
+import './style'
 
-export * from './Pagination';
+export * from './Pagination'

@@ -1,0 +1,185 @@
+{
+  "config": {
+    "title": "Bougie Design",
+    "description": "My awesome app using docz",
+    "menu": [],
+    "version": "0.1.13",
+    "repository": "https://github.com/bougieL/bougie-design",
+    "native": false,
+    "codeSandbox": true,
+    "themeConfig": {},
+    "separator": "-",
+    "base": "/bougie-design",
+    "src": "docs",
+    "dest": ".docz/bougie-design",
+    "typescript": true
+  },
+  "props": [],
+  "entries": [
+    {
+      "key": "create-react-app.mdx",
+      "value": {
+        "name": "3. Use in create-react-app",
+        "id": "589c0af47fb6525b77c0f1c86b9aeb8e",
+        "filepath": "create-react-app.mdx",
+        "link": "https://github.com/bougieL/bougie-design/edit/master/docs/create-react-app.mdx",
+        "slug": "create-react-app",
+        "route": "/bougie-design/create-react-app",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "use-in-create-react-app",
+            "depth": 1,
+            "value": "Use in create-react-app"
+          }
+        ]
+      }
+    },
+    {
+      "key": "index.mdx",
+      "value": {
+        "home": true,
+        "route": "/bougie-design/",
+        "name": "1. Bougie Design Of React",
+        "id": "73498ad0e1e62a714b08085d318f9de1",
+        "filepath": "index.mdx",
+        "link": "https://github.com/bougieL/bougie-design/edit/master/docs/index.mdx",
+        "slug": "index",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "bougie-design-of-react",
+            "depth": 1,
+            "value": "Bougie Design Of React"
+          }
+        ]
+      }
+    },
+    {
+      "key": "start.mdx",
+      "value": {
+        "name": "2. Getting Start",
+        "id": "0b002a1c63ab1fe9cc1c45f007dcf526",
+        "filepath": "start.mdx",
+        "link": "https://github.com/bougieL/bougie-design/edit/master/docs/start.mdx",
+        "slug": "start",
+        "route": "/bougie-design/start",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "getting-start",
+            "depth": 1,
+            "value": "Getting Start"
+          }
+        ]
+      }
+    },
+    {
+      "key": "typescript.mdx",
+      "value": {
+        "name": "4. Use in TypeScript",
+        "id": "17ed10fa4297fec1504eb5d3de02a812",
+        "filepath": "typescript.mdx",
+        "link": "https://github.com/bougieL/bougie-design/edit/master/docs/typescript.mdx",
+        "slug": "typescript",
+        "route": "/bougie-design/typescript",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "use-in-typescript",
+            "depth": 1,
+            "value": "Use in TypeScript"
+          }
+        ]
+      }
+    },
+    {
+      "key": "components/general/Button.mdx",
+      "value": {
+        "menu": "5. Components",
+        "id": "116b493c71b6f7376c89bc35d97c3178",
+        "filepath": "components/general/Button.mdx",
+        "link": "https://github.com/bougieL/bougie-design/edit/master/docs/components/general/Button.mdx",
+        "slug": "components-general-button",
+        "route": "/bougie-design/components-general-button",
+        "name": "Button",
+        "headings": [
+          {
+            "slug": "button",
+            "depth": 1,
+            "value": "Button"
+          },
+          {
+            "slug": "when-to-use",
+            "depth": 2,
+            "value": "When To Use"
+          },
+          {
+            "slug": "examples",
+            "depth": 2,
+            "value": "Examples"
+          },
+          {
+            "slug": "type",
+            "depth": 3,
+            "value": "Type"
+          },
+          {
+            "slug": "icon",
+            "depth": 3,
+            "value": "Icon"
+          },
+          {
+            "slug": "api",
+            "depth": 2,
+            "value": "Api"
+          }
+        ]
+      }
+    },
+    {
+      "key": "components/general/Icon.mdx",
+      "value": {
+        "menu": "5. Components",
+        "id": "e55332b80063eba88876790334f55e2e",
+        "filepath": "components/general/Icon.mdx",
+        "link": "https://github.com/bougieL/bougie-design/edit/master/docs/components/general/Icon.mdx",
+        "slug": "components-general-icon",
+        "route": "/bougie-design/components-general-icon",
+        "name": "Icon",
+        "headings": [
+          {
+            "slug": "icon",
+            "depth": 1,
+            "value": "Icon"
+          },
+          {
+            "slug": "when-to-use",
+            "depth": 2,
+            "value": "When To Use"
+          },
+          {
+            "slug": "examples",
+            "depth": 2,
+            "value": "Examples"
+          },
+          {
+            "slug": "type",
+            "depth": 3,
+            "value": "Type"
+          },
+          {
+            "slug": "icon-1",
+            "depth": 3,
+            "value": "Icon"
+          },
+          {
+            "slug": "api",
+            "depth": 2,
+            "value": "Api"
+          }
+        ]
+      }
+    }
+  ]
+}

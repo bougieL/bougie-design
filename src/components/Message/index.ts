@@ -1,34 +1,41 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Message as Modal } from './Message';
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import { Message as Modal } from './Message'
 
 interface IConfirm {
-  message?: string;
-  title?: string;
+  message?: string
+  title?: string
 }
 
 function confirm(props: IConfirm): Promise<() => void> {
-  return next(props);
+  return next(props)
 }
 
-function next({title = '提示', message = '确定'}: IConfirm): Promise<() => void> {
+function next({
+  title = '提示',
+  message = '确定'
+}: IConfirm): Promise<() => void> {
   return new Promise((resolve, reject) => {
-    let div: HTMLDivElement | undefined = document.createElement('div');
-    const component = React.createElement(Modal, {
-      onCancel(): void {
-        ReactDOM.unmountComponentAtNode(div as HTMLDivElement);
-        div = undefined;
+    let div: HTMLDivElement | undefined = document.createElement('div')
+    const component = React.createElement(
+      Modal,
+      {
+        onCancel(): void {
+          ReactDOM.unmountComponentAtNode(div as HTMLDivElement)
+          div = undefined
+        },
+        promise: {
+          reject,
+          resolve
+        },
+        title
       },
-      promise: {
-        reject,
-        resolve,
-      },
-      title,
-    }, message);
-    ReactDOM.render(component, div);
-  });
+      message
+    )
+    ReactDOM.render(component, div)
+  })
 }
 
 export const Message = {
-  confirm,
-};
+  confirm
+}

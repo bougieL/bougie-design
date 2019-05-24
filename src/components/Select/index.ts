@@ -1,4 +1,4 @@
-import './style';
+import './style'
 
-export * from './Select';
-export * from './Option';
+export * from './Select'
+export * from './Option'
