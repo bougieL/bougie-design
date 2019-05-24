@@ -31,6 +31,7 @@
     "docs:dev": "docz dev docs",
     "docs:build": "docz build docs",
     "docs:serve": "http-server .docz -p 8080 -P http://localhost:8080/bougie-design/?",
+    "docs:prerender": "",
     "format": "prettier --write \"**/*.{ts,tsx,js,css,scss,md}\" --ignore-path .gitignore"
   },
   "main": "lib/components/index.js",
@@ -40,6 +41,7 @@
     "react-transition-group": "^4.0.1"
   },
   "devDependencies": {
+    "@bougiel/puppeteer-prerenderer": "^0.0.0",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
     "@types/react-transition-group": "^2.9.1",
