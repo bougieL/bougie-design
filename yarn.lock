@@ -929,16 +929,17 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@bougiel/puppeteer-prerenderer@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@bougiel/puppeteer-prerenderer/-/puppeteer-prerenderer-0.0.0.tgz#12346f948d0328f9fa8721a39cd4a207ef812166"
-  integrity sha512-B4Y92eok4jWT3iKjjQqV5Jbd4yvP3WpkH4lMSP30S6nxTiRhq8+MFNYu01VH5ZeBJ9tfTEK8tUHEl7H6bMUwvg==
+"@bougiel/puppeteer-prerenderer@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@bougiel/puppeteer-prerenderer/-/puppeteer-prerenderer-0.0.1.tgz#5c7ab44114481f79ea7a9690c91a9a2302021138"
+  integrity sha512-aZUv/KykknKHJX2mPBF55Avce1GEa/VeXlj39oSJOOIe+el/KfwHuvqmUYYgLCy5RLeJfDMWoZn8wQXQJ/b+5A==
   dependencies:
     "@oclif/command" "^1.5.13"
     "@oclif/config" "^1.13.0"
     "@oclif/plugin-help" "^2.1.6"
     async "^3.0.0"
     axios "^0.18.0"
+    chalk "^2.4.2"
     express "^4.17.0"
     fs-extra "^8.0.1"
     puppeteer "^1.16.0"
