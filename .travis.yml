@@ -8,7 +8,8 @@ install:
 test: true
 script:
   - yarn docs:build
-  - cp -r ./.docz/* .
+  - yarn docs:prerender
+  - cp -r ./.docz/bougie-design/* .
 deploy:
   provider: pages
   skip_cleanup: true
