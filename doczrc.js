@@ -5,14 +5,14 @@ module.exports = {
   src: 'docs',
   dest: '.docz/bougie-design',
   typescript: true,
-  modifyBundlerConfig: config => {
+  modifyBundlerConfig(config) {
     const {
       resolve: { extensions, alias },
       module: { rules }
     } = config
     config.resolve.alias = {
       ...alias,
-      '@components': paths.appComponents
+      '@src': paths.appSrc
     }
     config.resolve.extensions = [...extensions, '.css', '.scss']
     config.module.rules = [

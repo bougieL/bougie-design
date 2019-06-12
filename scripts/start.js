@@ -12,8 +12,6 @@ const devServer = new WebpackDevServer(compiler, devServerConfig)
 
 devServer.listen(devServerConfig.port, devServerConfig.host, () => {
   console.log(
-    `Server is started at http://${devServerConfig.host}:${
-      devServerConfig.port
-    }`
+    `Server is started at http://${devServerConfig.host}:${devServerConfig.port}`
   )
 })

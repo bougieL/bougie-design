@@ -1,5 +1,4 @@
 const path = require('path')
-const fs = require('fs')
 const {
   createSPAServer,
   renderUrlsToString,
@@ -15,14 +14,14 @@ const server = createSPAServer({
   dist,
   port,
   base: '/bougie-design',
-  callback: render
+  onCreated: render
 })
 
 function render() {
   getUrlsFromSite(`http://localhost:${port}/bougie-design`, urls => {
     renderUrlsToString({
       urls,
-      callback(content, url) {
+      onItemRendered(content, url) {
         const rp = getRelativePathFromUrl(url)
         const p = path.join(dist, rp)
         writeFile(p, content)
