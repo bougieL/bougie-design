@@ -5,6 +5,7 @@ module.exports = {
   src: 'docs',
   dest: '.docz/bougie-design',
   typescript: true,
+  theme: 'docz-theme-default',
   modifyBundlerConfig(config) {
     const {
       resolve: { extensions, alias },

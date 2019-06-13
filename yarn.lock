@@ -4242,8 +4242,8 @@ docz-core@^1.2.0:
 
 docz-theme-default@^1.2.0:
   version "1.2.0"
-  resolved "https://registry.npm.taobao.org/docz-theme-default/download/docz-theme-default-1.2.0.tgz#f69cb667ca7ee2c673c90bbd4bb96a3f6f6d0931"
-  integrity sha1-9py2Z8p+4sZzyQu9S7lqP29tCTE=
+  resolved "https://registry.yarnpkg.com/docz-theme-default/-/docz-theme-default-1.2.0.tgz#f69cb667ca7ee2c673c90bbd4bb96a3f6f6d0931"
+  integrity sha512-VdBLJFJLPtnAOEOmbIHRYQsXzMGhvikdmfBt31oYMkiR+s9XMaOwutkwtsFZDQuUgNvTDhe98CVGSGl4/S3/Zg==
   dependencies:
     "@loadable/component" "^5.9.0"
     "@reach/router" "^1.2.1"

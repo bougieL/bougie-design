@@ -71,10 +71,9 @@ function fixCssPath() {
 
 function removeUnuse() {
   const excludes = [/components/, /utils/]
-  fs.readdirSync(paths.resolveLib()).forEach(p => {
-    if (excludes.some(reg => reg.test(p))) {
-      return
+  for (const p of fs.readdirSync(paths.resolveLib())) {
+    if (!excludes.some(reg => reg.test(p))) {
+      fs.removeSync(paths.resolveLib(p))
     }
-    fs.removeSync(paths.resolveLib(p))
-  })
+  }
 }
