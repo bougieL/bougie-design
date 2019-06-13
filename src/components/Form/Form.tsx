@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { classNames, getPrefixCls } from '../../utils'
+import { classNames, getPrefixCls } from '../utils'
 import { FormItem } from '../FormItem'
 
 const prefixCls = getPrefixCls('form')

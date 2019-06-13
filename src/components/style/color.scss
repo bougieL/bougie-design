@@ -1,0 +1,31 @@
+/**
+ * Color definitions
+ */
+
+$palette: (
+  primary: #2d8cf0,
+  primary_light: #5cadff,
+  primary_dark: #2b85e4,
+  info: #2db7f5,
+  success: #19be6b,
+  warning: #f90,
+  error: #ed4014,
+  title: #17233d,
+  content: #333,
+  sub: #808695,
+  disabled: #aaa,
+  border: #dcdee2,
+  divider: #e8eaec,
+  background: #f8f8f9,
+  background_light: #fff,
+  background_dark: #333,
+  background_false: #ccc,
+  background_disabled: #f5f5f5,
+  content_light: #fff,
+  mask: rgba(0, 0, 0, 0.5),
+  border_active: rgba(40, 140, 240, 0.5)
+);
+
+@function palette($c) {
+  @return map-get($map: $palette, $key: $c);
+}

@@ -1,82 +1,32 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { webpackMerge } = require('./_utils')
 const paths = require('./_paths')
+const baseConfig = require('./webpack.config.base')
 
-module.exports = {
-  bail: true,
-  entry: [paths.appIndexJs],
+module.exports = webpackMerge(baseConfig, {
+  mode: 'production',
   output: {
     path: paths.appBuild,
     filename: 'static/js/[name].js?[hash:8]',
-    chunkFilename: 'static/js/[name].chunk.js?[hash:8]'
-  },
-  mode: 'production',
-  resolve: {
-    modules: [paths.appNodeModules, 'node_modules'],
-    alias: {
-      '@': paths.appSrc
-    },
-    extensions: [
-      '.mjs',
-      '.web.ts',
-      '.ts',
-      '.web.tsx',
-      '.tsx',
-      '.web.js',
-      '.js',
-      '.json',
-      '.web.jsx',
-      '.jsx',
-      '.scss',
-      '.less'
-    ]
+    chunkFilename: 'static/js/[name].chunk.js?[hash:8]',
+    publicPath: '/'
   },
   module: {
-    rules: [
-      {
-        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: 'static/media/[name].[ext]?[hash:8]'
-        }
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        include: paths.appSrc,
-        use: [
-          {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(css|scss)$/,
-        use: ['css-loader', 'sass-loader', 'style-loader']
-      },
-      {
-        exclude: [
-          /\.(js|jsx|mjs|ts|tsx)$/,
-          /\.html$/,
-          /\.json$/,
-          /\.scss$/,
-          /\.css$/
-        ],
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]?[hash:8]',
-          publicPath: '../media',
-          outputPath: 'static/media'
-        }
-      }
-    ]
+    rules: baseConfig.module.rules.concat({
+      test: /\.scss$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'postcss-loader',
+        'sass-loader'
+      ]
+    })
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      inject: true,
-      template: paths.appHtml
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'static/css/style.css?[hash:8]'
     })
   ]
-}
+})

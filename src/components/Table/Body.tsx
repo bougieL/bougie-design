@@ -11,11 +11,12 @@ export class Body extends React.Component<ITableProps> {
           const { dataIndex, render } = obj
           if (dataIndex) {
             return <td key={oi}>{data[dataIndex]}</td>
-          } else if (render) {
-            return <td key={oi}>{render(data)}</td>
-          } else {
-            return <td key={oi} />
           }
+          if (render) {
+            return <td key={oi}>{render(data)}</td>
+          }
+
+          return <td key={oi} />
         })}
       </tr>
     )

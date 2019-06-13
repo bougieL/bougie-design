@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { getPrefixCls } from '../../utils'
+import { getPrefixCls } from '../utils'
 import { Notice as NoticeComponent } from './Notice'
 import './style'
 

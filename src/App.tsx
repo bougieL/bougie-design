@@ -1,4 +1,4 @@
-import { Tabs, Title } from './components'
+import { Tabs } from './components'
 import * as React from 'react'
 import { DataDisplay, DataInput, FeedBack, Navigation, Usual } from './views'
 import './App.scss'
@@ -34,14 +34,11 @@ const tabConfig = [
 ]
 
 export const App = () => (
-  <>
-    <Title level={1}>Bougie-Design</Title>
-    <Tabs defaultValue="dataDisplay">
-      {tabConfig.map(({ component, ...rest }, i) => (
-        <TabPane {...rest} key={i} className="app-tabpane">
-          {React.createElement(component)}
-        </TabPane>
-      ))}
-    </Tabs>
-  </>
+  <Tabs defaultValue="dataDisplay">
+    {tabConfig.map(({ component, ...rest }, i) => (
+      <TabPane {...rest} key={i} className="app-tabpane">
+        {React.createElement(component)}
+      </TabPane>
+    ))}
+  </Tabs>
 )

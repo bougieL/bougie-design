@@ -29,6 +29,8 @@
     "variable-name": [true, "ban-keywords"],
     "whitespace": [true, "check-module"],
     "ordered-imports": false,
+    "no-null-undefined-union": false,
+    "no-use-before-declare": false,
     "member-ordering": [
       true,
       {

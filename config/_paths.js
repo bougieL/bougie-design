@@ -6,12 +6,13 @@ function resolve(...p) {
 }
 
 module.exports = {
-  appBuild: resolve('docs'),
+  appBuild: resolve('dist'),
   appPublic: resolve('public'),
   appHtml: resolve('public', 'index.html'),
   appIndexJs: resolve('src', 'index.tsx'),
   appPackageJson: resolve('package.json'),
   appSrc: resolve('src'),
+  appLib: resolve('lib'),
   appTsConfig: resolve('tsconfig.json'),
   appEsLint: resolve('tslint.json'),
   appNodeModules: resolve('node_modules'),
@@ -19,7 +20,12 @@ module.exports = {
   resolveComponents(...p) {
     return resolve('src', 'components', ...p)
   },
+  resolveLib(...p) {
+    return resolve('lib', ...p)
+  },
   resolveLibComponents(...p) {
     return resolve('lib', 'components', ...p)
-  }
+  },
+
+  binTSC: resolve('node_modules', '.bin', 'tsc')
 }

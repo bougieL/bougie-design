@@ -1,17 +1,22 @@
 ---
 menu: 5. Components
 ---
+
 import { Playground, Props } from 'docz'
-import { Button } from '@components'
+import { Button } from '@src'
 
 # Button
+
 To trigger an operation.
 
 ## When To Use
+
 A button means an operation (or a series of operations). Clicking a button will trigger corresponding business logic.
 
 ## Examples
+
 ### Type
+
 <Playground>
   <Button>Default</Button>
   <Button type="primary">Primary</Button>
@@ -21,15 +26,19 @@ A button means an operation (or a series of operations). Clicking a button will 
 </Playground>
 
 ### Icon
+
 <Playground>
   <Button icon="search">Search</Button>
-  <Button type="error" icon="trash">Delete</Button>
+  <Button type="error" icon="trash">
+    Delete
+  </Button>
 </Playground>
 
 ## Api
-| Property | Description | Type | Default |
-| :--- | :--- | :--- | :--- |
-| disabled | disabled state of button | boolean | `false` |
-| icon | set the icon of button | string | - |
-| type | can be set to `default` `primary` `warning` `error` `success` | string | `default` |
-| onClick | set the handler to handle `click` event | `(evt: React.MouseEvent<HTMLButtonElement>) => void` | - |
+
+| Property | Description                                                   | Type                                                 | Default   |
+| :------- | :------------------------------------------------------------ | :--------------------------------------------------- | :-------- |
+| disabled | disabled state of button                                      | boolean                                              | `false`   |
+| icon     | set the icon of button                                        | string                                               | -         |
+| type     | can be set to `default` `primary` `warning` `error` `success` | string                                               | `default` |
+| onClick  | set the handler to handle `click` event                       | `(evt: React.MouseEvent<HTMLButtonElement>) => void` | -         |

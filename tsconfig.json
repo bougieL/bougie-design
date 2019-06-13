@@ -19,6 +19,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "declaration": true,
+    "skipLibCheck": true,
     "paths": {
       "@/*": ["src/*"]
     }

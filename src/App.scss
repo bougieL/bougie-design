@@ -1,14 +1,43 @@
-@import './style/index';
+@import './components/style/index';
 
-// #root {
-//   width: 800px;
-//   margin: 0 auto;
-//   padding-top: 20px;
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
-//   @media screen and (max-width: 500px) {
-//     width: 100%;
-//   }
-// }
+body {
+  @include font('content');
+
+  color: palette('content');
+  background: palette('background_light');
+}
+
+div,
+section,
+ul,
+ol,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+input {
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hide {
+  display: none !important;
+}
 
 .app-tabpane {
   padding: 20px 10px;
