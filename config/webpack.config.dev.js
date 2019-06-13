@@ -19,7 +19,7 @@ module.exports = webpackMerge(baseConfig, {
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
-    host: '0.0.0.0',
+    host: 'localhost',
     port: 3001,
     disableHostCheck: false,
     hot: true,
@@ -30,7 +30,7 @@ module.exports = webpackMerge(baseConfig, {
     inline: true,
     watchContentBase: true,
     publicPath,
-    // open: true,
+    open: true,
     stats: {
       colors: true
     },

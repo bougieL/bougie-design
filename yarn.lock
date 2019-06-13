@@ -1377,6 +1377,13 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/loadable__component@^5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@types/loadable__component/-/loadable__component-5.9.0.tgz#6c59ccbfa49329d227f74d0c49002888a11a817d"
+  integrity sha512-uTsudqvPxlZumuXQ4YOfD6yoGjPe3RmkL7q5e3HEFERPKv4BCYPTPE2vQ0Klj9KMWFbprEuF1DRjmjlQRunkEA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/minimatch@*":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -4242,12 +4249,40 @@ docz-core@^1.2.0:
 
 docz-theme-default@^1.2.0:
   version "1.2.0"
-  resolved "https://registry.npm.taobao.org/docz-theme-default/download/docz-theme-default-1.2.0.tgz#f69cb667ca7ee2c673c90bbd4bb96a3f6f6d0931"
-  integrity sha1-9py2Z8p+4sZzyQu9S7lqP29tCTE=
+  resolved "https://registry.yarnpkg.com/docz-theme-default/-/docz-theme-default-1.2.0.tgz#f69cb667ca7ee2c673c90bbd4bb96a3f6f6d0931"
+  integrity sha512-VdBLJFJLPtnAOEOmbIHRYQsXzMGhvikdmfBt31oYMkiR+s9XMaOwutkwtsFZDQuUgNvTDhe98CVGSGl4/S3/Zg==
   dependencies:
     "@loadable/component" "^5.9.0"
     "@reach/router" "^1.2.1"
     "@tippy.js/react" "^2.2.0"
+    codemirror "^5.46.0"
+    copy-text-to-clipboard "^2.1.0"
+    docz "^1.2.0"
+    facepaint "^1.2.1"
+    hotkeys-js "^3.6.6"
+    lodash "^4.17.11"
+    polished "^3.3.0"
+    prop-types "15.7.2"
+    re-resizable "^4.11.0"
+    react "^16.8.6"
+    react-codemirror2 "^6.0.0"
+    react-dom "^16.8.6"
+    react-feather "^1.1.6"
+    react-live "2.0.1"
+    react-perfect-scrollbar "^1.5.0"
+    styled-components "^4.2.0"
+    typescript "3.3.4000"
+
+docz-theme-yuque@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/docz-theme-yuque/-/docz-theme-yuque-1.0.2.tgz#13dbd4300081422a2446b37398b1963218b19ddb"
+  integrity sha512-Fc0oGupb/l+VmJtHnbrJImmbVAWJ5uHfCxbo/bucfGM5RMU6qdqJkTsxJLL//8LD6gGVEp/o82jG2Fn3IGdaTA==
+  dependencies:
+    "@loadable/component" "^5.9.0"
+    "@reach/router" "^1.2.1"
+    "@tippy.js/react" "^2.2.0"
+    "@types/loadable__component" "^5.9.0"
+    autoprefixer "^9.5.1"
     codemirror "^5.46.0"
     copy-text-to-clipboard "^2.1.0"
     docz "^1.2.0"

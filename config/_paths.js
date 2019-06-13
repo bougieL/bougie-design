@@ -9,7 +9,7 @@ module.exports = {
   appBuild: resolve('dist'),
   appPublic: resolve('public'),
   appHtml: resolve('public', 'index.html'),
-  appIndexJs: resolve('src', 'index.tsx'),
+  appIndexJs: resolve('src', 'entry.tsx'),
   appPackageJson: resolve('package.json'),
   appSrc: resolve('src'),
   appLib: resolve('lib'),
