@@ -12,12 +12,16 @@ module.exports = {
   appIndexJs: resolve('src', 'index.tsx'),
   appPackageJson: resolve('package.json'),
   appSrc: resolve('src'),
+  appLib: resolve('lib'),
   appTsConfig: resolve('tsconfig.json'),
   appEsLint: resolve('tslint.json'),
   appNodeModules: resolve('node_modules'),
   appComponents: resolve('src', 'components'),
   resolveComponents(...p) {
     return resolve('src', 'components', ...p)
+  },
+  resolveLib(...p) {
+    return resolve('lib', ...p)
   },
   resolveLibComponents(...p) {
     return resolve('lib', 'components', ...p)

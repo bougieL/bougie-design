@@ -15,7 +15,12 @@ module.exports = webpackMerge(baseConfig, {
   module: {
     rules: baseConfig.module.rules.concat({
       test: /\.scss$/,
-      use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'postcss-loader',
+        'sass-loader'
+      ]
     })
   },
   plugins: [

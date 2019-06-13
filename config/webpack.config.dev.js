@@ -13,8 +13,8 @@ module.exports = webpackMerge(baseConfig, {
   },
   module: {
     rules: baseConfig.module.rules.concat({
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader']
+      test: /\.s?css$/,
+      use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
     })
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
@@ -30,7 +30,7 @@ module.exports = webpackMerge(baseConfig, {
     inline: true,
     watchContentBase: true,
     publicPath,
-    open: true,
+    // open: true,
     stats: {
       colors: true
     },

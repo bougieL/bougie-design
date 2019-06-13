@@ -7,13 +7,14 @@ const {
   writeFile
 } = require('@bougiel/puppeteer-prerenderer')
 
-const dist = path.resolve(__dirname, '../.docz')
-const port = 4200
+const dist = path.resolve(__dirname, '../.docz/bougie-design')
+const port = 3003
+const base = '/bougie-design'
 
 const server = createSPAServer({
   dist,
   port,
-  base: '/bougie-design',
+  base,
   onCreated: render
 })
 
@@ -22,7 +23,7 @@ function render() {
     renderUrlsToString({
       urls,
       onItemRendered(content, url) {
-        const rp = getRelativePathFromUrl(url)
+        const rp = getRelativePathFromUrl(url).replace(base, '')
         const p = path.join(dist, rp)
         writeFile(p, content)
       },

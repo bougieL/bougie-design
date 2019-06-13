@@ -8,13 +8,14 @@ function replaceFileContent(path, searchValue, replaceValue) {
 }
 
 function exec(cmd) {
-  console.log(chalk.blue.bold(cmd))
+  Log.info(`started exec '${cmd}'.`)
   const stdout = execSync(cmd, {
     stdio: 'inherit'
   })
   if (stdout) {
-    console.log(chalk.green.bold(stdout))
+    Log.info(chalk.green.bold(stdout.toString()))
   }
+  Log.info(`ended exec '${cmd}'.`)
 }
 
 function webpackMerge(base, ...cs) {
@@ -40,13 +41,37 @@ function webpackMerge(base, ...cs) {
   }
 }
 
+class Log {
+  static info(m) {
+    console.log(
+      chalk.default.gray(`[${now()}]`) + '  🚙    ' + chalk.default.blue(m)
+    )
+  }
+  static warnning(m) {
+    console.log(
+      chalk.default.gray(`[${now()}]`) + '  🚕    ' + chalk.default.yellow(m)
+    )
+  }
+  static error(m) {
+    console.log(
+      chalk.default.gray(`[${now()}]`) + '  🚗    ' + chalk.default.red(m)
+    )
+  }
+  static success(m) {
+    console.log(
+      chalk.default.gray(`[${now()}]`) + '  🚖    ' + chalk.default.green(m)
+    )
+  }
+}
+
 module.exports = {
   exec,
   webpackMerge,
-  replaceFileContent
+  replaceFileContent,
+  Log
 }
 
-// ------------
+// ------------ unexported ------------
 
 function hasOwnProperty(obj, key) {
   return Object.prototype.hasOwnProperty.call(obj, key)
@@ -62,4 +87,8 @@ function isArray(v) {
 
 function isObject(v) {
   return Object.prototype.toString.call(v) === '[object Object]'
+}
+
+function now() {
+  return new Date().toLocaleTimeString()
 }

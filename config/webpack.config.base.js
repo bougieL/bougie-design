@@ -38,17 +38,10 @@ module.exports = {
       {
         test: /\.(tsx?)$/,
         include: paths.appSrc,
-        use: [
-          {
-            loader: require.resolve('ts-loader'),
-            options: {
-              transpileOnly: true
-            }
-          }
-        ]
+        use: ['ts-loader', 'eslint-loader']
       },
       {
-        exclude: [/\.(jsx?|mjs|tsx?)$/, /\.html$/, /\.json$/, /\.scss$/],
+        exclude: [/\.(jsx?|mjs|tsx?)$/, /\.html$/, /\.json$/, /\.s?css$/],
         loader: require.resolve('file-loader'),
         options: {
           name: 'static/media/[name].[ext]'

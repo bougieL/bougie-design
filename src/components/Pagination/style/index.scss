@@ -1,4 +1,4 @@
-@import '../../../style/index';
+@import '../../style/index';
 
 .#{$bdPrefix}-pagination {
   @include flex(flex-end);
