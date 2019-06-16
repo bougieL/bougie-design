@@ -20,11 +20,13 @@
     "noUnusedLocals": true,
     "declaration": true,
     "skipLibCheck": true,
+    // "esModuleInterop": true,
     "paths": {
       "@/*": ["src/*"]
     }
   },
   "include": [
     "src"
-  ]
+  ],
+  "exclude": ["src/theme/*"]
 }

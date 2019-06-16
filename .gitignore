@@ -1,7 +1,7 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules
 .sonarlint
 .vscode
 
@@ -10,9 +10,11 @@
 
 # production
 /build
-/dist
+dist
 /lib
 /.docz
+
+*cache*
 
 # misc
 .DS_Store
