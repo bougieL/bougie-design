@@ -17,6 +17,7 @@ module.exports = {
   appEsLint: resolve('tslint.json'),
   appNodeModules: resolve('node_modules'),
   appComponents: resolve('src', 'components'),
+  docsTheme: resolve('../docz-theme-bd/dist/index.js'),
   resolveComponents(...p) {
     return resolve('src', 'components', ...p)
   },

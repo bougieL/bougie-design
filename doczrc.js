@@ -1,33 +1,34 @@
-const paths = require('./config/_paths')
+import paths from './config/_paths'
 
-module.exports = {
+export default {
+  title: 'Bougie Design',
   base: '/bougie-design',
   src: 'docs',
   dest: '.docz/bougie-design',
   typescript: true,
-  theme: 'docz-theme-default',
-  modifyBundlerConfig(config) {
-    const {
-      resolve: { extensions, alias },
-      module: { rules }
-    } = config
-    config.resolve.alias = {
-      ...alias,
-      '@src': paths.appSrc
-    }
-    config.resolve.extensions = [...extensions, '.css', '.scss']
-    config.module.rules = [
-      ...rules,
-      {
-        test: /\.(ts|tsx)$/,
-        include: paths.appSrc,
-        use: ['ts-loader']
-      },
-      {
-        test: /\.(css|scss)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      }
-    ]
+  theme: 'docz-theme-bd',
+  // theme: paths.docsTheme,
+  onCreateWebpackChain(config) {
+    config.resolve.alias.set('@src', paths.appSrc)
+    config.resolve.extensions.add('.css').add('.scss')
+    config.module
+      .rule('scss')
+      .test(/\.css|scss|sass$/)
+      .use('style')
+      .loader('style-loader')
+      .end()
+      .use('css')
+      .loader('css-loader')
+      .end()
+      .use('sass')
+      .loader('sass-loader')
+      .end()
+    config.module
+      .rule('tsx')
+      .test(/\.ts|tsx$/)
+      .use('ts')
+      .loader('ts-loader')
+      .end()
     return config
   }
 }

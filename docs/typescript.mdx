@@ -3,3 +3,105 @@ name: 4. Use in TypeScript
 ---
 
 # Use in TypeScript
+
+Let's create a TypeScript project by using `create-react-app`, then import `bougie-design` step by step.
+
+---
+
+## Install and Initialization
+
+Ensure your system has installed latest version of [yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com/).
+
+Create a new project named `bougie-design-demo-ts` using yarn.
+
+```bash
+$ yarn create react-app bougie-design-demo-ts --typescript
+```
+
+If you are using npm (we will use yarn in the following instructions, it's ok to replace yarn with npm)
+
+```bash
+$ npx create-react-app bougie-design-demo-ts --typescript
+```
+
+Then we go inside `bougie-design-demo-ts` and start it.
+
+```bash
+$ cd bougie-design-demo-ts
+$ yarn start
+```
+
+Open browser at http://localhost:3000/, it renders a header saying "Welcome to React" on the page.
+
+## Import bougie-design
+
+```bash
+$ yarn add bougie-design
+```
+
+Modify `src/App.tsx`, import Button component from `bougie-design`.
+
+```jsx
+import React, { Component } from 'react'
+import { Button } from 'bougie-design'
+import './App.css'
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Button type="primary">Button</Button>
+      </div>
+    )
+  }
+}
+
+export default App
+```
+
+Ok, reboot with `yarn start`, you should now see a blue primary button displayed on the page. Next you can choose any components of `bougie-design` to develop your application. Visit other workflows of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+
+## Advanced Guides
+
+We are successfully running bougie-design components now but in the real world, there are still lots of problems about bougie-design-demo-ts. For instance, we actually import all styles of components in the project which may be a network performance issue.
+
+Now we need to customize the default webpack config. We can achieve that by using [react-app-rewired](https://github.com/timarney/react-app-rewired) which is one of create-react-app's custom config solutions.
+
+Import react-app-rewired and modify the `scripts` field in package.json. Due to new [react-app-rewired@2.x](https://github.com/timarney/react-app-rewired#alternatives) issue, you shall need [customize-cra](https://github.com/arackaf/customize-cra) along with react-app-rewired.
+
+```
+$ yarn add react-app-rewired customize-cra
+```
+
+```diff
+/* package.json */
+"scripts": {
+-   "start": "react-scripts start",
++   "start": "react-app-rewired start",
+-   "build": "react-scripts build",
++   "build": "react-app-rewired build",
+-   "test": "react-scripts test",
++   "test": "react-app-rewired test",
+}
+```
+
+Then create a `config-overrides.js` at root directory of your project for further overriding.
+
+```js
+module.exports = function override(config, env) {
+  // do stuff with the webpack config...
+  return config
+}
+```
+
+## Alternative ways
+
+You can also follow instructions in [Use in create-react-app](/docs/react/use-with-create-react-app.en-US.md), then use to setup the TypeScript development environment by yourself.
+
+And you can use [react-scripts-ts-bougie-design](https://www.npmjs.com/package/react-scripts-ts-bougie-design) which includes ts-import-plugin, react-app-rewired, scss, less and etc. You can create a new project that without any configurations by running just one command.
+
+- [Create React apps (with Typescript and bougie-design) with no build configuration](https://github.com/SZzzzz/react-scripts-ts-bougie-design)
+- [react-app-rewire-typescript](https://github.com/lwd-technology/react-app-rewire-typescript)
+- [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin)
+- [create-react-app Adding TypeScript](https://facebook.github.io/create-react-app/docs/adding-typescript)
+- [Migrating from create-react-app-typescript to Create React App](https://vincenttunru.com/migrate-create-react-app-typescript-to-create-react-app/)
