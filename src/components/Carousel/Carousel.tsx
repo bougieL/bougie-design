@@ -28,7 +28,7 @@ interface IState {
 export class Carousel extends React.Component<ICarouselProps, IState> {
   public refScroll: React.RefObject<HTMLDivElement> = React.createRef()
   private slideList: ISlideItem[] = []
-  private slideInterval: NodeJS.Timer | undefined
+  private slideInterval: number | undefined
   public state = {
     activeIndex: 0,
     contentStyle: {},
@@ -128,7 +128,7 @@ export class Carousel extends React.Component<ICarouselProps, IState> {
     if (this.slideInterval) {
       return
     }
-    this.slideInterval = setInterval(this.slideNext.bind(this), 3000)
+    this.slideInterval = window.setInterval(this.slideNext.bind(this), 3000)
   }
   private slideStop(): void {
     this.slideInterval && clearInterval(this.slideInterval)

@@ -7,7 +7,13 @@ export default {
   dest: '.docz/bougie-design',
   typescript: true,
   theme: 'docz-theme-bd',
-  // theme: paths.docsTheme,
+  themeConfig: {
+    logo: {
+      src: 'https://s2.ax1x.com/2019/04/27/EKF09s.png',
+      width: 150
+    },
+    radii: '0'
+  },
   onCreateWebpackChain(config) {
     config.resolve.alias.set('@src', paths.appSrc)
     config.resolve.extensions.add('.css').add('.scss')
