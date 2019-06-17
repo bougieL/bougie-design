@@ -1,11 +1,11 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['react-app'],
+  extends: ['react-app', 'prettier'],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['@typescript-eslint', 'react'],
+  plugins: ['@typescript-eslint', 'react', 'prettier'],
   rules: {
     semi: ['warn', 'never']
   }

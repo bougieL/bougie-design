@@ -7,6 +7,7 @@ const postcss = require('postcss')
 main()
 
 async function main() {
+  Log.info('release started.')
   clean()
   copy()
   compileTS()
@@ -53,7 +54,7 @@ async function compileScss() {
 }
 
 function fixCssPath() {
-  Log.info('started fix css path.')
+  Log.info('fix css path started.')
   const includes = [/^[A-Z]/]
   for (const p of fs.readdirSync(paths.resolveLibComponents())) {
     if (includes.some(reg => reg.test(p))) {

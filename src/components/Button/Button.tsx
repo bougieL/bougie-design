@@ -9,6 +9,8 @@ export interface IButtonProps {
   className?: string
   disabled?: boolean
   style?: React.CSSProperties
+  shape?: 'circle' | 'round'
+  size?: 'small' | 'large'
   icon?: string
   type?: 'default' | 'primary' | 'warning' | 'error' | 'success'
   onClick?(evt: React.MouseEvent<HTMLButtonElement>): void
@@ -26,11 +28,15 @@ export class Button extends React.Component<IButtonProps> {
       icon,
       className,
       style,
-      disabled
+      disabled,
+      shape,
+      size
     } = this.props
     const buttonCls = classNames(prefixCls, className, {
       [`${prefixCls}-${type}`]: !disabled,
-      [`${prefixCls}-disabled`]: disabled
+      [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-${shape}`]: !!shape,
+      [`${prefixCls}-${size}`]: !!size
     })
 
     return (
@@ -41,7 +47,7 @@ export class Button extends React.Component<IButtonProps> {
         type="button"
         disabled={disabled}
       >
-        {icon ? <Icon type={icon} /> : undefined}
+        {icon && <Icon type={icon} />}
         <span>{children}</span>
       </button>
     )
