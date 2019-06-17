@@ -18,25 +18,24 @@
     margin-right: 4px;
   }
 
-  &-default {
-    $background: palette('background_light');
-
+  @mixin button($background, $color) {
     background: $background;
-    color: palette('content');
+    color: $color;
     $hover: darken(
       $color: $background,
       $amount: $lightenMount
     );
-
-    border-color: rgba(palette('content'), $opacityPrimary);
-
     &:hover {
       background: $hover;
     }
-
     &:active {
       background: darken($color: $hover, $amount: $lightenMount);
     }
+  }
+
+  &-default {
+    @include button(palette('background_light'), palette('content'));
+    border-color: rgba(palette('content'), $opacityPrimary);
   }
 
   &-primary {
@@ -115,13 +114,17 @@
     }
   }
 
+  &-small {
+  }
+
+  &-large {
+  }
+
+  &-round {
+  }
+
   &-disabled {
     @extend %disabled;
-    // $background: palette('disable');
-
-    // background: $background;
-    // color: lighten(palette('content'), $lightenMount);
-    // cursor: not-allowed;
   }
 
   &:active {
