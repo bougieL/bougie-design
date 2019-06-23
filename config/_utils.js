@@ -8,14 +8,12 @@ function replaceFileContent(path, searchValue, replaceValue) {
 }
 
 function exec(cmd) {
-  Log.info(`exec '${cmd}' stared.`)
   const stdout = execSync(cmd, {
     stdio: 'inherit'
   })
   if (stdout) {
     Log.info(chalk.green.bold(stdout.toString()))
   }
-  Log.success(`exec '${cmd}' finished.`)
 }
 
 function webpackMerge(base, ...cs) {
