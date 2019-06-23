@@ -1,6 +1,7 @@
 const fs = require('fs-extra')
 const { exec, Log, replaceFileContent } = require('../config/_utils')
 const paths = require('../config/_paths')
+const { join } = require('path')
 const sass = require('node-sass')
 const postcss = require('postcss')
 
@@ -71,10 +72,21 @@ function fixCssPath() {
 }
 
 function removeUnuse() {
-  const excludes = [/components/]
+  const excludeDirs = [/components/]
   for (const p of fs.readdirSync(paths.resolveLib())) {
-    if (!excludes.some(reg => reg.test(p))) {
+    if (!excludeDirs.some(reg => reg.test(p))) {
       fs.removeSync(paths.resolveLib(p))
     }
   }
+  const includeFiles = [/\.tsx/, /^\w+.ts/, /\.scss/]
+  ;(function removeFiles(path) {
+    for (const p of fs.readdirSync(path)) {
+      const child = join(path, p)
+      if (fs.statSync(child).isDirectory()) {
+        removeFiles(child)
+      } else if (includeFiles.some(reg => reg.test(p))) {
+        fs.removeSync(child)
+      }
+    }
+  })(paths.resolveLibComponents())
 }
