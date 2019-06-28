@@ -1,12 +1,11 @@
-import paths from './config/_paths'
+const paths = require('./config/_paths')
 
-export default {
+module.exports = {
   title: 'Bougie Design',
   base: '/bougie-design',
   src: 'docs',
   dest: '.docz/bougie-design',
   typescript: true,
-  theme: 'docz-theme-bd',
   themeConfig: {
     logo: {
       src: 'https://s2.ax1x.com/2019/04/27/EKF09s.png',
@@ -19,7 +18,7 @@ export default {
     config.resolve.extensions.add('.css').add('.scss')
     config.module
       .rule('scss')
-      .test(/\.css|scss|sass$/)
+      .test(/\.(css|scss|sass)$/)
       .use('style')
       .loader('style-loader')
       .end()
@@ -31,7 +30,7 @@ export default {
       .end()
     config.module
       .rule('tsx')
-      .test(/\.ts|tsx$/)
+      .test(/\.tsx?$/)
       .use('ts')
       .loader('ts-loader')
       .end()
