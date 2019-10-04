@@ -11,7 +11,9 @@
     @include flex(space-between);
 
     border: 1px solid palette('border');
-    padding: 8px;
+    height: 32px;
+    padding: 0 8px;
+    vertical-align: middle;
     transition: $transitionPrimary;
     border-radius: $borderRadiusPrimary;
 
@@ -38,12 +40,14 @@
     transition: $transitionPrimary;
     transform: rotateX(90deg);
     transform-origin: left top;
+    opacity: 0;
   }
 
   &-active {
     .#{$bdPrefix}-select {
       &-list {
         transform: none;
+        opacity: 1;
       }
 
       &-val {

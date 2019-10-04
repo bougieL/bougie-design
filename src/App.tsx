@@ -34,7 +34,7 @@ const tabConfig = [
 ]
 
 export const App = () => (
-  <Tabs defaultValue="dataDisplay">
+  <Tabs defaultValue="feedBack">
     {tabConfig.map(({ component, ...rest }, i) => (
       <TabPane {...rest} key={i} className="app-tabpane">
         {React.createElement(component)}

@@ -1,0 +1,47 @@
+@import '../../style/index';
+
+.#{$bdPrefix}-skeleton {
+  position: absolute;
+  overflow: hidden;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      #f2f2f2 0%,
+      #e6e6e6 5%,
+      #f2f2f2 28.33%,
+      #f2f2f2 33.33%,
+      #e6e6e6 38.33%,
+      #f2f2f2 61.66%,
+      #f2f2f2 66.66%,
+      #e6e6e6 71.55%,
+      #f2f2f2 95%
+    );
+    animation: #{$bdPrefix}-skeleton-loading 3s linear infinite;
+  }
+  &-root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+}
+
+@keyframes #{$bdPrefix}-skeleton-loading {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: translateX(33.33%);
+  }
+  100% {
+    transform: translateX(66.66%);
+  }
+}
