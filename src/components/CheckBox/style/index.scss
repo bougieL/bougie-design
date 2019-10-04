@@ -2,9 +2,10 @@
 
 .#{$bdPrefix}-checkbox {
   @include flex;
-
+  height: 32px;
+  line-height: 32px;
+  vertical-align: middle;
   cursor: pointer;
-
   &-icon {
     @include flex;
 

@@ -8,17 +8,14 @@ export const TabsD = () => (
     <Title>Tabs</Title>
     <div className="f-s tabs-wrap">
       <Tabs>
-        <TabPane value="1" tab="一">
-          111
+        <TabPane value="1" tab="Tab 1">
+          Tab 1
         </TabPane>
-        <TabPane value="2" tab="二">
-          222
+        <TabPane value="2" tab="Tab 2">
+          Tab 2
         </TabPane>
-        <TabPane value="3" tab="三">
-          333
-        </TabPane>
-        <TabPane value="4" tab="四">
-          444
+        <TabPane value="3" tab="Tab 3">
+          Tab 3
         </TabPane>
       </Tabs>
     </div>

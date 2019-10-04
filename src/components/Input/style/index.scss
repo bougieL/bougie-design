@@ -5,12 +5,15 @@
   $border: palette('border');
 
   border: 1px solid $border;
-  padding: 8px;
+  padding: 0 8px;
+  height: 32px;
+  line-height: 32px;
   outline: none;
   background: palette('background_light');
   border-radius: $borderRadiusPrimary;
   width: 100%;
   transition: $transitionPrimary;
+  vertical-align: middle;
 
   &:focus,
   &:hover {

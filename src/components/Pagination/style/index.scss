@@ -1,7 +1,7 @@
 @import '../../style/index';
 
 .#{$bdPrefix}-pagination {
-  @include flex(flex-end);
+  @include flex(flex-start);
 
   @extend %no-select;
 
